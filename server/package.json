@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node .",
+    "watch": "node_modules/.bin/tsc -w",
     "postinstall": "tsc -p .",
     "compile": "tsc"
   },
