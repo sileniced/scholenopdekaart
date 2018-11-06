@@ -10,8 +10,8 @@ class App extends Component {
       <Router>
       <div className="App">
 
-        <SearchResultContainer />
         <SearchBarContainer />
+        <SearchResultContainer />
       </div>
       </Router>
     );
