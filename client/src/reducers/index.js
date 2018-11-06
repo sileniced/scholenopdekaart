@@ -1,6 +1,7 @@
-// import events from './events'
+import schools from './schools'
+import {combineReducers} from 'redux'
 
-
-export default {
-
-}
+export default combineReducers({
+    schools
+  });
+  
