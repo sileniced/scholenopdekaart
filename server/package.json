@@ -1,26 +1,28 @@
 {
-  "name": "server",
+  "name": "backscholenopdekaart",
   "version": "1.0.0",
-  "main": "target/index.js",
+  "main": "index.js",
   "license": "MIT",
-  "scripts": {
-    "start": "node .",
-    "watch": "node_modules/.bin/tsc -w",
-    "postinstall": "tsc -p .",
-    "compile": "tsc"
-  },
   "dependencies": {
     "@types/koa": "^2.0.46",
     "@types/koa-bodyparser": "^5.0.1",
     "@types/koa-multer": "^1.0.0",
     "@types/koa-router": "^7.0.32",
+    "@types/superagent": "^3.8.4",
+    "kcors": "^2.2.1",
     "koa": "^2.6.1",
     "koa-bodyparser": "^4.2.1",
     "koa-multer": "^1.0.2",
     "koa-router": "^7.4.0",
-    "pg": "^7.6.0",
+    "request": "^2.88.0",
     "routing-controllers": "^0.7.7",
+    "superagent": "^4.0.0-beta.5",
+    "ts-node": "^7.0.1",
     "typeorm": "^0.2.8",
-    "typescript": "^3.1.6"
+    "typescript": "^3.1.4"
+  },
+  "scripts": {
+    "start": "nodemon",
+    "compile": "tsc -w"
   }
 }
