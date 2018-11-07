@@ -1,23 +1,9 @@
 import React, { Component } from "react";
 // import {SearchBar} from "./SearchBar";
-import "./SearchBarContainer.css";
 import { withStyles } from "@material-ui/core";
 import { Card, Button } from "@material-ui/core";
 
-const styles = theme => ({
-  searchContainer: {
-    // position: relative,
-    // boxSizing: 'border-box',
-    // maxWidth: 930,
-    // margin: 0,
-    // padding: "40px 50px",
-    // color: '#641c5c',
-    backgroundColor: theme.palette.primary
-  },
-  div: {
-      
-  }
-});
+const styles = theme => ({});
 
 class SearchBarContainer extends Component {
   render() {
@@ -31,7 +17,7 @@ class SearchBarContainer extends Component {
               placeholder="Zoek op postcode, plaats of schoolnaam"
               onfocus="this.placeholder = ''"
             />
-            <Button className={this.props.searchContainer}>Zoek</Button>
+            <Button>Zoek</Button>
             <Button>Gebruik mijn locatie</Button>
           </form>
         </Card>
