@@ -19,7 +19,7 @@ function CompareButton(props) {
   const { classes } = props;
   return (
     <div>
-      <Button variant="contained" color="primary" className={classes.button}>
+      <Button variant="contained" color="primary" className={classes.button} onClick={() => props.handleClick(props.schoolId)}>
         <Grid container spacing={24}>
           <Grid item xs>
             <span>&#10003;</span>

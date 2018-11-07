@@ -119,7 +119,13 @@ const styles = theme => ({
   },
   tableWrapper: {
     overflowX: "auto"
-  }
+  },
+  schoolName: {
+    fontSize: "18px",
+    fontWeight: "bold",
+    color: theme.palette.primary.main
+  },
+
 });
 
 class CustomPaginationActionsTable extends React.Component {
@@ -136,6 +142,10 @@ class CustomPaginationActionsTable extends React.Component {
     this.setState({ rowsPerPage: event.target.value });
   };
 
+  handleCompareClick = (schoolId) => {
+    this.props.setSchoolToCompare(schoolId)
+  } 
+
   render() {
     const { classes } = this.props;
     const { rowsPerPage, page } = this.state;
@@ -146,6 +156,7 @@ class CustomPaginationActionsTable extends React.Component {
     return (
       <Paper className={classes.root}>
         <div className={classes.tableWrapper}>
+          <h2 className={classes.resultHeader}>{this.props.schools.length} resultaten</h2>
           <Table className={classes.table}>
             <TableBody>
               {this.props.schools
@@ -156,11 +167,16 @@ class CustomPaginationActionsTable extends React.Component {
                       <TableCell>
                         <Grid container spacing={24}>
                           <Grid item xs>
-                            <div>{row.N}</div>
-                            <div>{row.A}</div>
+                            <div className={classes.schoolName}>{row.N}</div>
+                            <br></br>
+                            <div>
+                              {row.A.map((addressDetail, index) => {
+                                return <div key={index}>{addressDetail}</div>;
+                              })}
+                            </div>
                           </Grid>
                           <Grid item xs>
-                            <CompareButton />
+                            <CompareButton schoolId={row.I} handleClick={this.handleCompareClick} />
                           </Grid>
                         </Grid>
                       </TableCell>
