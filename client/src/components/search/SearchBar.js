@@ -1,11 +1,9 @@
 import React from "react";
 import { Card, Button } from "@material-ui/core";
 
-
-
 export const SearchBar = props => {
   return (
-    <div>
+    <div >
       <Card>
         <form >
           <label>Ik zoek een: </label>
