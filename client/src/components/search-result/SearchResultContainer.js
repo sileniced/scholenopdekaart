@@ -1,15 +1,23 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import SearchResultTable from "./SearchResultTable";
+import { getSchools } from "../../actions/schools";
 
 class SearchResultContainer extends React.PureComponent {
+  componentDidMount() {
+    this.props.getSchools();
+  }
+
   render() {
-    return <SearchResultTable schools={this.props.schools}/>;
+    return <SearchResultTable schools={this.props.schools} />;
   }
 }
 
 const mapStateToProps = state => ({
-    schools: state.schools
+  schools: state.schools
 });
 
-export default connect(mapStateToProps)(SearchResultContainer);
+export default connect(
+  mapStateToProps,
+  { getSchools }
+)(SearchResultContainer);

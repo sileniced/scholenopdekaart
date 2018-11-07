@@ -119,7 +119,12 @@ const styles = theme => ({
   },
   tableWrapper: {
     overflowX: "auto"
-  }
+  },
+  schoolName: {
+    fontSize: "18px",
+    fontWeight: "bold",
+    color: theme.palette.primary.main,
+}
 });
 
 class CustomPaginationActionsTable extends React.Component {
@@ -156,8 +161,10 @@ class CustomPaginationActionsTable extends React.Component {
                       <TableCell>
                         <Grid container spacing={24}>
                           <Grid item xs>
-                            <div>{row.N}</div>
-                            <div>{row.A}</div>
+                            <div className={classes.schoolName}>{row.N}</div>
+                            <div>{row.A.map(addressDetail => {
+                              return (<div>{addressDetail}</div>)
+                            })}</div>
                           </Grid>
                           <Grid item xs>
                             <CompareButton />
