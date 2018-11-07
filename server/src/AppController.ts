@@ -1,6 +1,6 @@
 import { Get, JsonController, NotFoundError, Param } from 'routing-controllers'
 import * as fs from 'fs'
-import { chkDir, combineDir, ISchool, TPoind } from './AppControllerUtils'
+import { chk, ISchool } from './AppControllerUtils'
 
 @JsonController()
 export default class AppController {
@@ -16,28 +16,25 @@ export default class AppController {
     @Param('C') C: string
   ): Promise<any> {
 
-    const dir = await chkDir(C)
-
-    const result = combineDir(dir)
+    const result: any = await chk(C)
     if (!result) throw new NotFoundError('not found')
-
     return result
 
   }
 
-  @Get('/:C/:poind')
-  public async getSchoolDetail(
-    @Param('C') C: string,
-    @Param('poind') poind: TPoind
-  ): Promise<any> {
-
-    const dir = await chkDir(C)
-
-    const result = await fs.readFileSync(`${dir}/${poind}.json`, { encoding: 'UTF8' })
-    if (!result) throw new NotFoundError('not found')
-
-    return JSON.parse(result)
-
-  }
+  // @Get('/:C/:poind')
+  // public async getSchoolSingleDetail(
+  //   @Param('C') C: string,
+  //   @Param('poind') poind: TPoind
+  // ): Promise<any> {
+  //
+  //   const dir = await chkDir(C)
+  //
+  //   const result = await fs.readFileSync(`${dir}/${poind}.json`, { encoding: 'UTF8' })
+  //   if (!result) throw new NotFoundError('not found')
+  //
+  //   return JSON.parse(result)
+  //
+  // }
 
 }

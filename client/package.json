@@ -6,6 +6,7 @@
     "@material-ui/core": "^3.4.0",
     "@material-ui/icons": "^3.0.1",
     "@types/highcharts": "^5.0.33",
+    "@types/superagent": "^3.8.4",
     "highcharts": "^6.2.0",
     "highcharts-react-official": "^1.5.2",
     "react": "^16.6.0",

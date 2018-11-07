@@ -12,8 +12,8 @@ class App extends Component {
       <div className="App">
 
         <AantalLeerlingenContainer />
-        {/*<SearchBarContainer />*/}
-        {/*<SearchResultContainer />*/}
+        <SearchBarContainer />
+        <SearchResultContainer />
 
       </div>
       </Router>
