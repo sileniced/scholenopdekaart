@@ -176,7 +176,7 @@ class CustomPaginationActionsTable extends React.Component {
                             </div>
                           </Grid>
                           <Grid item xs>
-                            <CompareButton schoolId={row.I} handleClick={this.handleCompareClick} />
+                            <CompareButton school={row} schoolId={row.I} handleClick={this.handleCompareClick} />
                           </Grid>
                         </Grid>
                       </TableCell>
