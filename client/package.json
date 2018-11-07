@@ -5,6 +5,9 @@
   "dependencies": {
     "@material-ui/core": "^3.4.0",
     "@material-ui/icons": "^3.0.1",
+    "@types/highcharts": "^5.0.33",
+    "highcharts": "^6.2.0",
+    "highcharts-react-official": "^1.5.2",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-redux": "^5.1.0",
