@@ -142,6 +142,10 @@ class CustomPaginationActionsTable extends React.Component {
     this.setState({ rowsPerPage: event.target.value });
   };
 
+  handleCompareClick = (schoolId) => {
+    this.props.setSchoolToCompare(schoolId)
+  } 
+
   render() {
     const { classes } = this.props;
     const { rowsPerPage, page } = this.state;
@@ -172,7 +176,7 @@ class CustomPaginationActionsTable extends React.Component {
                             </div>
                           </Grid>
                           <Grid item xs>
-                            <CompareButton />
+                            <CompareButton schoolId={row.I} handleClick={this.handleCompareClick} />
                           </Grid>
                         </Grid>
                       </TableCell>
