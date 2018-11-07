@@ -123,8 +123,9 @@ const styles = theme => ({
   schoolName: {
     fontSize: "18px",
     fontWeight: "bold",
-    color: theme.palette.primary.main,
-}
+    color: theme.palette.primary.main
+  },
+
 });
 
 class CustomPaginationActionsTable extends React.Component {
@@ -151,6 +152,7 @@ class CustomPaginationActionsTable extends React.Component {
     return (
       <Paper className={classes.root}>
         <div className={classes.tableWrapper}>
+          <h2 className={classes.resultHeader}>{this.props.schools.length} resultaten</h2>
           <Table className={classes.table}>
             <TableBody>
               {this.props.schools
@@ -162,9 +164,12 @@ class CustomPaginationActionsTable extends React.Component {
                         <Grid container spacing={24}>
                           <Grid item xs>
                             <div className={classes.schoolName}>{row.N}</div>
-                            <div>{row.A.map(addressDetail => {
-                              return (<div>{addressDetail}</div>)
-                            })}</div>
+                            <br></br>
+                            <div>
+                              {row.A.map((addressDetail, index) => {
+                                return <div key={index}>{addressDetail}</div>;
+                              })}
+                            </div>
                           </Grid>
                           <Grid item xs>
                             <CompareButton />

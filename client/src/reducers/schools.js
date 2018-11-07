@@ -8,7 +8,6 @@ export default (state = [], action = {}) => {
     const schools = action.payload.map((school) => {
       const returnObject = {...school};
       returnObject.A = school.A.split("#");
-      console.log(returnObject)
       return returnObject
     })
       return schools
