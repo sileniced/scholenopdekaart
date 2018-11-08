@@ -11,7 +11,6 @@ class SearchResultContainer extends React.PureComponent {
   }
   compareSchool = schoolId => {
     const school = this.props.schools.find(school => school.I === schoolId);
-    // console.log(school)
     if(this.props.selectedSchools.length < maxSchools || (school.selected)) this.props.setSchoolToCompare(school);
   };
 
