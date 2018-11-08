@@ -36,7 +36,7 @@ export const setSchoolToCompare = school => (dispatch, getState) => {
     request
     .get(`${baseUrl}/${school.C}`)
     .then(response => {
-      dispatch(addToSelected(response.body))
+      dispatch(addToSelected({...response.body, school}))
     })
   } else {
     dispatch(removeFromSelected(school))
