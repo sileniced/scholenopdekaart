@@ -1,30 +1,19 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import { maxSchools } from "../../constants";
-import FilterSelection from './FilterSelection'
+import FilterSelection from "./FilterSelection";
+import { filters } from "../../constants";
+import { toggleFilter } from "../../actions/filters";
 
 class FilterSelectionContainer extends React.PureComponent {
- 
-    filters = {
-        liggingContactgegevens: "Ligging en contactgegevens",
-        profielSchool: "Profiel van de school",
-        aantalLeerlingen: "Aantal leerlingen",
-        verdelingLestijden: "Verdeling van de lestijden",
-        ondersteuningSpecialisten: "Ondersteuning van specialisten",
-        schooltijdenOpvang: "Schooltijden en opvang",
-        resultatenEindtoets: "Resultaten eindtoets",
-        waarderingOudersEnLeerlingen: "Waardering van de ouders en leerlingen"
-    }
-
-    // handleToggle = event => {
-        
-    //   };
+  handleToggle = filter => {
+    this.props.toggleFilter(filter)
+  };
     
-
   render() {
     return (
       <div>
-        <FilterSelection filters={this.filters}/>
+        <FilterSelection filters={filters} handleToggle={this.handleToggle} />
       </div>
     );
   }
@@ -36,5 +25,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  {}
+  {toggleFilter}
 )(FilterSelectionContainer);
