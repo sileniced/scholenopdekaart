@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+import { checkPoindAvailability } from '../../utilities'
+
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
@@ -14,7 +16,8 @@ class aantalLeerlingen extends Component {
 
   render() {
 
-    const schools = this.props.selectedSchools.map(school => school.leerlingen.rapport.versie1.datasetAantalLeerlingenTrend.rij)
+    const { available, unavailable } = checkPoindAvailability(this.props.selectedSchools, 'leerlingen')
+    const schools = available.map(school => school.leerlingen.rapport.versie1.datasetAantalLeerlingenTrend.rij)
 
     const options = {
       chart: {
