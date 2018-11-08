@@ -74,35 +74,62 @@ const getJson = (url): Promise<ISchool> => new Promise((resolve, reject) => {
   })
 })
 
-export const chkDir = async C => new Promise(async (resolve, reject) => {
-  const dir = `database/${C}`
-
-  if (!fs.existsSync(dir)) {
-    try{
-      await fs.mkdirSync(dir)
-
+export const chk = C => new Promise(async (resolve, reject) => {
+  const path = `database/${C}.json`
+  try {
+    const file = await fs.readFileSync(path, { encoding: 'UTF8' })
+    resolve(JSON.parse(file))
+  } catch (e) {
+    try {
       const poindsPromises = poinds.map(item => getJson(generateLink(C, item)))
-      const result = await Promise.all(poindsPromises)
-      const filePromises = result.map((res, i) => fs.writeFileSync(`${dir}/${poinds[i]}.json`, res))
-      await Promise.all(filePromises)
+      const result: any[] = await Promise.all(poindsPromises)
+      const reduced = result.reduce((combined, poind, i) => {
+        combined[poinds[i]] = (poind[0] === '<') ? {} : JSON.parse(poind)
+        return combined
+      }, { C })
 
+      await fs.writeFileSync(path, JSON.stringify(reduced))
+      resolve(reduced)
     } catch (e) {
       reject(e)
     }
   }
-
-  resolve(dir)
 })
 
 
-export const combineDir = async dir => new Promise( (resolve, reject) =>
-  Promise.all(poinds.map(poind => fs.readFileSync(`${dir}/${poind}.json`, { encoding: 'UTF8' })))
-  .then(result =>
-    resolve(result.reduce((combined, poind, i) => {
-      combined[poinds[i]] = JSON.parse(poind)
-      return combined
-    }, {}))
-  )
-  .catch(e => reject(e))
-)
+// export const chkDir = async C => new Promise(async (resolve: (dir: string) => void, reject) => {
+//   const dir = `database/${C}`
+//
+//   if (!fs.existsSync(dir)) {
+//     try {
+//       await fs.mkdirSync(dir)
+//
+//       const poindsPromises = poinds.map(item => getJson(generateLink(C, item)))
+//       const result = await Promise.all(poindsPromises)
+//       const filePromises = result.map((res, i) => {
+//         if (res[0] === '<') return false
+//         return fs.writeFileSync(`${dir}/${poinds[i]}.json`, res)
+//       }).filter(file => file)
+//       await Promise.all(filePromises)
+//     } catch (e) {
+//       reject(e)
+//     }
+//   }
+//
+//   resolve(dir)
+// })
+//
+//
+// export const combineDir = (dir: string, C: string) => new Promise((resolve, reject) =>
+//   Promise.all(poinds.map(poind => fs.readFileSync(`${dir}/${poind}.json`, { encoding: 'UTF8' })))
+//   .then(result =>
+//     resolve(result.reduce((combined, poind, i) => {
+//       combined[poinds[i]] = JSON.parse(poind)
+//       return combined
+//     }, {
+//       C
+//     }))
+//   )
+//   .catch(e => reject(e))
+// )
 

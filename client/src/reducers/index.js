@@ -1,7 +1,10 @@
+import { combineReducers } from 'redux'
+
 import schools from './schools'
-import {combineReducers} from 'redux'
+import selectedSchools from './selectedSchools.js'
 
 export default combineReducers({
-    schools
-  });
+  schools,
+  selectedSchools
+})
   

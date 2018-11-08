@@ -9,7 +9,7 @@ class SearchResultContainer extends React.PureComponent {
   }
   compareSchool = (schoolId) => {
     const school = this.props.schools.find(school => school.I === schoolId)
-    console.log(school)
+    // console.log(school)
     this.props.setSchoolToCompare(school);
   }
 

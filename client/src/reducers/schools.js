@@ -2,6 +2,7 @@ import { SET_SCHOOLS, SELECT_SCHOOL } from "../actions/schools";
 
 export default (state = [], action = {}) => {
   switch (action.type) {
+    
     case SET_SCHOOLS:
       const schools = action.payload.map(school => {
         const returnObject = { ...school, selected: false };

@@ -864,6 +864,23 @@
     "@svgr/core" "^2.4.1"
     loader-utils "^1.1.0"
 
+"@types/cookiejar@*":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@types/cookiejar/-/cookiejar-2.1.0.tgz#4b7daf2c51696cfc70b942c11690528229d1a1ce"
+  integrity sha512-EIjmpvnHj+T4nMcKwHwxZKUfDmphIKJc2qnEMhSoOvr1lYEQpuRKRz8orWr//krYIIArS/KGGLfL2YGVUYXmIA==
+
+"@types/geojson@*":
+  version "7946.0.4"
+  resolved "https://registry.yarnpkg.com/@types/geojson/-/geojson-7946.0.4.tgz#4e049756383c3f055dd8f3d24e63fb543e98eb07"
+  integrity sha512-MHmwBtCb7OCv1DSivz2UNJXPGU/1btAWRKlqJ2saEhVJkpkvqHMMaOpKg0v4sAbDWSQekHGvPVMM8nQ+Jen03Q==
+
+"@types/highcharts@^5.0.33":
+  version "5.0.33"
+  resolved "https://registry.yarnpkg.com/@types/highcharts/-/highcharts-5.0.33.tgz#e91369adeefe7eacfb484717105c011cb297e9bf"
+  integrity sha512-KUzqZ1qyzrgVq8Hf9EsspNz/xwS4D279DzRRsvAByF9RvKhrvhPXrXk4YRDY8YzozhK20uoiLtFL/jTOrjX6vA==
+  dependencies:
+    "@types/geojson" "*"
+
 "@types/jss@^9.5.6":
   version "9.5.7"
   resolved "https://registry.yarnpkg.com/@types/jss/-/jss-9.5.7.tgz#fa57a6d0b38a3abef8a425e3eb6a53495cb9d5a0"
@@ -871,6 +888,11 @@
   dependencies:
     csstype "^2.0.0"
     indefinite-observable "^1.0.1"
+
+"@types/node@*":
+  version "10.12.2"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.12.2.tgz#d77f9faa027cadad9c912cd47f4f8b07b0fb0864"
+  integrity sha512-53ElVDSnZeFUUFIYzI8WLQ25IhWzb6vbddNp8UHlXQyU0ET2RhV5zg0NfubzU7iNMh5bBXb0htCzfvrSVNgzaQ==
 
 "@types/prop-types@*":
   version "15.5.6"
@@ -891,6 +913,14 @@
   dependencies:
     "@types/prop-types" "*"
     csstype "^2.2.0"
+
+"@types/superagent@^3.8.4":
+  version "3.8.4"
+  resolved "https://registry.yarnpkg.com/@types/superagent/-/superagent-3.8.4.tgz#24a5973c7d1a9c024b4bbda742a79267c33fb86a"
+  integrity sha512-Dnh0Iw6NO55z1beXvlsvUrfk4cd9eL2nuTmUk+rAhSVCk10PGGFbqCCTwbau9D0d2W3DITiXl4z8VCqppGkMPQ==
+  dependencies:
+    "@types/cookiejar" "*"
+    "@types/node" "*"
 
 "@types/tapable@1.0.2":
   version "1.0.2"
@@ -4383,6 +4413,24 @@ hex-color-regex@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/hex-color-regex/-/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
   integrity sha512-l9sfDFsuqtOqKDsQdqrMRk0U85RZc0RtOR9yPI7mRVOa4FsR/BVnZ0shmQRM96Ji99kYZP/7hn1cedc1+ApsTQ==
+
+highcharts-react-official@^1.5.2:
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/highcharts-react-official/-/highcharts-react-official-1.5.2.tgz#a4018ad96114af98e691f596c6385663fc36a653"
+  integrity sha512-yotHmm6rzZeo2bXuIrdszUq9SGRJZO2iWGNM9IiWxtaxyr4XebFj6+zBK9LXY/5/yB5T0rav4rnUrebT3eli7g==
+  dependencies:
+    highcharts "^6.0.1"
+    highstock-release "^6.0.1"
+
+highcharts@^6.0.1, highcharts@^6.2.0:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-6.2.0.tgz#2a6d04652eb43c66f462ca7e2d2808f1f2782b61"
+  integrity sha512-A4E89MA+kto8giic7zyLU6ZxfXnVeCUlKOyzFsah3+n4BROx4bgonl92KIBtwLud/mIWir8ahqhuhe2by9LakQ==
+
+highstock-release@^6.0.1:
+  version "6.0.4"
+  resolved "https://registry.yarnpkg.com/highstock-release/-/highstock-release-6.0.4.tgz#c6d982247d97310522cd74b6c2c1f4ae98633e09"
+  integrity sha1-xtmCJH2XMQUizXS2wsH0rphjPgk=
 
 history@^4.7.2:
   version "4.7.2"
