@@ -13,6 +13,7 @@ class aantalLeerlingen extends Component {
   }
 
   render() {
+
     const schools = this.props.selectedSchools.map(school => school.leerlingen.rapport.versie1.datasetAantalLeerlingenTrend.rij)
 
     const options = {
