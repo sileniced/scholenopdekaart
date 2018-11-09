@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // import {SearchBar} from "./SearchBar";
 import { withStyles } from "@material-ui/core";
 import { Card, Button } from "@material-ui/core";
+import './SearchBarContainer.css'
 
 const styles = theme => ({});
 
@@ -10,15 +11,16 @@ class SearchBarContainer extends Component {
     return (
       <div>
         <Card>
-          <form>
-            <label>Ik zoek een: </label>
-            <input
+          <form className="search-bar">
+            <label className="search-title">Ik zoek een: </label><br></br>
+            <input 
+              className="btn search-input"
               type="text"
-              placeholder="Zoek op postcode, plaats of schoolnaam"
+              placeholder="Postcode, plaats of naam"
               onfocus="this.placeholder = ''"
             />
-            <Button>Zoek</Button>
-            <Button>Gebruik mijn locatie</Button>
+            <button className="btn search-btn">Zoek</button>
+            <button className="btn location-btn">Gebruik mijn locatie</button>
           </form>
         </Card>
       </div>
