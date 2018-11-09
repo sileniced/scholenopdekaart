@@ -2,7 +2,8 @@ import { SET_FILTER } from "../actions/filters";
 import { filters } from "../constants";
 
 const initialState = {};
-Object.keys(filters).map((filter) => {initialState[filter] = false})
+Object.keys(filters).map((filter) => {initialState[filter] = false
+return filter})
 
 export default (state = initialState, action = {}) => {
   switch (action.type) {

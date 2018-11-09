@@ -1,6 +1,5 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import { maxSchools } from "../../constants";
 import FilterSelection from "./FilterSelection";
 import { filters } from "../../constants";
 import { toggleFilter } from "../../actions/filters";
