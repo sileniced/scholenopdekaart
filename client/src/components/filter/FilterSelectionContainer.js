@@ -9,6 +9,7 @@ import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import TuneIcon from 'mdi-react/TuneIcon'; 
+import { withStyles } from "@material-ui/core/styles";
 
 
 class FilterSelectionContainer extends React.PureComponent {
@@ -44,6 +45,9 @@ class FilterSelectionContainer extends React.PureComponent {
     );
   }
 }
+const styles = theme => ({
+    
+  });
 
 const mapStateToProps = state => ({
   selectedSchools: state.selectedSchools,
@@ -53,4 +57,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { toggleFilter, resetFilters }
-)(FilterSelectionContainer);
+)(withStyles(styles)(FilterSelectionContainer));
