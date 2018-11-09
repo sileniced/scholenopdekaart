@@ -4,6 +4,7 @@ import { maxSchools } from "../../constants";
 import FilterSelection from "./FilterSelection";
 import { filters } from "../../constants";
 import { toggleFilter } from "../../actions/filters";
+import FilterSelectionButtons from './FilterSelectionButtons';
 
 class FilterSelectionContainer extends React.PureComponent {
   handleToggle = filter => {
@@ -14,6 +15,7 @@ class FilterSelectionContainer extends React.PureComponent {
     return (
       <div>
         <FilterSelection filters={filters} handleToggle={this.handleToggle} />
+        <FilterSelectionButtons />
       </div>
     );
   }
