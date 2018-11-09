@@ -19,7 +19,7 @@ function CompareButton(props) {
   const { classes } = props;
   return (
     <div>
-      <Button variant="contained" color={(props.school.selected) ? "secondary" : "primary"} className={classes.button} onClick={() => props.handleClick(props.schoolId)}>
+      <Button variant="contained" color={(props.school.selected) ? "secondary" : "primary"} className={classes.button} onClick={() => props.handleClick(props.schoolId)} disabled={props.selectedSchools.length < props.maxSchools || props.school.selected ? false : true}>
         <Grid container spacing={24}>
           <Grid item xs>
             {(props.school.selected)? <span>&#10003;</span> : <span>&#43;</span>}

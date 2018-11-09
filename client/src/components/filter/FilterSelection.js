@@ -4,7 +4,6 @@ import { withStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
-import Divider from "@material-ui/core/Divider";
 import Switch from "@material-ui/core/Switch";
 
 const styles = theme => ({
@@ -17,6 +16,7 @@ const styles = theme => ({
 
 function FilterSelection(props) {
   const { classes } = props;
+
   return (
     <div className={classes.root}>
       <List component="nav">
@@ -24,6 +24,13 @@ function FilterSelection(props) {
           <ListItem divider key={index}>
             <ListItemText primary={filter} />
             <Switch
+              checked={
+                props.selectedFilters[
+                  Object.keys(props.filters).find(
+                    key => props.filters[key] === filter
+                  )
+                ]
+              }
               color="secondary"
               onChange={() =>
                 props.handleToggle(

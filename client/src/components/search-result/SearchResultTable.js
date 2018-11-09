@@ -103,12 +103,6 @@ const TablePaginationActionsWrapped = withStyles(actionsStyles, {
   withTheme: true
 })(TablePaginationActions);
 
-let counter = 0;
-function createData(name, calories, fat) {
-  counter += 1;
-  return { id: counter, name, calories, fat };
-}
-
 const styles = theme => ({
   root: {
     width: "100%",
@@ -176,7 +170,7 @@ class CustomPaginationActionsTable extends React.Component {
                             </div>
                           </Grid>
                           <Grid item xs>
-                            <CompareButton school={row} schoolId={row.I} handleClick={this.handleCompareClick} />  
+                            <CompareButton school={row} schoolId={row.I} handleClick={this.handleCompareClick} maxSchools={this.props.maxSchools} selectedSchools={this.props.selectedSchools} />  
                           </Grid>
                         </Grid>
                       </TableCell>

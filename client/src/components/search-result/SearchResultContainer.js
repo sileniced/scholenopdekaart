@@ -29,8 +29,8 @@ class SearchResultContainer extends React.PureComponent {
         <SearchResultTable
           schools={this.props.schools}
           setSchoolToCompare={this.compareSchool}
-          // selectedSchools={this.props.selectedSchools}
-          // maxSchools={maxSchools}
+          selectedSchools={this.props.selectedSchools}
+          maxSchools={maxSchools}
         />
       </div>
     );
