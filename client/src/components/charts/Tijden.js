@@ -42,36 +42,41 @@ class Tijden extends Component {
 
     const { available, unavailable } = checkPoindAvailability(this.props.selectedSchools, 'tijden')
 
-    console.log(available[0] && inputMapped(available[0].rapport.versie1.datasetSchooltijden.rij))
+    console.log('available =', available)
+    // console.log('unavailable =', unavailable)
+    // console.log(available[0] && JSON.stringify(inputMapped(available[0].tijden.rapport.versie1.datasetSchooltijden.rij)))
 
-    const dataset = available.map(school => ({
-      C: school.C,
-      data: {
-        chart: {
-          type: 'xrange',
-        },
-        title: {
-          text: '',
-        },
-        xAxis: {
-          type: 'datetime',
-        },
-        yAxis: {
-          title: {
-            text: '',
+    const dataset = available.map(
+      school => {
+        return {
+          C: school.C,
+          options: {
+            chart: {
+              type: 'xrange',
+            },
+            title: {
+              text: '',
+            },
+            xAxis: {
+              type: 'datetime',
+            },
+            yAxis: {
+              title: {
+                text: '',
+              },
+              categories,
+              reversed: true,
+            },
+            series: [
+              {
+                name: school.school.N,
+                data: inputMapped(school.tijden.rapport.versie1.datasetSchooltijden.rij),
+              },
+            ],
           },
-          categories,
-          reversed: true,
-        },
-        series: [
-          {
-            name: school.school.N,
-            data: inputMapped(school.rapport.versie1.datasetSchooltijden.rij),
-          },
-        ],
+        }
       },
-    }))
-
+    )
     return (
       <div>
         {dataset.map(data => <HighchartsReact key={data.C} highcharts={Highcharts} options={data.options}/>)}
