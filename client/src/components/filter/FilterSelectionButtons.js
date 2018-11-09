@@ -19,7 +19,7 @@ function FilterSelectionButtons(props) {
   const { classes } = props;
   return (
     <div className={classes.buttonsContainer}>
-      <Button variant="contained" color="primary" className={classes.button}>
+      <Button variant="contained" color="primary" className={classes.button} onClick={() => props.handleResetFilters()}>
         Resetten
       </Button>
       <Button variant="contained" color="secondary" className={classes.button}>
