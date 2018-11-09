@@ -1,0 +1,28 @@
+.header-container {
+  height: 50vh;
+  background-image: url("https://www.scholenopdekaart.nl/Images/header.jpg");
+  background-size: cover;
+  /* background: rgba(100,28,92,0.4); */
+  position: relative
+}
+
+h1 {
+  font-weight: 700;
+  padding-top: 20px;
+  font-family: "Proxima Nova", Arial, sans-serif;
+  margin-bottom: 30px;
+  font-size: 30px;
+  color: #fff;
+  z-index: 1;
+  max-width: 80%;
+  text-align: center
+}
+
+.layer {
+  background-color: #b39ec5b3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
