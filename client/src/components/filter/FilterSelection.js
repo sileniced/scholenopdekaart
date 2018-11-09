@@ -16,7 +16,7 @@ const styles = theme => ({
 
 function FilterSelection(props) {
   const { classes } = props;
-  console.log(props.selectedFilters)
+
   return (
     <div className={classes.root}>
       <List component="nav">
@@ -24,7 +24,13 @@ function FilterSelection(props) {
           <ListItem divider key={index}>
             <ListItemText primary={filter} />
             <Switch
-              checked={props.selectedFilters[Object.keys(props.filters).find(key => props.filters[key] === filter)]}
+              checked={
+                props.selectedFilters[
+                  Object.keys(props.filters).find(
+                    key => props.filters[key] === filter
+                  )
+                ]
+              }
               color="secondary"
               onChange={() =>
                 props.handleToggle(
