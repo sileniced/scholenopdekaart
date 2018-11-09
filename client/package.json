@@ -9,6 +9,7 @@
     "@types/superagent": "^3.8.4",
     "highcharts": "^6.2.0",
     "highcharts-react-official": "^1.5.2",
+    "mdi-react": "^5.0.0",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-redux": "^5.1.0",
