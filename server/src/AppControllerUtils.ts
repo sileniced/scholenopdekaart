@@ -79,7 +79,7 @@ export const chk = C => new Promise(async (resolve, reject) => {
   try {
     const file = await fs.readFileSync(path, { encoding: 'UTF8' })
     resolve(JSON.parse(file))
-  } catch (e) {
+  } catch (e1) {
     try {
       const poindsPromises = poinds.map(item => getJson(generateLink(C, item)))
       const result: any[] = await Promise.all(poindsPromises)
@@ -90,8 +90,8 @@ export const chk = C => new Promise(async (resolve, reject) => {
 
       await fs.writeFileSync(path, JSON.stringify(reduced))
       resolve(reduced)
-    } catch (e) {
-      reject(e)
+    } catch (e2) {
+      reject({e1, e2})
     }
   }
 })
