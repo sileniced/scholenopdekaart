@@ -1,31 +1,49 @@
 import React, { Component } from "react";
-// import {SearchBar} from "./SearchBar";
-import { withStyles } from "@material-ui/core";
-import { Card, Button } from "@material-ui/core";
 import './SearchBarContainer.css'
-
-const styles = theme => ({});
+import { connect } from "react-redux";
+import { getSearchResults } from '../../actions/schools'
+import { Redirect } from 'react-router-dom'
 
 class SearchBarContainer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {query: ''};
+  }
+
+  handleChange = (event) => {
+    this.setState({query: event.target.value});
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.getSearchResults(this.state.query)
+    return <Redirect to="/search-result" />
+  }
+
   render() {
     return (
       <div>
-        <Card>
-          <form className="search-bar">
+          <form className="search-bar" onSubmit={this.handleSubmit}>
             <label className="search-title">Ik zoek een: </label><br></br>
             <input 
+              value={this.state.query}
+              onChange={this.handleChange}
               className="btn search-input"
               type="text"
               placeholder="Postcode, plaats of naam"
-              onfocus="this.placeholder = ''"
             />
-            <button className="btn search-btn">Zoek</button>
-            <button className="btn location-btn">Gebruik mijn locatie</button>
+            <button type="submit" className="btn search-btn">Zoek</button>
+            <button type="submit" className="btn location-btn">Gebruik mijn locatie</button>
           </form>
-        </Card>
       </div>
     );
   }
 }
 
-export default withStyles(styles)(SearchBarContainer);
+const mapStateToProps = state => ({
+  query: state.query,
+
+})
+
+export default connect(mapStateToProps, {getSearchResults})(SearchBarContainer)
+
