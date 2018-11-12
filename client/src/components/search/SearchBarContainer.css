@@ -14,10 +14,10 @@
   right: 0;
   z-index: 1001;
   height: 50px;
-  width: 50px;
+  width: 60px; 
   font-size: 22px;
-  line-height: 50px;
-  padding: 10;
+  /* line-height: 50px; */
+  /* padding: 10; */
   /* display: inline-block; */
   font-weight: 600;
   color: #fff !important;
@@ -27,11 +27,11 @@
 
 .search-input {
   height: 50px;
-  padding: 10;
-  margin: 10;
+  /* padding: 10; */
+  /* margin: 10; */
   font-size: 16px;
-  padding-left: 1em;
-  margin-left: 1em;
+  /* padding-left: 1em;
+  margin-left: 1em; */
 }
 
 .location-btn {
@@ -46,12 +46,16 @@
   line-height: 36px;
   background: #e0d2de;
   color: #641c5c !important;
-  margin-left: 1em;
-  margin-top: 0.5em;
+  /* margin-left: 1em;*/
+  margin-top: 0.5em; 
 }
 
 .search-bar {
   /* box-sizing: content-box; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   clear: both;
   color: rgb(255, 255, 255);
   background-color: #641c5c;
@@ -64,9 +68,9 @@
   max-width: 930px;
   padding-left: 10px;
   padding-bottom: 30px;
-  position: relative;
   width: 80%;
-  position: absolute;
+  /* position: relative;
+  position: absolute; */
   top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
