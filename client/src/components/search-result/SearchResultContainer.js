@@ -6,7 +6,7 @@ import { getSchools, setSchoolToCompare, getSearchResults } from "../../actions/
 import { maxSchools } from "../../constants";
 
 class SearchResultContainer extends React.PureComponent {
-  // componentDidMount() {
+  // componentWillMount() {
   //   this.props.getSearchResults();
   // }
   compareSchool = schoolId => {

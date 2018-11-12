@@ -14,9 +14,9 @@ class App extends Component {
             <TopBar />
           </header>
           <main>
-          <HeaderContainer />
-          <Route exact path="/search-result" component={SearchResultContainer} />
-          <FilterSelectionContainer />
+            <HeaderContainer />
+            <Route exact path="/search-result" component={SearchResultContainer} />
+            <FilterSelectionContainer />
           </main>
         </div>
       </Router>
