@@ -3,7 +3,11 @@
   background-image: url("https://www.scholenopdekaart.nl/Images/header.jpg");
   background-size: cover;
   /* background: rgba(100,28,92,0.4); */
-  position: relative
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 h1 {
@@ -15,7 +19,7 @@ h1 {
   color: #fff;
   z-index: 1;
   max-width: 80%;
-  text-align: center
+  text-align: center;
 }
 
 .layer {
