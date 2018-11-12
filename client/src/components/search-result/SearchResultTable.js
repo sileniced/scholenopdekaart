@@ -105,7 +105,7 @@ const TablePaginationActionsWrapped = withStyles(actionsStyles, {
 
 const styles = theme => ({
   root: {
-    width: "100%",
+    width: "90%",
     marginTop: theme.spacing.unit * 3
   },
   table: {
@@ -118,8 +118,7 @@ const styles = theme => ({
     fontSize: "18px",
     fontWeight: "bold",
     color: theme.palette.primary.main
-  },
-
+  }
 });
 
 class CustomPaginationActionsTable extends React.Component {
@@ -136,9 +135,9 @@ class CustomPaginationActionsTable extends React.Component {
     this.setState({ rowsPerPage: event.target.value });
   };
 
-  handleCompareClick = (schoolId) => {
-    this.props.setSchoolToCompare(schoolId)
-  } 
+  handleCompareClick = schoolId => {
+    this.props.setSchoolToCompare(schoolId);
+  };
 
   render() {
     const { classes } = this.props;
@@ -150,7 +149,9 @@ class CustomPaginationActionsTable extends React.Component {
     return (
       <Paper className={classes.root}>
         <div className={classes.tableWrapper}>
-          <h2 className={classes.resultHeader}>{this.props.schools.length} resultaten</h2>
+          <h2 className={classes.resultHeader}>
+            {this.props.schools.length} resultaten
+          </h2>
           <Table className={classes.table}>
             <TableBody>
               {this.props.schools
@@ -162,7 +163,7 @@ class CustomPaginationActionsTable extends React.Component {
                         <Grid container spacing={24}>
                           <Grid item xs>
                             <div className={classes.schoolName}>{row.N}</div>
-                            <br></br>
+                            <br />
                             <div>
                               {row.A.map((addressDetail, index) => {
                                 return <div key={index}>{addressDetail}</div>;
@@ -170,7 +171,13 @@ class CustomPaginationActionsTable extends React.Component {
                             </div>
                           </Grid>
                           <Grid item xs>
-                            <CompareButton school={row} schoolId={row.I} handleClick={this.handleCompareClick} maxSchools={this.props.maxSchools} selectedSchools={this.props.selectedSchools} />  
+                            <CompareButton
+                              school={row}
+                              schoolId={row.I}
+                              handleClick={this.handleCompareClick}
+                              maxSchools={this.props.maxSchools}
+                              selectedSchools={this.props.selectedSchools}
+                            />
                           </Grid>
                         </Grid>
                       </TableCell>

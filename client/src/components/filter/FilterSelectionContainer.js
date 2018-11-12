@@ -1,8 +1,9 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import { filters } from "../../constants";
+import { filters, maxSchools } from "../../constants";
 import { toggleFilter, resetFilters } from "../../actions/filters";
 import FilterSelectionExpansionPanel from "./FilterSelectionExpansionPanel";
+import SchoolsInComparison from './SchoolsInComparison'
 
 class FilterSelectionContainer extends React.PureComponent {
   handleToggle = filter => {
@@ -16,6 +17,7 @@ class FilterSelectionContainer extends React.PureComponent {
   render() {
     return (
       <div>
+        <SchoolsInComparison maxSchools={maxSchools} selectedSchools={this.props.selectedSchools} />
         <FilterSelectionExpansionPanel
           filters={filters}
           handleToggle={this.handleToggle}
