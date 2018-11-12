@@ -1,11 +1,10 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import ArrowDropDownIcon from "mdi-react/ArrowDropDownIcon";
+import HighlightOffIcon from "mdi-react/HighlightOffIcon";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
-
-
 
 const styles = theme => ({
   wrapper: {
@@ -13,7 +12,7 @@ const styles = theme => ({
     justifyContent: "center"
   },
   summary: {
-      color:"yellow",
+    color: "yellow",
     backgroundColor: theme.palette.background.default
   }
 });
@@ -31,8 +30,15 @@ function SchoolsInComparison(props) {
           {props.maxSchools})
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className="details">
-        <ul>
-          {props.selectedSchools.map((school) => <li key={school.school.I}><button onClick={() => props.removeSchool(school.school)}>remove</button>{school.school.N}</li>)}
+          <ul>
+            {props.selectedSchools.map(school => (
+              <li key={school.school.I}>
+                <HighlightOffIcon
+                  onClick={() => props.removeSchool(school.school)}
+                />
+                {school.school.N}
+              </li>
+            ))}
           </ul>
         </ExpansionPanelDetails>
       </ExpansionPanel>
