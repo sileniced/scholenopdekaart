@@ -14,12 +14,12 @@ h1 {
   font-weight: 700;
   padding-top: 20px;
   font-family: "Proxima Nova", Arial, sans-serif;
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
+  margin-left: 35;
   font-size: 30px;
   color: #fff;
   z-index: 1;
   max-width: 80%;
-  text-align: center;
 }
 
 .layer {

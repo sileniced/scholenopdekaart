@@ -68,9 +68,9 @@
   max-width: 930px;
   padding-left: 10px;
   padding-bottom: 30px;
-  position: relative;
   width: 80%;
-  position: absolute;
+  /* position: relative;
+  position: absolute; */
   top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
