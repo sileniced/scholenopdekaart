@@ -5,6 +5,8 @@ import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 
+
+
 const styles = theme => ({
   wrapper: {
     display: "flex",
@@ -30,7 +32,7 @@ function SchoolsInComparison(props) {
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className="details">
         <ul>
-          {props.selectedSchools.map((school) => <li>{school.school.N}</li>)}
+          {props.selectedSchools.map((school) => <li key={school.school.I}><button onClick={() => props.removeSchool(school.school)}>remove</button>{school.school.N}</li>)}
           </ul>
         </ExpansionPanelDetails>
       </ExpansionPanel>

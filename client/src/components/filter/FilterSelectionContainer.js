@@ -3,7 +3,9 @@ import { connect } from "react-redux";
 import { filters, maxSchools } from "../../constants";
 import { toggleFilter, resetFilters } from "../../actions/filters";
 import FilterSelectionExpansionPanel from "./FilterSelectionExpansionPanel";
-import SchoolsInComparison from './SchoolsInComparison'
+import SchoolsInComparison from "./SchoolsInComparison";
+import { setSchoolToCompare } from "../../actions/schools";
+import { throws } from "assert";
 
 class FilterSelectionContainer extends React.PureComponent {
   handleToggle = filter => {
@@ -14,10 +16,19 @@ class FilterSelectionContainer extends React.PureComponent {
     this.props.resetFilters();
   };
 
+  removeSchool = school => {
+    const schoolToProcess = this.props.schools.find((schoolFromTotal => schoolFromTotal.I === school.I))
+    this.props.setSchoolToCompare(schoolToProcess);
+  };
+
   render() {
     return (
       <div>
-        <SchoolsInComparison maxSchools={maxSchools} selectedSchools={this.props.selectedSchools} />
+        <SchoolsInComparison
+          maxSchools={maxSchools}
+          selectedSchools={this.props.selectedSchools}
+          removeSchool={this.removeSchool}
+        />
         <FilterSelectionExpansionPanel
           filters={filters}
           handleToggle={this.handleToggle}
@@ -30,11 +41,12 @@ class FilterSelectionContainer extends React.PureComponent {
 }
 
 const mapStateToProps = state => ({
+  schools: state.schools,
   selectedSchools: state.selectedSchools,
   selectedFilters: state.selectedFilters
 });
 
 export default connect(
   mapStateToProps,
-  { toggleFilter, resetFilters }
+  { toggleFilter, resetFilters, setSchoolToCompare }
 )(FilterSelectionContainer);
