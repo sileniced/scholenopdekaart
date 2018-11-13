@@ -18,7 +18,7 @@ export const theme = createMuiTheme({
       main: "#5AD09B"
     },
     error: red,
-    // Used by `getContrastText()` to maximize the contrast between the background and
+    // Used by `getContrastText()` to maximize th,e contrast between the background and
     // the text.
     contrastThreshold: 3,
     // Used to shift a color's luminance by approximately
