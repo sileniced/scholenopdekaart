@@ -6,9 +6,14 @@ import { getSchools, setSchoolToCompare, getSearchResults } from "../../actions/
 import { maxSchools } from "../../constants";
 
 class SearchResultContainer extends React.PureComponent {
+
   // componentWillMount() {
-  //   this.props.getSearchResults();
+  //   if (!this.props.selectedSchools.length) {
+  //     if (!this.props.params.city)
+  //     this.props.getSearchResults(this.props.params.city);
+  //   }
   // }
+
   compareSchool = schoolId => {
     const school = this.props.schools.find(school => school.I === schoolId);
     if(this.props.selectedSchools.length < maxSchools || (school.selected)) this.props.setSchoolToCompare(school);
@@ -19,6 +24,9 @@ class SearchResultContainer extends React.PureComponent {
   };
 
   render() {
+
+    if (!this.props.schools.length && this.props.match.params) this.props.getSearchResults(this.props.match.params.city)
+
     return (
       <div>
         <StartComparisonButton

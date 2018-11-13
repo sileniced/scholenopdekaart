@@ -6,14 +6,14 @@ export const maxSchools = 5;
 
 //Available comparisons and their labels
 export const filters = {
-    liggingContactgegevens: "Ligging en contactgegevens",
-    profielSchool: "Profiel van de school",
-    aantalLeerlingen: "Aantal leerlingen",
+    naw: "Ligging en contactgegevens",
+    profiel: "Profiel van de school",
+    leerlingen: "Aantal leerlingen",
     verdelingLestijden: "Verdeling van de lestijden",
-    ondersteuningSpecialisten: "Ondersteuning van specialisten",
-    schooltijdenOpvang: "Schooltijden en opvang",
-    resultatenEindtoets: "Resultaten eindtoets",
-    waarderingOudersEnLeerlingen: "Waardering van de ouders en leerlingen"
+    specialisten: "Ondersteuning van specialisten",
+    tijden: "Schooltijden en opvang",
+    eindtoets: "Resultaten eindtoets",
+    tevredenheid: "Waardering van de ouders en leerlingen"
 }
 
 export const denominatie = {
