@@ -106,7 +106,7 @@ export const chk = C => new Promise(async (resolve, reject) => {
         return child.data ? child.data : child.children[0].data
       })
 
-      reduced.specialist = { specialistNames }
+      reduced.specialist = specialistNames
 
       await fs.writeFileSync(path, JSON.stringify(reduced))
       resolve(reduced)
