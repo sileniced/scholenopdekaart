@@ -41,15 +41,20 @@ class FilterSelectionExpansionPanel extends React.PureComponent {
         {Object.keys(this.props.selectedFilters)
           .filter(filter => this.props.selectedFilters[filter])
           .map(selectedFilter => (
-            <span
+            <div
               key={selectedFilter}
               className={this.props.classes.selectedFilter}
             >
               <HighlightOffIcon
+                color="primary"
                 onClick={() => this.props.handleToggle(selectedFilter)}
-              />{" "}
-              {this.props.filters[selectedFilter]}
-            </span>
+              />
+              <Typography
+                className={this.props.classes.selectedFilterTypography}
+              >
+                {this.props.filters[selectedFilter]}
+              </Typography>
+            </div>
           ))}
       </div>
     );
@@ -89,9 +94,23 @@ const styles = theme => ({
     //   zIndex: 10
     // }
   },
+  selectedFilterTypography: {
+    color: theme.palette.primary,
+  },
   expansionPanelInfoTypography: {
     color: "#fff",
     margin: "10px"
+  },
+  selectedFilter: {
+    color: theme.palette.primary,
+    borderStyle: "solid",
+    borderColor: theme.palette.primary,
+    borderWidth: "1px",
+    borderRadius: "25px",
+    display: "flex",
+    alignItems: "center",
+    padding: "5px",
+    margin: "5px"
   }
 });
 
