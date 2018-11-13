@@ -11,6 +11,14 @@ export default class AppController {
     return JSON.parse(list).filter(school => school.A.split('#')[2] === 'Utrecht')
   }
 
+  @Get('/find/:query')
+  public async getResults(
+    @Param('query') query: string
+  ): Promise<ISchool[]> {
+    const list: string = await fs.readFileSync('src/data/schoolList.json', { encoding: 'UTF8' })
+    return JSON.parse(list).filter(school => school.A.split('#')[2].toLowerCase() === query.toLowerCase())
+  }
+
   @Get('/:C')
   public async getSchoolDetails(
     @Param('C') C: string
@@ -19,7 +27,6 @@ export default class AppController {
     const result: any = await chk(C)
     if (!result) throw new NotFoundError('not found')
     return result
-
   }
 
   // @Get('/:C/:poind')

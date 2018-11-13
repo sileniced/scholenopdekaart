@@ -1,4 +1,4 @@
-import { SET_SCHOOLS, SELECT_SCHOOL } from "../actions/schools";
+import { SET_SCHOOLS, SELECT_SCHOOL, FETCH_SEARCHED_SCHOOLS } from "../actions/schools";
 
 export default (state = [], action = {}) => {
   switch (action.type) {
@@ -18,6 +18,14 @@ export default (state = [], action = {}) => {
       const returnObject = [...state];
       returnObject[schoolIndex] = school;
       return returnObject;
+    
+    case FETCH_SEARCHED_SCHOOLS:
+    const searchedSchools = action.payload.map(school => {
+      const returnObject = { ...school, selected: false };
+      returnObject.A = school.A.split("#");
+      return returnObject;
+    });
+    return searchedSchools;
 
     default:
       return state;
