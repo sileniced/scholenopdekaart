@@ -41,7 +41,7 @@ class FilterSelectionExpansionPanel extends React.PureComponent {
         {Object.keys(this.props.selectedFilters)
           .filter(filter => this.props.selectedFilters[filter])
           .map(selectedFilter => (
-            <div
+            <span
               key={selectedFilter}
               className={this.props.classes.selectedFilter}
             >
@@ -49,7 +49,7 @@ class FilterSelectionExpansionPanel extends React.PureComponent {
                 onClick={() => this.props.handleToggle(selectedFilter)}
               />{" "}
               {this.props.filters[selectedFilter]}
-            </div>
+            </span>
           ))}
       </div>
     );
