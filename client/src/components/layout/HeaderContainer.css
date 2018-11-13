@@ -2,7 +2,6 @@
   height: 50vh;
   background-image: url("https://www.scholenopdekaart.nl/Images/header.jpg");
   background-size: cover;
-  /* background: rgba(100,28,92,0.4); */
   position: relative;
   display: flex;
   flex-wrap: wrap;

@@ -51,27 +51,23 @@
 }
 
 .search-bar {
-  /* box-sizing: content-box; */
+  box-sizing: content-box;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  clear: both;
   color: rgb(255, 255, 255);
   background-color: #641c5c;
-  /* display: block; */
+  display: block;
   font-family: "Proxima Nova", Arial, sans-serif;
   font-size: 14px;
-  font-stretch: 100%;
-  font-style: normal;
   font-weight: 400;
   max-width: 930px;
   padding-left: 10px;
   padding-bottom: 30px;
   width: 80%;
-  /* position: relative;
-  position: absolute; */
+  position: relative;
+  /* position: absolute; */
   top: 70%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  left: 10%;
 }
