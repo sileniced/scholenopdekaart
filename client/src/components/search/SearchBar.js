@@ -1,25 +1,68 @@
-import React from "react";
+import React, { Component } from "react";
 import { Card } from "@material-ui/core";
-import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
+import { withStyles } from "@material-ui/core/styles";
+import { theme } from '../../theme'
 
-export const SearchBar = props => {
-  return (
-    <div>
-      <Card>
-        <form className="search-bar">
+const styles = (theme) => ({
+  button: {
+    margin: theme.spacing.unit,
+    borderRadius: 0,
+    boxShadow: "none",
+  },
+  input: {
+    display: "none"
+  }
+});
+
+class SearchBar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { query: "", redirect: false };
+  }
+  setRedirect = () => {
+    this.setState({
+      redirect: true
+    })
+  }
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to='/search-result' />
+    }
+  }
+  
+  handleChange = event => {
+    this.setState({ query: event.target.value });
+  };
+  
+  handleSubmit = e => {
+    e.preventDefault();
+    this.props.getSearchResults(this.state.query);
+  };
+  
+  render(){
+  return ( <Card>
+      <form className="search-bar" onSubmit={this.handleSubmit}>
           <label className="search-title">Ik zoek een: </label>
+          <br />
           <input
-            className="search-input"
+            value={this.state.query}
+            onChange={this.handleChange}
+            className="btn search-input"
             type="text"
-            placeholder="Zoek op postcode, plaats of schoolnaam"
-            onfocus="this.placeholder = ''"
+            placeholder="Postcode, plaats of naam"
           />
-          <Link to="/search-result">
-            <button className="search-btn">Zoek</button>
-          </Link>
-          <button>Gebruik mijn locatie</button>
+            <button onClick={this.setRedirect} type="submit" className="btn search-btn">{this.renderRedirect()}
+              Zoek
+            </button>
+          
+          <button type="submit" className="btn location-btn">
+            Gebruik mijn locatie
+          </button>
         </form>
       </Card>
-    </div>
   );
+  }
 };
+
+export default withStyles(styles)(SearchBar)
