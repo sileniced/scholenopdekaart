@@ -1,14 +1,16 @@
 import React, { Component } from "react";
 import SearchBarContainer from "../search/SearchBarContainer";
 import "./HeaderContainer.css";
+import { Typography, withStyles } from "@material-ui/core";
 
-export default class HeaderContainer extends Component {
+class HeaderContainer extends Component {
   render() {
+    const { classes } = this.props;
     return (
       <div>
         <div className="header-container" position="static">
           <div className="layer">
-            <h1>Vind en vergelijk scholen bij jou in de buurt</h1>
+            <Typography align="center" className={classes.title}>Vind en vergelijk scholen bij jou in de buurt</Typography>
             <SearchBarContainer />
           </div>
         </div>
@@ -16,3 +18,14 @@ export default class HeaderContainer extends Component {
     );
   }
 }
+
+const style = ({
+  title: {
+    fontWeight: 700,
+    color: "#fff",
+    fontSize: "30px",
+    paddingTop: "20px",
+  }
+})
+
+export default withStyles(style)(HeaderContainer)
