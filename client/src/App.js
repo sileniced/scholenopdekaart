@@ -5,7 +5,6 @@ import FilterSelectionContainer from "./components/filter/FilterSelectionContain
 import HeaderContainer from "./components/layout/HeaderContainer";
 import TopBar from "./components/layout/TopBar";
 import ContactDetailsContainer from './components/charts/ContactDetailsContainer'
-import Specialisten from './components/charts/Specialisten'
 
 class App extends Component {
   render() {
@@ -17,7 +16,6 @@ class App extends Component {
           </header>
           <main>
             <HeaderContainer/>
-            <Specialisten/>
             <Route exact path="/search-result" component={SearchResultContainer}/>
             <Route exact path="/search-result/:city" component={SearchResultContainer}/>
             <FilterSelectionContainer/>

@@ -117,11 +117,12 @@ export const chk = C => new Promise(async (resolve, reject) => {
       const minutes = Number(`${uur[3]}${uur[4]}`) / 60
       return sum + hour + minutes
     }, 0))
-    // console.log('newNewNewArr = ', newNewNewArr, lesNamesCell)
-    return lesNamesCell.reduce((acc, les, i) => {
-      acc[les] = newNewNewArr[i]
-      return acc
-    }, {})
+
+    return lesNamesCell.length ? {
+      rapport: lesNamesCell.map((name, i) => {
+        return { name, y: newNewNewArr[i] }
+      })
+    } : {}
   }
 
   try {
