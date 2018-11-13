@@ -33,3 +33,19 @@ export const typeOnderwijs = {
 }
 
 export const schoolColors = ["red", "orange", "green", "blue", "purple"]
+
+export const allSpecialisten = {
+  'Dylexsiespecialist': false,
+  'Gedragsspecialist': false,
+  'Intern begeleider': false,
+  'Klassenassistent': false,
+  'Onderwijsassistent': false,
+  'Orthopedagoog': false,
+  'Rekenspecialist': false,
+  'Remedial teacher': false,
+  'Specialist hoogbegaafdheid': false,
+  'Taalspecialist': false,
+  'Fysiotherapeut': false,
+  'Ergotherapeut': false,
+  'Zorgassistent': false,
+}
