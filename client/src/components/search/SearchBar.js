@@ -33,12 +33,12 @@ class SearchBar extends Component {
     const { classes } = this.props;
   return ( <Card className={classes.searchBar} xs={3}>
       <form  onSubmit={this.handleSubmit}>
-          <Typography className={classes.searchTitle}>Ik zoek een:</Typography>
+          <Typography className={classes.searchTitle}>Ik zoek:</Typography>
           <br />
           <input
             value={this.state.query}
             onChange={this.handleChange}
-            className="search-input"
+            className={classes.searchInput}
             type="text"
             placeholder="Postcode, plaats of naam"
           />
@@ -46,7 +46,7 @@ class SearchBar extends Component {
               Zoek
             </button>
           
-          <button type="submit" className="btn location-btn">
+          <button type="submit" className={classes.locationBtn}>
             Gebruik mijn locatie
           </button>
         </form>
@@ -60,7 +60,7 @@ const styles = (theme) => ({
     boxShadow: "none",
     width: "80%",
     backgroundColor: theme.palette.primary.main,
-    display: "flex",
+    display: "inline-block",
     fontFamily: "Proxima Nova Arial sans-serif",
     alignItems: "center",
     justifyContent: "center",
@@ -79,9 +79,30 @@ const styles = (theme) => ({
     color: "#fff",
     fontWeight: 600,
     height: "50px",
-    width: "60px",
-    paddingTop: "2px",
+    maxWidth: "60px",
+    paddingTop: "0px",
+    fontSize: 18,
+    border: "none",
+    width: "10%",
+    minWidth: "50px"
+  },
+  searchInput: {
+    height: "50px",
+    width: "90%",
+  },
+  locationBtn: {
+    width: "100%",
+    height: "50px",
+    fontSize: "16px",
+    fontWeight: "700",
+    lineHeight: "36px",
+    color: "#e0d2de",
+    backgroundColor: "#641c5c",
+    borderColor: "#e0d2de",
+    marginTop: "0.5em", 
+    borderStyle: "solid",
   }
 });
 
 export default withStyles(styles)(SearchBar)
+

@@ -23,8 +23,9 @@ const style = ({
   title: {
     fontWeight: 700,
     color: "#fff",
-    fontSize: "30px",
-    paddingTop: "20px",
+    fontSize: "40px",
+    paddingTop: "40px",
+    paddingBottom: "60px"
   }
 })
 
