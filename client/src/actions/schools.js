@@ -1,5 +1,5 @@
 import * as request from 'superagent'
-import { baseUrl } from '../constants'
+import { baseUrl, allSpecialisten } from '../constants'
 
 export const SET_SCHOOLS = 'SET_SCHOOLS'
 export const SELECT_SCHOOL = 'SELECT_SCHOOL'
@@ -35,29 +35,10 @@ export function setSchools(schools) {
 }
 
 const sortSpecialists = specialisten => {
-  const allSpecialisten = {
-    'Dylexsiespecialist': false,
-    'Gedragsspecialist': false,
-    'Intern begeleider': false,
-    'Klassenassistent': false,
-    'Onderwijsassistent': false,
-    'Orthopedagoog': false,
-    'Rekenspecialist': false,
-    'Remedial teacher': false,
-    'Specialist hoogbegaafdheid': false,
-    'Taalspecialist': false,
-    'Fysiotherapeut': false,
-    'Ergotherapeut': false,
-    'Zorgassistent': false,
-  }
 
-  console.log('allSpecialisten = ', allSpecialisten)
-  
   for (const specialist of specialisten) {
     allSpecialisten[specialist] = true
   }
-
-  console.log('allSpecialisten = ', allSpecialisten)
   
   return allSpecialisten
 

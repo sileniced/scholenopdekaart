@@ -25,7 +25,7 @@ class SearchResultContainer extends React.PureComponent {
 
   render() {
 
-    if (!this.props.schools.length && this.props.match.params) this.props.getSearchResults(this.props.match.params.city)
+    if (!this.props.schools.length && this.props.match.params.city) this.props.getSearchResults(this.props.match.params.city)
 
     return (
       <div>
