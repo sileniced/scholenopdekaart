@@ -15,7 +15,7 @@ class App extends Component {
           </header>
           <main>
             <HeaderContainer/>
-            <SearchResultContainer/>
+            <Route exact path="/search-result" component={SearchResultContainer}/>
             <FilterSelectionContainer/>
           </main>
         </div>
