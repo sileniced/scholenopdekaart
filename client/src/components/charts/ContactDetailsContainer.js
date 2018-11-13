@@ -1,6 +1,7 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import { filters } from "../../constants";
+import { denominatie, typeOnderwijs, schoolColors } from "../../constants";
+import ContactDetails from "./ContactDetails"
 
 
 class ContactDetailsContainer extends React.PureComponent {
@@ -9,7 +10,7 @@ class ContactDetailsContainer extends React.PureComponent {
   render() {
     return (
       <div>
-        <ContactDetails />
+        <ContactDetails selectedSchools={this.props.selectedSchools} denominatie={denominatie} typeOnderwijs={typeOnderwijs} schoolColors={schoolColors}/>
       </div>
     );
   }
