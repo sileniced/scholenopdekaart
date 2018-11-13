@@ -8,9 +8,7 @@ import Switch from "@material-ui/core/Switch";
 
 const styles = theme => ({
   root: {
-    width: "100%",
-    maxWidth: "360px",
-    backgroundColor: theme.palette.background.paper
+
   }
 });
 

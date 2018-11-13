@@ -1,16 +1,11 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import FilterSelection from "./FilterSelection";
-import { filters } from "../../constants";
+import { filters, maxSchools } from "../../constants";
 import { toggleFilter, resetFilters } from "../../actions/filters";
-import FilterSelectionButtons from "./FilterSelectionButtons";
-
-import ExpansionPanel from "@material-ui/core/ExpansionPanel";
-import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
-import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
-import TuneIcon from 'mdi-react/TuneIcon'; 
-import { withStyles } from "@material-ui/core/styles";
-
+import FilterSelectionExpansionPanel from "./FilterSelectionExpansionPanel";
+import SchoolsInComparison from "./SchoolsInComparison";
+import { setSchoolToCompare } from "../../actions/schools";
+import { throws } from "assert";
 
 class FilterSelectionContainer extends React.PureComponent {
   handleToggle = filter => {
@@ -21,40 +16,37 @@ class FilterSelectionContainer extends React.PureComponent {
     this.props.resetFilters();
   };
 
+  removeSchool = school => {
+    const schoolToProcess = this.props.schools.find((schoolFromTotal => schoolFromTotal.I === school.I))
+    this.props.setSchoolToCompare(schoolToProcess);
+  };
+
   render() {
     return (
       <div>
-        <ExpansionPanel>
-          <ExpansionPanelSummary expandIcon={ <TuneIcon />}>
-          Vergelijk scholen op...
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
-            <div>
-              <FilterSelection
-                filters={filters}
-                handleToggle={this.handleToggle}
-                selectedFilters={this.props.selectedFilters}
-              />
-              <FilterSelectionButtons
-                handleResetFilters={this.handleResetFilters}
-              />
-            </div>
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
+        <SchoolsInComparison
+          maxSchools={maxSchools}
+          selectedSchools={this.props.selectedSchools}
+          removeSchool={this.removeSchool}
+        />
+        <FilterSelectionExpansionPanel
+          filters={filters}
+          handleToggle={this.handleToggle}
+          selectedFilters={this.props.selectedFilters}
+          handleResetFilters={this.handleResetFilters}
+        />
       </div>
     );
   }
 }
-const styles = theme => ({
-    
-  });
 
 const mapStateToProps = state => ({
+  schools: state.schools,
   selectedSchools: state.selectedSchools,
   selectedFilters: state.selectedFilters
 });
 
 export default connect(
   mapStateToProps,
-  { toggleFilter, resetFilters }
-)(withStyles(styles)(FilterSelectionContainer));
+  { toggleFilter, resetFilters, setSchoolToCompare }
+)(FilterSelectionContainer);
