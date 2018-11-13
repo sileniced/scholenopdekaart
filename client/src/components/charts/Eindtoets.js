@@ -26,11 +26,8 @@ class Eindtoets extends Component {
       chart: {
         zoomType: 'xy'
       },
-      title: {
-        text: 'Temperature vs Rainfall'
-      },
       xAxis: [{
-        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        categories: schools.map(school => school.school.N)
       }],
       yAxis: [{ // Primary yAxis
         labels: {
