@@ -1,7 +1,5 @@
 import * as fs from 'fs'
-
 import * as request from 'request'
-
 import * as cheerio from 'cheerio'
 
 export interface ISchool {
@@ -66,9 +64,8 @@ const generateLink = (C: string, poind: TPoind): string => {
   return `https://www.scholenopdekaart.nl/vensters/public/${C}/poind${CPoind}_json/poind${CPoind}_json_${C}.json`
 }
 
-const generateSpecialistLink = (C: string): string => {
-  return `https://www.scholenopdekaart.nl/vensters/public/${C}/poind24_leesmeer/poind24_leesmeer_${C}.html`
-}
+const generateSpecialistLink = (C: string): string => `https://www.scholenopdekaart.nl/vensters/public/${C}/poind24_leesmeer/poind24_leesmeer_${C}.html`
+const generateOnderwijsTijdLink = (C: string): string => `https://www.scholenopdekaart.nl/vensters/public/${C}/poind18_leesmeer/poind18_leesmeer_${C}.html`
 
 const getJson = (url): Promise<ISchool> => new Promise((resolve, reject) => {
   request(url, (error, response, body) => {
@@ -80,10 +77,53 @@ const getJson = (url): Promise<ISchool> => new Promise((resolve, reject) => {
   })
 })
 
-
-
 export const chk = C => new Promise(async (resolve, reject) => {
   const path = `database/${C}.json`
+
+  const getSpecialist = async () => {
+    const $ = cheerio.load(await getJson(generateSpecialistLink(C)))
+
+    const a59 = $('.a59')
+    const specialistNamesArr = Object.keys(a59).map(key => !isNaN(Number(key)) ? a59[key] : false).filter(spec => spec)
+    return specialistNamesArr.map(name => {
+      const child = name.children[0]
+      return child.data ? child.data : child.children[0].data
+    })
+  }
+
+  const getOnderwijsTijd = async () => {
+    const $ = cheerio.load(await getJson(generateOnderwijsTijdLink(C)))
+
+    const getData = a => Object.keys(a).map(key => !isNaN(Number(key)) ? a[key] : false).filter(spec => spec).map(key => key.children[0].data)
+
+    const lesNamesCell = getData($('.a75'))
+
+    const lesUren = getData($('.a139'))
+
+    let newArr: string[][] = []
+    let newNewArr: string[] = []
+
+    for (const [index, les] of lesUren.entries()) {
+      if (index % 6 === 0) {
+        if (newNewArr.length) newArr = [...newArr, newNewArr]
+        newNewArr = []
+      }
+      newNewArr = [...newNewArr, les]
+    }
+    newArr = [...newArr, newNewArr]
+
+    const newNewNewArr: number[] = newArr.map(les => les.reduce((sum, uur) => {
+      const hour = Number(uur[0])
+      const minutes = Number(`${uur[3]}${uur[4]}`) / 60
+      return sum + hour + minutes
+    }, 0))
+    // console.log('newNewNewArr = ', newNewNewArr, lesNamesCell)
+    return lesNamesCell.reduce((acc, les, i) => {
+      acc[les] = newNewNewArr[i]
+      return acc
+    }, {})
+  }
+
   try {
     const file = await fs.readFileSync(path, { encoding: 'UTF8' })
     resolve(JSON.parse(file))
@@ -96,22 +136,15 @@ export const chk = C => new Promise(async (resolve, reject) => {
         return combined
       }, { C })
 
-      const specialists = await getJson(generateSpecialistLink(C))
+      reduced.specialist = await getSpecialist()
+      reduced.onderwijstijd = await getOnderwijsTijd()
 
-      const $ = cheerio.load(specialists)
-      const a59 = $('.a59')
-      const specialistNamesArr = Object.keys(a59).map(key => !isNaN(Number(key)) ? a59[key] : false).filter(spec => spec)
-      const specialistNames = specialistNamesArr.map(name => {
-        const child = name.children[0]
-        return child.data ? child.data : child.children[0].data
-      })
-
-      reduced.specialist = specialistNames
+      // const a162 = $('.a162')
 
       await fs.writeFileSync(path, JSON.stringify(reduced))
       resolve(reduced)
     } catch (e2) {
-      reject({e1, e2})
+      reject({ e1, e2 })
     }
   }
 })
