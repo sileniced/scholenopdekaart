@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
-import SearchResultContainer from './components/search-result/SearchResultContainer'
-import FilterSelectionContainer from './components/filter/FilterSelectionContainer'
-import HeaderContainer from './components/layout/HeaderContainer'
-import TopBar from './components/layout/TopBar'
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import SearchResultContainer from "./components/search-result/SearchResultContainer";
+import FilterSelectionContainer from "./components/filter/FilterSelectionContainer";
+import HeaderContainer from "./components/layout/HeaderContainer";
+import TopBar from "./components/layout/TopBar";
 
 class App extends Component {
   render() {
@@ -18,6 +18,7 @@ class App extends Component {
             <Route exact path="/search-result" component={SearchResultContainer}/>
             <Route exact path="/search-result/:city" component={SearchResultContainer}/>
             <FilterSelectionContainer/>
+            <ContactDetailsContainer />
           </main>
         </div>
       </Router>
