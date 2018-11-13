@@ -8,6 +8,7 @@ import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import TuneIcon from "mdi-react/TuneIcon";
 import { withStyles } from "@material-ui/core/styles";
 import { Typography } from "@material-ui/core";
+import HighlightOffIcon from "mdi-react/HighlightOffIcon";
 
 class FilterSelectionExpansionPanel extends React.PureComponent {
   render() {
@@ -37,6 +38,19 @@ class FilterSelectionExpansionPanel extends React.PureComponent {
             Selecteer welke info van scholen u wilt vergelijken.
           </Typography>
         </div>
+        {Object.keys(this.props.selectedFilters)
+          .filter(filter => this.props.selectedFilters[filter])
+          .map(selectedFilter => (
+            <div
+              key={selectedFilter}
+              className={this.props.classes.selectedFilter}
+            >
+              <HighlightOffIcon
+                onClick={() => this.props.handleToggle(selectedFilter)}
+              />{" "}
+              {this.props.filters[selectedFilter]}
+            </div>
+          ))}
       </div>
     );
   }
@@ -61,7 +75,7 @@ const styles = theme => ({
     justifyContent: "center"
   },
   expansionPanelInfo: {
-    backgroundColor: theme.palette.background.default,
+    backgroundColor: theme.palette.background.default
     // border: "1px solid black",
     // "&::before": {
     //   content: "",
