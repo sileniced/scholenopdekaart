@@ -28,7 +28,7 @@ class SearchBarContainer extends Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.getSearchResults(this.state.query);
-    return <Redirect to="/search-result"/>
+    // return <Redirect to="/search-result"/>
   };
   
   render() {
