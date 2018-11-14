@@ -5,7 +5,7 @@ import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import KeyboardArrowDownIcon from "mdi-react/KeyboardArrowDownIcon";
 import FiberManualRecordIcon from "mdi-react/FiberManualRecordIcon";
-import { schoolColors } from "../../constants";
+import { schoolColors } from "../../../constants";
 
 const styles = theme => ({
   root: {}
