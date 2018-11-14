@@ -150,11 +150,11 @@ class CustomPaginationActionsTable extends React.Component {
       <Paper className={classes.root}>
         <div className={classes.tableWrapper}>
           <h2 className={classes.resultHeader}>
-            {this.props.filterDenominatie(this.props.schools).length} resultaten
+            {this.props.filterSchools(this.props.schools).length} resultaten
           </h2>
           <Table className={classes.table}>
             <TableBody>
-              {this.props.filterDenominatie(this.props.schools)
+              {this.props.filterSchools(this.props.schools)
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map(row => {
                   return (
@@ -194,7 +194,7 @@ class CustomPaginationActionsTable extends React.Component {
               <TableRow>
                 <TablePagination
                   colSpan={3}
-                  count={this.props.filterDenominatie(this.props.schools).length}
+                  count={this.props.filterSchools(this.props.schools).length}
                   rowsPerPage={rowsPerPage}
                   page={page}
                   labelRowsPerPage={"Scholen per pagina"}

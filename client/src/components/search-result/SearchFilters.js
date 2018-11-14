@@ -69,6 +69,30 @@ function SearchFilters(props) {
         </div>
         <div>
             Onderwijsconcept:
+            <List>
+        {Object.values(props.conceptOnderwijs).map((conceptOnderwijs, index) => (
+          <ListItem divider key={index}>
+            <ListItemText primary={conceptOnderwijs} />
+            <Switch
+               checked={
+                props.activeSearchFilters.conceptOnderwijs[
+                  Object.keys(props.conceptOnderwijs).find(
+                   key => props.conceptOnderwijs[key] === conceptOnderwijs
+                  )
+                ]
+              }
+              color="secondary"
+              onChange={() =>
+                props.handleToggleConceptOnderwijs(
+                  Object.keys(props.conceptOnderwijs).find(
+                    key => props.conceptOnderwijs[key] === conceptOnderwijs
+                  )
+                )
+              }
+            />
+          </ListItem>
+        ))}
+      </List>
         </div>
 
     </div>

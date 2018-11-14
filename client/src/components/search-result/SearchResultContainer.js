@@ -8,7 +8,12 @@ import {
   setSchoolToCompare,
   getSearchResults
 } from "../../actions/schools";
-import { maxSchools, typeOnderwijs, denominatie } from "../../constants";
+import {
+  maxSchools,
+  typeOnderwijs,
+  denominatie,
+  conceptOnderwijs
+} from "../../constants";
 import SearchFilters from "./SearchFilters";
 
 class SearchResultContainer extends React.PureComponent {
@@ -27,12 +32,27 @@ class SearchResultContainer extends React.PureComponent {
     this.props.toggleSearchFilter(payload);
   };
 
-  handleToggleDenominatie = type => {
-    const payload = { denominatie: type };
+  handleToggleDenominatie = denominatie => {
+    const payload = { denominatie };
     this.props.toggleSearchFilter(payload);
   };
 
-  filterTypeOnderwijs = () => {};
+  handleToggleConceptOnderwijs = concept => {
+    const payload = { conceptOnderwijs: concept };
+    this.props.toggleSearchFilter(payload);
+  };
+
+  filterTypeOnderwijs = setOfSchools => {
+    const activeFilters = Object.keys(
+      this.props.searchFilters.typeOnderwijs
+    ).filter(filter => this.props.searchFilters.typeOnderwijs[filter] === true);
+    const filteredSet = setOfSchools.filter(school => {
+      if (activeFilters.length === 0) return true;
+      if (activeFilters.includes(String(school.O[0]))) return true;
+      return false;
+    });
+    return filteredSet;
+  };
 
   filterDenominatie = setOfSchools => {
     const activeFilters = Object.keys(
@@ -44,6 +64,29 @@ class SearchResultContainer extends React.PureComponent {
       return false;
     });
     return filteredSet;
+  };
+
+  filterConceptOnderwijs = setOfSchools => {
+    const activeFilters = Object.keys(
+      this.props.searchFilters.conceptOnderwijs
+    ).filter(
+      filter => this.props.searchFilters.conceptOnderwijs[filter] === true
+    );
+    const filteredSet = setOfSchools.filter(school => {
+      if (activeFilters.length === 0) return true;
+      if (activeFilters.includes(String(school.C[0]))) return true;
+      if (school.C[0] === 1) {
+        if (activeFilters.includes(String(school.C[0]))) return true;
+      }
+      return false;
+    });
+    return filteredSet;
+  };
+
+  filterSchools = setOfSchools => {
+    return this.filterTypeOnderwijs(
+      this.filterDenominatie(this.filterConceptOnderwijs(setOfSchools))
+    );
   };
 
   render() {
@@ -63,13 +106,15 @@ class SearchResultContainer extends React.PureComponent {
           selectedSchools={this.props.selectedSchools}
           maxSchools={maxSchools}
           activeSearchFilters={this.props.searchFilters}
-          filterDenominatie={this.filterDenominatie}
+          filterSchools={this.filterSchools}
         />
         <SearchFilters
           typeOnderwijs={typeOnderwijs}
           denominatie={denominatie}
+          conceptOnderwijs={conceptOnderwijs}
           handleToggleOnderwijstype={this.handleToggleOnderwijstype}
           handleToggleDenominatie={this.handleToggleDenominatie}
+          handleToggleConceptOnderwijs={this.handleToggleConceptOnderwijs}
           activeSearchFilters={this.props.searchFilters}
         />
       </div>

@@ -32,6 +32,20 @@ export const typeOnderwijs = {
     3: "Speciaal onderwijs"
 }
 
+export const conceptOnderwijs = {
+    2: "Ervaringsgericht Onderwijs",
+    3: "Freinet",
+    4: "Ontwikkelingsgericht Onderwijs",
+    5: "Montessori",
+    6: "Jenaplan",
+    7: "Vrijeschool",
+    9: "Nieuw / natuurlijk / conceptueel leren",
+    10: "Jenaplan/Montessori",
+    11: "Dalton",
+    12: "Dalton/Jenaplan",
+    13: "Eigen tempo werkwijze"
+}
+
 export const schoolColors = ["red", "orange", "green", "blue", "purple"]
 
 export const allSpecialisten = () =>({
