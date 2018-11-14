@@ -5,7 +5,6 @@ import { toggleFilter, resetFilters } from "../../actions/filters";
 import FilterSelectionExpansionPanel from "./FilterSelectionExpansionPanel";
 import SchoolsInComparison from "./SchoolsInComparison";
 import { setSchoolToCompare } from "../../actions/schools";
-import { throws } from "assert";
 
 class FilterSelectionContainer extends React.PureComponent {
   handleToggle = filter => {

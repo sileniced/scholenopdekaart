@@ -1,6 +1,6 @@
 import * as fs from 'fs'
-
 import * as request from 'request'
+import * as cheerio from 'cheerio'
 
 export interface ISchool {
   I: number, // ID
@@ -64,6 +64,9 @@ const generateLink = (C: string, poind: TPoind): string => {
   return `https://www.scholenopdekaart.nl/vensters/public/${C}/poind${CPoind}_json/poind${CPoind}_json_${C}.json`
 }
 
+const generateSpecialistLink = (C: string): string => `https://www.scholenopdekaart.nl/vensters/public/${C}/poind24_leesmeer/poind24_leesmeer_${C}.html`
+const generateOnderwijsTijdLink = (C: string): string => `https://www.scholenopdekaart.nl/vensters/public/${C}/poind18_leesmeer/poind18_leesmeer_${C}.html`
+
 const getJson = (url): Promise<ISchool> => new Promise((resolve, reject) => {
   request(url, (error, response, body) => {
     if (!error && response.statusCode === 200) {
@@ -74,8 +77,82 @@ const getJson = (url): Promise<ISchool> => new Promise((resolve, reject) => {
   })
 })
 
+const getSpecialist = async C => {
+  const $ = cheerio.load(await getJson(generateSpecialistLink(C)))
+
+  const a59 = $('.a59')
+  const specialistNamesArr = Object.keys(a59).map(key => !isNaN(Number(key)) ? a59[key] : false).filter(spec => spec)
+  return specialistNamesArr.map(name => {
+    const child = name.children[0]
+    return child.data ? child.data : child.children[0].data
+  })
+}
+
+export const getSpecialistAndLeerlingen = async (list, query): Promise<any> => {
+  const path = `database/${query}.json`
+
+  try {
+    const file = await fs.readFileSync(path, { encoding: 'UTF8' })
+    return JSON.parse(file)
+  } catch (e) {
+    const schools = JSON.parse(list).filter(school => school.A.split('#')[2].toLowerCase() === query)
+
+    const promises = schools.map(async school => ({
+      ...school,
+      specialist: await getSpecialist(school.C),
+      leerlingen: await getJson(generateLink(school.C, 'leerlingen'))
+    }))
+
+    const resolved: any = await Promise.all(promises)
+
+    const mapped = resolved.map(school => {
+      school.leerlingen = JSON.parse(school.leerlingen)
+      school.leerlingen = school.leerlingen.rapport ? school.leerlingen.rapport.versie1.datasetAantalLeerlingen.rij.aantalLeerlingen : {}
+      return school
+    })
+
+    await fs.writeFileSync(path, JSON.stringify(mapped))
+    return mapped
+  }
+}
+
 export const chk = C => new Promise(async (resolve, reject) => {
   const path = `database/${C}.json`
+
+  const getOnderwijsTijd = async () => {
+    const $ = cheerio.load(await getJson(generateOnderwijsTijdLink(C)))
+
+    const getData = a => Object.keys(a).map(key => !isNaN(Number(key)) ? a[key] : false).filter(spec => spec).map(key => key.children[0].data)
+
+    const lesNamesCell = getData($('.a75'))
+
+    const lesUren = getData($('.a139'))
+
+    let newArr: string[][] = []
+    let newNewArr: string[] = []
+
+    for (const [index, les] of lesUren.entries()) {
+      if (index % 6 === 0) {
+        if (newNewArr.length) newArr = [...newArr, newNewArr]
+        newNewArr = []
+      }
+      newNewArr = [...newNewArr, les]
+    }
+    newArr = [...newArr, newNewArr]
+
+    const newNewNewArr: number[] = newArr.map(les => les.reduce((sum, uur) => {
+      const hour = Number(uur[0])
+      const minutes = Number(`${uur[3]}${uur[4]}`) / 60
+      return sum + hour + minutes
+    }, 0))
+
+    return lesNamesCell.length ? {
+      rapport: lesNamesCell.map((name, i) => {
+        return { name, y: newNewNewArr[i] }
+      })
+    } : {}
+  }
+
   try {
     const file = await fs.readFileSync(path, { encoding: 'UTF8' })
     resolve(JSON.parse(file))
@@ -88,10 +165,15 @@ export const chk = C => new Promise(async (resolve, reject) => {
         return combined
       }, { C })
 
+      reduced.specialist = await getSpecialist(C)
+      reduced.onderwijstijd = await getOnderwijsTijd()
+
+      // const a162 = $('.a162')
+
       await fs.writeFileSync(path, JSON.stringify(reduced))
       resolve(reduced)
     } catch (e2) {
-      reject({e1, e2})
+      reject({ e1, e2 })
     }
   }
 })

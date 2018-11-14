@@ -1,11 +1,11 @@
-import * as request from 'superagent';
-import { baseUrl } from '../constants'
+import * as request from 'superagent'
+import { baseUrl, allSpecialisten } from '../constants'
 
-export const SET_SCHOOLS = 'SET_SCHOOLS';
-export const SELECT_SCHOOL = 'SELECT_SCHOOL';
-export const ADD_TO_SELECTED = 'ADD_TO_SELECTED';
-export const REMOVE_FROM_SELECTED = 'REMOVE_FROM_SELECTED';
-export const FETCH_SEARCHED_SCHOOLS = 'FETCH_SEARCHED_SCHOOLS';
+export const SET_SCHOOLS = 'SET_SCHOOLS'
+export const SELECT_SCHOOL = 'SELECT_SCHOOL'
+export const ADD_TO_SELECTED = 'ADD_TO_SELECTED'
+export const REMOVE_FROM_SELECTED = 'REMOVE_FROM_SELECTED'
+export const FETCH_SEARCHED_SCHOOLS = 'FETCH_SEARCHED_SCHOOLS'
 
 const toggleSelected = school => ({
   type: SELECT_SCHOOL,
@@ -19,19 +19,31 @@ const addToSelected = school => ({
 
 const removeFromSelected = school => ({
   type: REMOVE_FROM_SELECTED,
-  payload: school
+  payload: school,
 })
 
 const fetchSearchedSchools = schools => ({
   type: FETCH_SEARCHED_SCHOOLS,
-  payload: schools
+  payload: schools,
 })
 
 export function setSchools(schools) {
   return {
     type: SET_SCHOOLS,
     payload: schools,
-  };
+  }
+}
+
+const sortSpecialists = specialisten => {
+
+  const _specialisten = allSpecialisten()
+
+  for (const specialist of specialisten) {
+    _specialisten[specialist] = true
+  }
+  
+  return _specialisten
+
 }
 
 export const setSchoolToCompare = school => (dispatch, getState) => {
@@ -42,7 +54,9 @@ export const setSchoolToCompare = school => (dispatch, getState) => {
     request
     .get(`${baseUrl}/${school.C}`)
     .then(response => {
-      dispatch(addToSelected({...response.body, school}))
+      response.body.school = school
+      response.body.specialisten = sortSpecialists(response.body.specialist)
+      dispatch(addToSelected(response.body))
     })
   } else {
     dispatch(removeFromSelected(school))
@@ -55,9 +69,9 @@ export function getSchools() {
     request
     .get(`${baseUrl}/`)
     .then(response => {
-      dispatch(setSchools(response.body));
-    });
-  };
+      dispatch(setSchools(response.body))
+    })
+  }
 }
 
 export function getSearchResults(query) {
@@ -65,7 +79,8 @@ export function getSearchResults(query) {
     request
     .get(`${baseUrl}/find/${query}`)
     .then(response => {
-      dispatch(fetchSearchedSchools(response.body));
-    });
-  };
+      dispatch(fetchSearchedSchools(response.body))
+    })
+  }
 }
+

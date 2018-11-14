@@ -42,7 +42,7 @@ class Tijden extends Component {
 
     const { available, unavailable } = checkPoindAvailability(this.props.selectedSchools, 'tijden')
 
-    console.log('available =', available)
+    // console.log('available =', available)
     // console.log('unavailable =', unavailable)
     // console.log(available[0] && JSON.stringify(inputMapped(available[0].tijden.rapport.versie1.datasetSchooltijden.rij)))
 

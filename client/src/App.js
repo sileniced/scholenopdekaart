@@ -5,25 +5,27 @@ import FilterSelectionContainer from "./components/filter/FilterSelectionContain
 import HeaderContainer from "./components/layout/HeaderContainer";
 import TopBar from "./components/layout/TopBar";
 import Footer from "./components/layout/Footer";
-
+import ContactDetailsContainer from './components/contactDetails/ContactDetailsContainer'
 class App extends Component {
   render() {
     return (
       <Router>
         <div className="App">
           <header>
-            <TopBar />
+            <TopBar/>
           </header>
           <main>
-            <HeaderContainer />
-            <Route exact path="/search-result" component={SearchResultContainer} />
-            <FilterSelectionContainer />
+            <HeaderContainer/>
+            <Route exact path="/search-result" component={SearchResultContainer}/>
+            <Route exact path="/search-result/:city" component={SearchResultContainer}/>
+            <FilterSelectionContainer/>
+            <ContactDetailsContainer />
             <Footer />
           </main>
         </div>
       </Router>
-    );
+    )
   }
 }
 
-export default App;
+export default App
