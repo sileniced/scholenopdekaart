@@ -36,14 +36,14 @@ class SearchBar extends Component {
           <Typography className={classes.searchTitle}>Ik zoek:</Typography>
           <br />
           <div className={classes.searchSet}>
-          <div className={classes.searchField}>
-            <input
-              value={this.state.query}
-              onChange={this.handleChange}
-              className={classes.searchInput}
-              type="text"
-              placeholder="Postcode, plaats of naam"
-            />
+            <div className={classes.searchField}>
+              <input
+                value={this.state.query}
+                onChange={this.handleChange}
+                className={classes.searchInput}
+                type="text"
+                placeholder="Postcode, plaats of naam"
+              />
             </div>
             <button
               onClick={this.setRedirect}
@@ -54,9 +54,9 @@ class SearchBar extends Component {
               Zoek
             </button>
           </div>
-            <button type="submit" className={classes.locationBtn}>
-              Gebruik mijn locatie
-            </button>
+          <button type="submit" className={classes.locationBtn}>
+            Gebruik mijn locatie
+          </button>
         </form>
       </Card>
     );
@@ -96,7 +96,7 @@ const styles = theme => ({
     left: "0px",
     top: "0px",
     bottom: "0px",
-    right: "50px"
+    right: "0px"
   },
   searchSet: {
     width: "100%",
@@ -118,8 +118,7 @@ const styles = theme => ({
     // float: "right",
     top: "0px",
     bottom: "0px",
-    right: "50px"
-
+    right: "0px"
   },
   searchInput: {
     height: "100%",
