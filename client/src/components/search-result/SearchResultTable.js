@@ -134,7 +134,7 @@ const styles = theme => ({
     justifyContent: "space-between"
   },
   headerTwo: {
-    fontSize: "18px",
+    fontSize: "1.3em",
     fontWeight: "bold",
     color: theme.palette.primary.main
   }
