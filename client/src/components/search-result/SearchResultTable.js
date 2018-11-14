@@ -14,10 +14,11 @@ import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
 import LastPageIcon from "@material-ui/icons/LastPage";
 import CompareButton from "./CompareButton";
-import Grid from "@material-ui/core/Grid";
+import { Typography } from "@material-ui/core";
 
 const actionsStyles = theme => ({
   root: {
+    display: "flex",
     flexShrink: 0,
     color: theme.palette.text.secondary,
     marginLeft: theme.spacing.unit * 2.5
@@ -49,42 +50,50 @@ class TablePaginationActions extends React.Component {
 
     return (
       <div className={classes.root}>
-        <IconButton
-          onClick={this.handleFirstPageButtonClick}
-          disabled={page === 0}
-          aria-label="First Page"
-        >
-          {theme.direction === "rtl" ? <LastPageIcon /> : <FirstPageIcon />}
-        </IconButton>
-        <IconButton
-          onClick={this.handleBackButtonClick}
-          disabled={page === 0}
-          aria-label="Previous Page"
-        >
-          {theme.direction === "rtl" ? (
-            <KeyboardArrowRight />
-          ) : (
-            <KeyboardArrowLeft />
-          )}
-        </IconButton>
-        <IconButton
-          onClick={this.handleNextButtonClick}
-          disabled={page >= Math.ceil(count / rowsPerPage) - 1}
-          aria-label="Next Page"
-        >
-          {theme.direction === "rtl" ? (
-            <KeyboardArrowLeft />
-          ) : (
-            <KeyboardArrowRight />
-          )}
-        </IconButton>
-        <IconButton
-          onClick={this.handleLastPageButtonClick}
-          disabled={page >= Math.ceil(count / rowsPerPage) - 1}
-          aria-label="Last Page"
-        >
-          {theme.direction === "rtl" ? <FirstPageIcon /> : <LastPageIcon />}
-        </IconButton>
+        <div>
+          <IconButton
+            onClick={this.handleFirstPageButtonClick}
+            disabled={page === 0}
+            aria-label="First Page"
+          >
+            {theme.direction === "rtl" ? <LastPageIcon /> : <FirstPageIcon />}
+          </IconButton>
+        </div>
+        <div>
+          <IconButton
+            onClick={this.handleBackButtonClick}
+            disabled={page === 0}
+            aria-label="Previous Page"
+          >
+            {theme.direction === "rtl" ? (
+              <KeyboardArrowRight />
+            ) : (
+              <KeyboardArrowLeft />
+            )}
+          </IconButton>
+        </div>
+        <div>
+          <IconButton
+            onClick={this.handleNextButtonClick}
+            disabled={page >= Math.ceil(count / rowsPerPage) - 1}
+            aria-label="Next Page"
+          >
+            {theme.direction === "rtl" ? (
+              <KeyboardArrowLeft />
+            ) : (
+              <KeyboardArrowRight />
+            )}
+          </IconButton>
+        </div>
+        <div>
+          <IconButton
+            onClick={this.handleLastPageButtonClick}
+            disabled={page >= Math.ceil(count / rowsPerPage) - 1}
+            aria-label="Last Page"
+          >
+            {theme.direction === "rtl" ? <FirstPageIcon /> : <LastPageIcon />}
+          </IconButton>
+        </div>
       </div>
     );
   }
@@ -109,13 +118,23 @@ const styles = theme => ({
     marginTop: theme.spacing.unit * 3
   },
   table: {
-    minWidth: 500
+    minWidth: 320
   },
   tableWrapper: {
-    overflowX: "auto"
+    overflowX: "auto",
+    paddingLeft: "10px"
   },
   schoolName: {
     fontSize: "18px",
+    fontWeight: "bold",
+    color: theme.palette.primary.main
+  },
+  searchResult: {
+    display: "flex",
+    justifyContent: "space-between"
+  },
+  headerTwo: {
+    fontSize: "1.3em",
     fontWeight: "bold",
     color: theme.palette.primary.main
   }
@@ -149,37 +168,38 @@ class CustomPaginationActionsTable extends React.Component {
     return (
       <Paper className={classes.root}>
         <div className={classes.tableWrapper}>
-          <h2 className={classes.resultHeader}>
-            {this.props.filterSchools(this.props.schools).length} resultaten
+          <h2>
+            <Typography className={classes.headerTwo}>
+              {this.props.filterSchools(this.props.schools).length} resultaten
+            </Typography>
           </h2>
           <Table className={classes.table}>
             <TableBody>
-              {this.props.filterSchools(this.props.schools)
+              {this.props
+                .filterSchools(this.props.schools)
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map(row => {
                   return (
                     <TableRow key={row.I}>
-                      <TableCell>
-                        <Grid container spacing={24}>
-                          <Grid item xs>
-                            <div className={classes.schoolName}>{row.N}</div>
-                            <br />
-                            <div>
-                              {row.A.map((addressDetail, index) => {
-                                return <div key={index}>{addressDetail}</div>;
-                              })}
-                            </div>
-                          </Grid>
-                          <Grid item xs>
-                            <CompareButton
-                              school={row}
-                              schoolId={row.I}
-                              handleClick={this.handleCompareClick}
-                              maxSchools={this.props.maxSchools}
-                              selectedSchools={this.props.selectedSchools}
-                            />
-                          </Grid>
-                        </Grid>
+                      <TableCell className={classes.searchResult}>
+                        <div>
+                          <div className={classes.schoolName}>{row.N}</div>
+                          <br />
+                          <div>
+                            {row.A.map((addressDetail, index) => {
+                              return <div key={index}>{addressDetail}</div>;
+                            })}
+                          </div>
+                        </div>
+                        <div>
+                          <CompareButton
+                            school={row}
+                            schoolId={row.I}
+                            handleClick={this.handleCompareClick}
+                            maxSchools={this.props.maxSchools}
+                            selectedSchools={this.props.selectedSchools}
+                          />
+                        </div>
                       </TableCell>
                     </TableRow>
                   );

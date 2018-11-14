@@ -55,7 +55,7 @@ class SearchBar extends Component {
               Zoek
             </button>
           </div> */}
-          <button type="submit" className={classes.locationBtn}>
+          <button onClick={(e) => {e.preventDefault()}}className={classes.locationBtn}>
             Gebruik mijn locatie
           </button>
       </Card>

@@ -4,7 +4,7 @@ import red from "@material-ui/core/colors/red";
 export const theme = createMuiTheme({
   palette: {
     background: {
-      paper: "#F7F3F7",
+      paper: "white",
       default: "#641C5C",      
       secondary:"#5AD09B"
     },
@@ -26,16 +26,16 @@ export const theme = createMuiTheme({
   typography: {
     // Use the system font instead of the default Roboto font.
     fontFamily: [
+      "Proxima Nova",
       "-apple-system",
       "BlinkMacSystemFont",
       '"Segoe UI"',
-      "Proxima Nova",
       '"Helvetica Neue"',
       "Arial",
       "sans-serif",
       '"Apple Color Emoji"',
       '"Segoe UI Emoji"',
       '"Segoe UI Symbol"'
-    ].join(",")
+    ].join(","),
   }
 });
