@@ -34,7 +34,7 @@ export const typeOnderwijs = {
 
 export const schoolColors = ["red", "orange", "green", "blue", "purple"]
 
-export const allSpecialisten = {
+export const allSpecialisten = () =>({
   'Dylexsiespecialist': false,
   'Gedragsspecialist': false,
   'Intern begeleider': false,
@@ -48,4 +48,4 @@ export const allSpecialisten = {
   'Fysiotherapeut': false,
   'Ergotherapeut': false,
   'Zorgassistent': false,
-}
+})

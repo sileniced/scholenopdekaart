@@ -36,11 +36,13 @@ export function setSchools(schools) {
 
 const sortSpecialists = specialisten => {
 
+  const _specialisten = allSpecialisten()
+
   for (const specialist of specialisten) {
-    allSpecialisten[specialist] = true
+    _specialisten[specialist] = true
   }
   
-  return allSpecialisten
+  return _specialisten
 
 }
 
