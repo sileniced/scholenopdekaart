@@ -22,6 +22,7 @@ class App extends Component {
             <Route exact path="/search-result/:city" component={SearchResultContainer}/>
             <FilterSelectionContainer/>
             <ContactDetailsContainer />
+            <Footer />
           </main>
         </div>
       </Router>
