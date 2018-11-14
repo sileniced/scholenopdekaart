@@ -6,6 +6,7 @@ import HeaderContainer from "./components/layout/HeaderContainer";
 import TopBar from "./components/layout/TopBar";
 import ContactDetailsContainer from "./components/contactDetails/ContactDetailsContainer";
 import { withStyles } from "@material-ui/core/styles";
+import Footer from "./components/layout/Footer";
 
 const styles = theme => ({
  app: {
@@ -39,6 +40,7 @@ class App extends Component {
             />
             <FilterSelectionContainer />
             <ContactDetailsContainer />
+            <Footer />
           </main>
         </div>
       </Router>
