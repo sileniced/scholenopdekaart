@@ -16,17 +16,24 @@ import {
 } from "../../constants";
 import SearchFilters from "./SearchFilters";
 import { withStyles } from "@material-ui/core/styles";
+import FormatListBulletedIcon from "mdi-react/FormatListBulletedIcon";
+import TuneIcon from "mdi-react/TuneIcon";
 
 const styles = theme => ({
   searchResult: {
-    display:"flex",
+    display: "flex",
     flexDirection: "column",
-    alignItems:"center",
+    alignItems: "center",
     backgroundColor: theme.palette.background.paper
   }
 });
 
 class SearchResultContainer extends React.PureComponent {
+  state = {
+    showFilters: false,
+    showResults: true
+  };
+
   compareSchool = schoolId => {
     const school = this.props.schools.find(school => school.I === schoolId);
     if (this.props.selectedSchools.length < maxSchools || school.selected)
@@ -99,11 +106,19 @@ class SearchResultContainer extends React.PureComponent {
     );
   };
 
+  openResultList = () => {
+    this.setState({ showResults: true, showFilters: false });
+  };
+
+  openSearchFilters = () => {
+    this.setState({ showResults: false, showFilters: true });
+  };
+
   render() {
     if (!this.props.schools.length && this.props.match.params.city)
       this.props.getSearchResults(this.props.match.params.city);
 
-      const { classes } = this.props;
+    const { classes } = this.props;
 
     return (
       <div className={classes.searchResult}>
@@ -112,23 +127,35 @@ class SearchResultContainer extends React.PureComponent {
           selectedSchools={this.props.selectedSchools}
           maxSchools={maxSchools}
         />
-        <SearchResultTable
-          schools={this.props.schools}
-          setSchoolToCompare={this.compareSchool}
-          selectedSchools={this.props.selectedSchools}
-          maxSchools={maxSchools}
-          activeSearchFilters={this.props.searchFilters}
-          filterSchools={this.filterSchools}
-        />
-        <SearchFilters
-          typeOnderwijs={typeOnderwijs}
-          denominatie={denominatie}
-          conceptOnderwijs={conceptOnderwijs}
-          handleToggleOnderwijstype={this.handleToggleOnderwijstype}
-          handleToggleDenominatie={this.handleToggleDenominatie}
-          handleToggleConceptOnderwijs={this.handleToggleConceptOnderwijs}
-          activeSearchFilters={this.props.searchFilters}
-        />
+        <div>
+          <FormatListBulletedIcon onClick={() => this.openResultList()} />{" "}
+          <TuneIcon onClick={() => this.openSearchFilters()} />
+        </div>
+        {this.state.showResults ? (
+          <SearchResultTable
+            schools={this.props.schools}
+            setSchoolToCompare={this.compareSchool}
+            selectedSchools={this.props.selectedSchools}
+            maxSchools={maxSchools}
+            activeSearchFilters={this.props.searchFilters}
+            filterSchools={this.filterSchools}
+          />
+        ) : (
+          ""
+        )}
+        {this.state.showFilters ? (
+          <SearchFilters
+            typeOnderwijs={typeOnderwijs}
+            denominatie={denominatie}
+            conceptOnderwijs={conceptOnderwijs}
+            handleToggleOnderwijstype={this.handleToggleOnderwijstype}
+            handleToggleDenominatie={this.handleToggleDenominatie}
+            handleToggleConceptOnderwijs={this.handleToggleConceptOnderwijs}
+            activeSearchFilters={this.props.searchFilters}
+          />
+        ) : (
+          ""
+        )}
       </div>
     );
   }
