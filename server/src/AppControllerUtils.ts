@@ -77,19 +77,47 @@ const getJson = (url): Promise<ISchool> => new Promise((resolve, reject) => {
   })
 })
 
+const getSpecialist = async C => {
+  const $ = cheerio.load(await getJson(generateSpecialistLink(C)))
+
+  const a59 = $('.a59')
+  const specialistNamesArr = Object.keys(a59).map(key => !isNaN(Number(key)) ? a59[key] : false).filter(spec => spec)
+  return specialistNamesArr.map(name => {
+    const child = name.children[0]
+    return child.data ? child.data : child.children[0].data
+  })
+}
+
+export const getSpecialistAndLeerlingen = async (list, query): Promise<any> => {
+  const path = `database/${query}.json`
+
+  try {
+    const file = await fs.readFileSync(path, { encoding: 'UTF8' })
+    return JSON.parse(file)
+  } catch (e) {
+    const schools = JSON.parse(list).filter(school => school.A.split('#')[2].toLowerCase() === query)
+
+    const promises = schools.map(async school => ({
+      ...school,
+      specialist: await getSpecialist(school.C),
+      leerlingen: await getJson(generateLink(school.C, 'leerlingen'))
+    }))
+
+    const resolved: any = await Promise.all(promises)
+
+    const mapped = resolved.map(school => {
+      school.leerlingen = JSON.parse(school.leerlingen)
+      school.leerlingen = school.leerlingen.rapport ? school.leerlingen.rapport.versie1.datasetAantalLeerlingen.rij.aantalLeerlingen : {}
+      return school
+    })
+
+    await fs.writeFileSync(path, JSON.stringify(mapped))
+    return mapped
+  }
+}
+
 export const chk = C => new Promise(async (resolve, reject) => {
   const path = `database/${C}.json`
-
-  const getSpecialist = async () => {
-    const $ = cheerio.load(await getJson(generateSpecialistLink(C)))
-
-    const a59 = $('.a59')
-    const specialistNamesArr = Object.keys(a59).map(key => !isNaN(Number(key)) ? a59[key] : false).filter(spec => spec)
-    return specialistNamesArr.map(name => {
-      const child = name.children[0]
-      return child.data ? child.data : child.children[0].data
-    })
-  }
 
   const getOnderwijsTijd = async () => {
     const $ = cheerio.load(await getJson(generateOnderwijsTijdLink(C)))
@@ -137,7 +165,7 @@ export const chk = C => new Promise(async (resolve, reject) => {
         return combined
       }, { C })
 
-      reduced.specialist = await getSpecialist()
+      reduced.specialist = await getSpecialist(C)
       reduced.onderwijstijd = await getOnderwijsTijd()
 
       // const a162 = $('.a162')
