@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./SearchBarContainer.css";
+// import "./SearchBarContainer.css";
 import { connect } from "react-redux";
 import { getSearchResults } from "../../actions/schools";
 import SearchBar from './SearchBar'
