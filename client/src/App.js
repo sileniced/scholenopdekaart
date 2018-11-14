@@ -21,6 +21,7 @@ class App extends Component {
             <AantalLeerlingenContainer />
             <Route exact path="/search-result" component={SearchResultContainer}/>
             <Route exact path="/search-result/:city" component={SearchResultContainer}/>
+            <Route exact path="/vergelijken" component={}
             <FilterSelectionContainer/>
             <ContactDetailsContainer />
             <Footer />
