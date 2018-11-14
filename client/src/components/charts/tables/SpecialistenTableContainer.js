@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { allSpecialisten } from '../../../constants'
 import SpecialistenTable from './SpecialistenTable'
 
-class SpecialistenContainer extends Component {
+class SpecialistenTableContainer extends Component {
 
 
   render() {
@@ -20,4 +20,4 @@ class SpecialistenContainer extends Component {
 
 const mapStateToProps = ({ selectedSchools }) => ({ selectedSchools })
 
-export default connect(mapStateToProps)(SpecialistenContainer)
+export default connect(mapStateToProps)(SpecialistenTableContainer)

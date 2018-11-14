@@ -5,7 +5,7 @@ import FilterSelectionContainer from "./components/filter/FilterSelectionContain
 import HeaderContainer from "./components/layout/HeaderContainer";
 import TopBar from "./components/layout/TopBar";
 import ContactDetailsContainer from './components/contactDetails/ContactDetailsContainer'
-import AantalLeerlingenContainer from './components/charts/AantalLeerlingenContainer'
+import AantalLeerlingenContainer from './components/charts/AantalLeerlingenChartContainer'
 import { withStyles } from "@material-ui/core/styles";
 import Footer from "./components/layout/Footer";
 
