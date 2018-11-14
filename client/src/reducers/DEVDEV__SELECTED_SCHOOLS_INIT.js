@@ -357,6 +357,718 @@ export default {
       }
     },
     {
+      C: '42538-22KC-000',
+      leerlingen: {
+        rapport: {
+          Name: 'poind01_json',
+          versie1: {
+            toelichting: 'Het leerlingenaantal laat voor de komende jaren een lichte daling zien.',
+            schooljaar: '2017-2018',
+            datasetAantalLeerlingen: {
+              rij: {
+                aantalLeerlingen: 323,
+                aantalLeerlingenVergelijking: 215.02371541502
+              }
+            },
+            datasetAantalLeerlingenTrend: {
+              rij: [
+                {
+                  schooljaar: '2015-2016',
+                  aantalLeerlingen: 345,
+                  aantalLeerlingenVergelijking: 212.558615611193
+                },
+                {
+                  schooljaar: '2016-2017',
+                  aantalLeerlingen: 341,
+                  aantalLeerlingenVergelijking: 212.802504098972
+                },
+                {
+                  schooljaar: '2017-2018',
+                  aantalLeerlingen: 323,
+                  aantalLeerlingenVergelijking: 215.02371541502
+                }
+              ]
+            }
+          }
+        }
+      },
+      naw: {
+        rapport: {
+          Name: 'poind02_json',
+          versie1: {
+            toelichting: '<p>Welkom bij OBS de Graswinkel! </p><p> OBS de Graswinkel is een school waar een fijne sfeer is tussen kinderen, ouders en leerkrachten. &nbsp;Er zijn 310 kinderen, verdeeld over 12 heterogene groepen.&nbsp; Dagelijks werken we aan kindgericht onderwijs. &nbsp;We gaan uit van de kwaliteiten van kinderen en stimuleren hen in een kansrijke omgeving om actief betrokken te worden bij hun eigen leren. Zo ontstaat onderwijs op maat en kan ieder kind op zijn niveau de ontwikkeling doormaken. We vinden het belangrijk om de kinderen voor te bereiden op de maatschappij van de toekomst. &nbsp;Leren voor later noemen wij dat. </p><p> Wij nodigen u van harte uit om een keer een kijkje te komen nemen en te genieten van het onderwijs dat we samen met ouders en kinderen maken. Hiervoor kunt u binnenlopen of bellen naar 0495-540951 of mailen naar: info@obsgraswinkel.nl. </p><p> Met vriendelijke groet, Vivian Berden, directeur</p>',
+            datasetLiggingEnContact: {
+              rij: {
+                adres: 'Graswinkellaan 7-9',
+                postcode: '6005KE',
+                plaats: 'Weert',
+                telefoon_string: '0495540951',
+                website: 'http://www.obsgraswinkel.nl',
+                latitude: 51.2424706,
+                longitude: 5.7201518,
+                logo: 'School-Logo.jpg',
+                facebook: 'https://www.facebook.com/OBS-de-Graswinkel-1348840661896515/',
+                twitter: 'https://twitter.com/OBSdeGraswinkel',
+                bestuurNaam: 'Stichting Eduquaat',
+                bestuurWebsite: 'http://www.eduquaat.nl'
+              }
+            }
+          }
+        }
+      },
+      inspectie: {
+        rapport: {
+          Name: 'poind07_json',
+          versie1: {
+            toelichting: ''
+          }
+        }
+      },
+      eindtoets: {
+        rapport: {
+          Name: 'poind12_json',
+          versie1: {
+            toelichting: '<p>De resultaten van de&nbsp; eindtoets worden ieder schooljaar besproken in het leerkrachten-team. </p><p>De totale resultaten van deze toets liggen boven het landelijk gemiddelde. We zien en gebruiken de resultaten van deze toets vooral als een jaarlijkse meting van het schoolniveau. Bij onze jaarlijkse schoolevaluatie nemen we daarom, naast andere gegevens zoals tussentijdse toetsen, de analyse van de eindtoets mee. Alle informatie bij elkaar is het uitgangspunt voor onze verbeterprogramma&rsquo;s op schoolniveau.</p><p>In de afgelopen jaren hebben de resultaten van de onafhankelijke toetsen duidelijke aandachtspunten opgeleverd, waarop actie is uitgezet. Rekenen (meten en meetkunde) en Taal (met name spelling) gaan we verdiepend aanbieden binnen de projecten van Jeelo. Op leerling-niveau gaf de eindtoets veelal een herkenbaar beeld. De eindtoets is geen maatstaf voor het vervolgonderwijs. Het schooladvies m.b.t. een keuze voor voortgezet onderwijs wordt gebaseerd op 8 jaar basisonderwijs en naast kennis wordt ook de inzet en werkhouding meegenomen. Een eindtoets afnemen is verplicht. Vanaf het schooljaar 2017-2018 gebruiken we de eindtoets &#39;Route 8&#39;. Deze toets sluit beter aan bij onze manier van werken.&nbsp;</p>',
+            schooljaar: '2017-2018',
+            voorlopigeCijfers: 0,
+            datasetAmn: null,
+            datasetCesan: null,
+            datasetDia: null,
+            datasetEindtoets: null,
+            datasetIep: null,
+            datasetRoute8: {
+              rij: {
+                score: 206.7755,
+                aantalEindtoetsDeelnemers: 49,
+                percentageGewichtenLeerlingen: 4,
+                ondergrensVergelijking: 204.2,
+                voorlopigeCijfers: 0
+              }
+            }
+          }
+        }
+      },
+      tevredenheid: {
+        rapport: {
+          Name: 'poind15_json',
+          versie1: {
+            toelichting: '',
+            schooljaar: '2017-2018',
+            datasetLeerlingTevredenheid: {
+              rij: {
+                score: 7.91083435114504,
+                scoreVergelijking: 8.17020427843432,
+                aantalRespondenten: 131,
+                aantalLeerlingen: 138,
+                bronnen: 'Vensters'
+              }
+            },
+            datasetLeerlingTevredenheidTrend: {
+              rij: [
+                {
+                  schooljaar: '2015-2016',
+                  score: 7.9734693877551
+                },
+                {
+                  schooljaar: '2016-2017',
+                  score: 8.16446692913386,
+                  scoreVergelijking: 8.1932424304102
+                },
+                {
+                  schooljaar: '2017-2018',
+                  score: 7.91083435114504,
+                  scoreVergelijking: 8.17020427843433
+                }
+              ]
+            }
+          }
+        }
+      },
+      profiel: {
+        rapport: {
+          Name: 'poind17_json',
+          versie1: {
+            toelichting: '<p><strong>OBS de Graswinkel: natuurlijk&hellip; boeiend!</strong></p><p>OBS de Graswinkel bouwt aan vernieuwend onderwijs. &nbsp;Wij geloven erin dat kinderen en de maatschappelijke veranderingen vragen om ander onderwijs. </p><p><strong>Kinderen</strong></p><ul><li><strong></strong>Kinderen leren en ontwikkelen continue.</li><li>Kinderen zitten met meerdere leeftijden bij elkaar in een basisgroep.</li><li>Kinderen werken veel samen en helpen elkaar.</li><li>Kinderen worden betrokken bij hun eigen leren. Dit is zichtbaar in het portfolio.</li><li>Het kind en de leerkracht gaan met grote regelmaat in gesprek over het leerproces. </li><li>Kinderen praten mee over de school in het leerlingenpanel.</li></ul><p><strong>Ouders</strong></p><ul><li>Ouders zijn elke dag welkom op onze school.</li><li>Ouders worden actief betrokken bij allerlei (leer)activiteiten.</li><li>Ouders, kind en de leerkracht gaan regelmatig met elkaar in gesprek.</li><li>Ouders zijn actief betrokken bij de schoolontwikkeling door middel van de Medezeggenschapsraad en het Ouderpanel. </li></ul><p><strong>Leerkrachten</strong></p><ul><li>Leerkrachten gaan uit van de kwaliteiten en talenten van elk kind. </li><li>Leerkrachten hebben&nbsp;een begeleidende rol.</li><li>Leerkrachten bereiden intensief samen de dag voor.</li><li>De ontwikkeling van elk kind is leidend voor het handelen van de leerkracht.</li><li>Leerkrachten leren van en met elkaar.</li></ul><p> <strong>Hier gaan we voor: OBS de Graswinkel: natuurlijk&hellip; boeiend!</strong></p><ul><li>Betekenisvol leren: Natuurlijk leren is voor het leven. Om samenhang te cre&euml;ren, verbinden we het leren met de wereld om ons heen. </li><li>Kansrijk: We willen dat kinderen zich optimaal ontwikkelen. Dat kan in een kansrijke omgeving waarin vertrouwen en de talenten van ieder kind voorop staan. We kijken naar wie het kind is en wat het nodig heeft. </li><li> Eigenaar zijn: Iedere kind&nbsp; op onze school is medeverantwoordelijk voor zijn/haar leerproces. De ontwikkeling is leidend en ieder kind krijgt de kans om op zijn/haar eigen niveau te presteren.</li><li>Met elkaar: Van en met elkaar leren. We willen samen met het team, de kinderen , de ouders en de omgeving het beste uit onze kinderen halen. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</li></ul><p>Wat betekent dit voor ons onderwijs: </p><ul><li>We gaan uit van leer- en ontwikkellijnen. Kindgesprekken en portfolio ondersteunen dit.&nbsp;</li><li>We doorbreken het leerstofjaarklassensysteem.</li><li>We werken in basisgroepen en uitgroepen.</li><li> We integreren vakken, daar waar het kan. </li><li>Iedereen heeft invloed op zijn eigen leren.</li><li>We werken en leren vanuit een veilige relatie met elkaar.</li><li>We zijn gezamenlijk verantwoordelijk en persoonlijk aanspreekbaar voor en over ons handelen.</li><li>Hoogwaardige instructie is van belang. &nbsp;&nbsp;</li></ul><p></p><p>Binnen OBS de Graswinkel maken we gebruik&nbsp; van een aantal middelen in onze school.&nbsp; Snappet en Jeelo zijn hierin van groot belang. &nbsp; </p><p><strong>Snappet</strong><br/></p><p>Snappet is een adaptief, digitaal onderwijsplatform dat elk kind uitdaagt om zich optimaal te ontwikkelen. We werken met Snappet voor de vakken rekenen, taal en spelling. Snappet&nbsp;ondersteunt ons in het behalen van goede&nbsp;leerresultaten, meer tijdwinst, beter inzicht en overzicht wat betreft de ontwikkeling van het kind. Kinderen zijn in staat&nbsp;om hun&nbsp;eigen leerweg te volgen en zijn eigenaar&nbsp;hun eigen leren. De leerkrachten begeleiden de kinderen persoonlijk, geven instructie waar nodig en dagen de kinderen uit. In het ouder-kindgesprek vertelt het kind samen met de leerkracht aan de hand van zijn of haar Snappet-overzicht over de ontwikkeling.</p><p> <strong>Jeelo</strong> </p><p> We werken met Jeelo. Jeelo staat voor&nbsp; &lsquo;JE Eigen LeerOmgeving&rsquo;. Jeelo heeft 12 projecten. Deze projecten hebben de beleving van het kind en de directe leefomgeving van het kind als uitgangspunt: Wat is de belevingswereld van het kind? Wat valt er te leren in de omgeving van de school? Wat is maatschappelijk relevant voor de toekomst van het kind? De vakken aardrijkskunde, geschiedenis, natuur, techniek, leefstijl, EHBO, verkeer, tekenen, handvaardigheid en drama komen ge&iuml;ntegreerd aan de orde. Ook is er aandacht voor taal en rekenen. Elk project duurt ongeveer 6 weken. In die 6 weken werken alle groepen tegelijk aan het project. De kinderen werken projectmatig. Dat wil zeggen: de kinderen leveren een projectresultaat volgens vooraf gestelde eisen. Daarbij betrekken wij u als ouder en organisaties en bedrijven uit de omgeving van de school. Zij zijn noodzakelijk voor het leveren van een goed projectresultaat. Jeelo biedt een eigen, digitale leeromgeving. Leerlingen krijgen hun eigen inlog en kunnen op elke plek werken, ook thuis. Ouders en kinderen zijn door de aansprekende thema&#39;s en het actieve leren meer betrokken bij het onderwijs. </p><p> Ons enthousiasme is groot. We genieten iedere dag van de stappen die we kinderen zien maken en die we zelf maken. Kinderen, ouders en leerkrachten werken intensief samen op een betrokken en flexibele manier. Onderwijs maken is onze grote passie. OBS de Graswinkel is onze gezamenlijke trots omdat we merken dat we door intensief samen werken veel aan onze kinderen kunnen bieden!</p><p> &nbsp; &nbsp; &nbsp;&nbsp;</p><p><strong>Prioriteiten:</strong></p><ul><li>Kinderen en leerkrachten cre&euml;ren een fijne sfeer waarin de brede ontwikkeling centraal staat.</li><li>We volgen de kinderen optimaal, ook nu we het leerstofjaarklassensysteem loslaten.</li><li>We informeren en betrekken ouders en kinderen effectief.</li><li>We brengen verdieping aan in de begeleiding van leerlingen. </li><li>We stellen de juiste didactische en pedagogische vragen aan kinderen.We zorgen ervoor dat ons onderwijs betekenisvol blijft.</li><li>We verdiepen ons verder in de projecten van Jeelo. O.a. bronnengebruik, taal, rekenen, hoekenwerk en competentielijnen krijgen hierin een plek.</li><li>Iedere leerkracht werkt bewust aan veranderend leerkrachthandelen, passende binnen ons vernieuwend onderwijs.</li><li>We bouwen ons onderwijsconcept, vanuit leerlijnen, &nbsp;verder uit.</li><li>Het proces &#39;aanvankelijk lezen&#39; in team 2 vindt plaats binnen de projecten van Jeelo.</li><li>We gaan meer adaptief kindgericht toetsen.</li><li>We hebben aandacht voor de samenwerking binnen het team en het geven en ontvangen van feedback.</li><li>We verdiepen ons in &#39;hoogwaardige instructie&#39; en rekenen, passende binnen ons onderwijsconcept.</li></ul><p></p>',
+            datasetProfielVanDeSchool: {
+              rij: [
+                {
+                  kernwoord: 'Eigenaar zijn',
+                  volgorde: 1
+                },
+                {
+                  kernwoord: 'Betekenisvol',
+                  volgorde: 2
+                },
+                {
+                  kernwoord: 'Kansrijk',
+                  volgorde: 3
+                },
+                {
+                  kernwoord: 'Met elkaar',
+                  volgorde: 4
+                }
+              ]
+            }
+          }
+        }
+      },
+      sociale: {
+        rapport: {
+          Name: 'poind20_json',
+          versie1: {
+            datasetKernwaarden: {
+              rij: [
+                {
+                  kernwaarde: 'Samen leven',
+                  volgorde: 1
+                },
+                {
+                  kernwaarde: 'Samen werken',
+                  volgorde: 2
+                },
+                {
+                  kernwaarde: 'Zelfstandig leren',
+                  volgorde: 3
+                }
+              ]
+            },
+            datasetVisie: {
+              rij: {
+                visie: '<p>Sinds augustus 2016 zijn we een Jeelo-school. We conformeren ons aan deze drie pijlers van Jeelo, dit omdat we hiermee heel veel handvatten hebben om vanuit projecten het onderwijs vorm te geven. Hiermee koppelen we de sociale ontwikkeling aan kennislijnen, competentielijnen en ontwikkelingslijnen.&nbsp;</p><p>Binnen de pijler <strong>\'samen leven\'</strong> wordt de maatschappelijke betrokkenheid van het kind vergroot. Het kind krijgt het gevoel: <em>ik heb er zin in!</em> Onze deuren staan open. We betrekken de maatschappij actief bij het leren. We verbinden dat wat kinderen leren met de praktijk van het dagelijkse leven en werken.&nbsp;</p><p>Binnen de pijler <strong>\'samen werken\'</strong> krijgen kinderen het gevoel: <em>ik kan het!</em> In de projecten ligt de nadruk op de competenties. Alle 21e eeuw vaardigheden zoals onder andere \'probleem oplossen\', \'mediawijsheid\', \'samenwerken en \'ICT-basisvaardigheden\' komen aan bod.</p><p>Binnen de pijler <strong>\'zelfstandig leren\'</strong> krijgen de kinderen het gevoel:<em> ik hou vol!</em> Zelfstandig leren kunnen leerlingen niet vanzelf. Aandacht voor leren leren en leerstijlen van leerlingen is een rode draad door de projecten.</p><p>Wij gaan als school extra aandacht besteden aan de pijler \'zelfstandig leren\'. We gaan aan de slag met het verdiepen van het voeren van kindgesprekken. Welke vragen zijn de goede vragen om een kind tot reflectie te brengen? Welke vragen zijn de juiste vragen om een volgende stap voor het kind vast te stellen? Welke vragen zijn de juiste vragen om meer inzicht te krijgen waarom iets niet lukt? Daarnaast gaan we steeds meer samen met het kind vastleggen binnen Jeelo om kinderen meer bewust te maken van hun competenties. Dit teamleren vindt plaats vanuit video-interactie en nascholing binnen Jeelo. Dit alles krijgt een plek binnen onze professionalisering.</p>'
+              }
+            }
+          }
+        }
+      },
+      ondersteuning: {
+        rapport: {
+          Name: 'poind24_json',
+          versie1: {
+            toelichting: 'Er is een Remedial Teacher op het gebied van didactisch gebied aanwezig. Er zijn echter geen &#39;RT-uren&#39;.&nbsp;',
+            schooljaar: '',
+            datasetBijlage: {
+              rij: {
+                bijlage: 'SOPEduquaat20172018.pdf'
+              }
+            }
+          }
+        }
+      },
+      tijden: {
+        rapport: {
+          Name: 'poind37_json',
+          versie1: {
+            toelichting: '<p>OBS de Graswinkel geeft samen met de tussenschoolse opvang en Kinderopvang Humanitas invulling aan de dag van uw kind.&nbsp;</p><p><br/></p>',
+            datasetOpvang: {
+              rij: [
+                {
+                  soortOpvang: 'Voorschoolse opvang',
+                  soortOpvangVlg: 1,
+                  soortOpvangJaNee: 'Voorschoolse opvang',
+                  waar: 'In het schoolgebouw',
+                  kosten: 'Ja',
+                  hoeAndersNaam1: 'Humanitas',
+                  hoeAndersWebsite1: 'http://www.humanitas.nl'
+                },
+                {
+                  soortOpvang: 'Tussenschoolse opvang',
+                  soortOpvangVlg: 2,
+                  soortOpvangJaNee: 'Tussenschoolse opvang',
+                  waar: 'In het schoolgebouw',
+                  kosten: 'Ja',
+                  hoeOuders: 'In samenwerking met ouders'
+                },
+                {
+                  soortOpvang: 'Naschoolse opvang',
+                  soortOpvangVlg: 3,
+                  soortOpvangJaNee: 'Naschoolse opvang',
+                  waar: 'In het schoolgebouw',
+                  kosten: 'Ja',
+                  hoeAndersNaam1: 'Humanitas',
+                  hoeAndersWebsite1: 'https://www.humanitas.nl'
+                }
+              ]
+            },
+            datasetSchooltijden: {
+              rij: [
+                {
+                  dag: 'Dinsdag',
+                  opvangVan: '07:30',
+                  ochtendVan: '08:30',
+                  ochtendTot: '12:00',
+                  middagVan: '13:00',
+                  middagTot: '15:00',
+                  opvangTot: '18:30'
+                },
+                {
+                  dag: 'Donderdag',
+                  opvangVan: '07:30',
+                  ochtendVan: '08:30',
+                  ochtendTot: '12:00',
+                  middagVan: '13:00',
+                  middagTot: '15:00',
+                  opvangTot: '18:30'
+                },
+                {
+                  dag: 'Maandag',
+                  opvangVan: '07:30',
+                  ochtendVan: '08:30',
+                  ochtendTot: '12:00',
+                  middagVan: '13:00',
+                  middagTot: '15:00',
+                  opvangTot: '18:30'
+                },
+                {
+                  dag: 'Vrijdag',
+                  opvangVan: '07:30',
+                  ochtendVan: '08:30',
+                  ochtendTot: '12:00',
+                  middagVan: '13:00',
+                  middagTot: '15:00',
+                  opvangTot: '18:30'
+                },
+                {
+                  dag: 'Woensdag',
+                  opvangVan: '07:30',
+                  ochtendVan: '08:30',
+                  ochtendTot: '12:30',
+                  opvangTot: '18:30'
+                }
+              ]
+            }
+          }
+        }
+      },
+      schoolgids: {
+        rapport: {
+          Name: 'poind40_json',
+          versie1: {
+            datasetSchoolgids: {
+              rij: {
+                schoolgids_aanwezig: 1,
+                bijlage: 'Schoolgids 7551.pdf'
+              }
+            }
+          }
+        }
+      },
+      specialist: [
+        'Dyslexiespecialist',
+        'Gedragsspecialist',
+        'Intern begeleider',
+        'Onderwijsassistent',
+        'Orthopedagoog',
+        'Remedial teacher',
+        'Master Pedagoog'
+      ],
+      onderwijstijd: {},
+      school: {
+        I: 7551,
+        N: 'Openbare basisschool de Graswinkel',
+        C: '42538-22KC-000',
+        A: [
+          'Graswinkellaan 7-9',
+          '6005KE',
+          'Weert'
+        ],
+        W: 'http://www.obsgraswinkel.nl',
+        T: '0495540951',
+        L: 1,
+        Lt: 51.242471,
+        Lg: 5.720152,
+        D: 2,
+        M: [],
+        O: [
+          1
+        ],
+        Ni: 2047,
+        specialist: [
+          'Dyslexiespecialist',
+          'Gedragsspecialist',
+          'Intern begeleider',
+          'Onderwijsassistent',
+          'Orthopedagoog',
+          'Remedial teacher',
+          'Master Pedagoog'
+        ],
+        leerlingen: 323,
+        selected: false
+      },
+      specialisten: {
+        Dylexsiespecialist: false,
+        Gedragsspecialist: true,
+        'Intern begeleider': true,
+        Klassenassistent: false,
+        Onderwijsassistent: true,
+        Orthopedagoog: true,
+        Rekenspecialist: false,
+        'Remedial teacher': true,
+        'Specialist hoogbegaafdheid': false,
+        Taalspecialist: false,
+        Fysiotherapeut: false,
+        Ergotherapeut: false,
+        Zorgassistent: false,
+        Dyslexiespecialist: true,
+        'Master Pedagoog': true
+      }
+    },
+    {
+      C: '42538-22KC-000',
+      leerlingen: {
+        rapport: {
+          Name: 'poind01_json',
+          versie1: {
+            toelichting: 'Het leerlingenaantal laat voor de komende jaren een lichte daling zien.',
+            schooljaar: '2017-2018',
+            datasetAantalLeerlingen: {
+              rij: {
+                aantalLeerlingen: 323,
+                aantalLeerlingenVergelijking: 215.02371541502
+              }
+            },
+            datasetAantalLeerlingenTrend: {
+              rij: [
+                {
+                  schooljaar: '2015-2016',
+                  aantalLeerlingen: 345,
+                  aantalLeerlingenVergelijking: 212.558615611193
+                },
+                {
+                  schooljaar: '2016-2017',
+                  aantalLeerlingen: 341,
+                  aantalLeerlingenVergelijking: 212.802504098972
+                },
+                {
+                  schooljaar: '2017-2018',
+                  aantalLeerlingen: 323,
+                  aantalLeerlingenVergelijking: 215.02371541502
+                }
+              ]
+            }
+          }
+        }
+      },
+      naw: {
+        rapport: {
+          Name: 'poind02_json',
+          versie1: {
+            toelichting: '<p>Welkom bij OBS de Graswinkel! </p><p> OBS de Graswinkel is een school waar een fijne sfeer is tussen kinderen, ouders en leerkrachten. &nbsp;Er zijn 310 kinderen, verdeeld over 12 heterogene groepen.&nbsp; Dagelijks werken we aan kindgericht onderwijs. &nbsp;We gaan uit van de kwaliteiten van kinderen en stimuleren hen in een kansrijke omgeving om actief betrokken te worden bij hun eigen leren. Zo ontstaat onderwijs op maat en kan ieder kind op zijn niveau de ontwikkeling doormaken. We vinden het belangrijk om de kinderen voor te bereiden op de maatschappij van de toekomst. &nbsp;Leren voor later noemen wij dat. </p><p> Wij nodigen u van harte uit om een keer een kijkje te komen nemen en te genieten van het onderwijs dat we samen met ouders en kinderen maken. Hiervoor kunt u binnenlopen of bellen naar 0495-540951 of mailen naar: info@obsgraswinkel.nl. </p><p> Met vriendelijke groet, Vivian Berden, directeur</p>',
+            datasetLiggingEnContact: {
+              rij: {
+                adres: 'Graswinkellaan 7-9',
+                postcode: '6005KE',
+                plaats: 'Weert',
+                telefoon_string: '0495540951',
+                website: 'http://www.obsgraswinkel.nl',
+                latitude: 51.2424706,
+                longitude: 5.7201518,
+                logo: 'School-Logo.jpg',
+                facebook: 'https://www.facebook.com/OBS-de-Graswinkel-1348840661896515/',
+                twitter: 'https://twitter.com/OBSdeGraswinkel',
+                bestuurNaam: 'Stichting Eduquaat',
+                bestuurWebsite: 'http://www.eduquaat.nl'
+              }
+            }
+          }
+        }
+      },
+      inspectie: {
+        rapport: {
+          Name: 'poind07_json',
+          versie1: {
+            toelichting: ''
+          }
+        }
+      },
+      eindtoets: {
+        rapport: {
+          Name: 'poind12_json',
+          versie1: {
+            toelichting: '<p>De resultaten van de&nbsp; eindtoets worden ieder schooljaar besproken in het leerkrachten-team. </p><p>De totale resultaten van deze toets liggen boven het landelijk gemiddelde. We zien en gebruiken de resultaten van deze toets vooral als een jaarlijkse meting van het schoolniveau. Bij onze jaarlijkse schoolevaluatie nemen we daarom, naast andere gegevens zoals tussentijdse toetsen, de analyse van de eindtoets mee. Alle informatie bij elkaar is het uitgangspunt voor onze verbeterprogramma&rsquo;s op schoolniveau.</p><p>In de afgelopen jaren hebben de resultaten van de onafhankelijke toetsen duidelijke aandachtspunten opgeleverd, waarop actie is uitgezet. Rekenen (meten en meetkunde) en Taal (met name spelling) gaan we verdiepend aanbieden binnen de projecten van Jeelo. Op leerling-niveau gaf de eindtoets veelal een herkenbaar beeld. De eindtoets is geen maatstaf voor het vervolgonderwijs. Het schooladvies m.b.t. een keuze voor voortgezet onderwijs wordt gebaseerd op 8 jaar basisonderwijs en naast kennis wordt ook de inzet en werkhouding meegenomen. Een eindtoets afnemen is verplicht. Vanaf het schooljaar 2017-2018 gebruiken we de eindtoets &#39;Route 8&#39;. Deze toets sluit beter aan bij onze manier van werken.&nbsp;</p>',
+            schooljaar: '2017-2018',
+            voorlopigeCijfers: 0,
+            datasetAmn: null,
+            datasetCesan: null,
+            datasetDia: null,
+            datasetEindtoets: null,
+            datasetIep: null,
+            datasetRoute8: {
+              rij: {
+                score: 206.7755,
+                aantalEindtoetsDeelnemers: 49,
+                percentageGewichtenLeerlingen: 4,
+                ondergrensVergelijking: 204.2,
+                voorlopigeCijfers: 0
+              }
+            }
+          }
+        }
+      },
+      tevredenheid: {
+        rapport: {
+          Name: 'poind15_json',
+          versie1: {
+            toelichting: '',
+            schooljaar: '2017-2018',
+            datasetLeerlingTevredenheid: {
+              rij: {
+                score: 7.91083435114504,
+                scoreVergelijking: 8.17020427843432,
+                aantalRespondenten: 131,
+                aantalLeerlingen: 138,
+                bronnen: 'Vensters'
+              }
+            },
+            datasetLeerlingTevredenheidTrend: {
+              rij: [
+                {
+                  schooljaar: '2015-2016',
+                  score: 7.9734693877551
+                },
+                {
+                  schooljaar: '2016-2017',
+                  score: 8.16446692913386,
+                  scoreVergelijking: 8.1932424304102
+                },
+                {
+                  schooljaar: '2017-2018',
+                  score: 7.91083435114504,
+                  scoreVergelijking: 8.17020427843433
+                }
+              ]
+            }
+          }
+        }
+      },
+      profiel: {
+        rapport: {
+          Name: 'poind17_json',
+          versie1: {
+            toelichting: '<p><strong>OBS de Graswinkel: natuurlijk&hellip; boeiend!</strong></p><p>OBS de Graswinkel bouwt aan vernieuwend onderwijs. &nbsp;Wij geloven erin dat kinderen en de maatschappelijke veranderingen vragen om ander onderwijs. </p><p><strong>Kinderen</strong></p><ul><li><strong></strong>Kinderen leren en ontwikkelen continue.</li><li>Kinderen zitten met meerdere leeftijden bij elkaar in een basisgroep.</li><li>Kinderen werken veel samen en helpen elkaar.</li><li>Kinderen worden betrokken bij hun eigen leren. Dit is zichtbaar in het portfolio.</li><li>Het kind en de leerkracht gaan met grote regelmaat in gesprek over het leerproces. </li><li>Kinderen praten mee over de school in het leerlingenpanel.</li></ul><p><strong>Ouders</strong></p><ul><li>Ouders zijn elke dag welkom op onze school.</li><li>Ouders worden actief betrokken bij allerlei (leer)activiteiten.</li><li>Ouders, kind en de leerkracht gaan regelmatig met elkaar in gesprek.</li><li>Ouders zijn actief betrokken bij de schoolontwikkeling door middel van de Medezeggenschapsraad en het Ouderpanel. </li></ul><p><strong>Leerkrachten</strong></p><ul><li>Leerkrachten gaan uit van de kwaliteiten en talenten van elk kind. </li><li>Leerkrachten hebben&nbsp;een begeleidende rol.</li><li>Leerkrachten bereiden intensief samen de dag voor.</li><li>De ontwikkeling van elk kind is leidend voor het handelen van de leerkracht.</li><li>Leerkrachten leren van en met elkaar.</li></ul><p> <strong>Hier gaan we voor: OBS de Graswinkel: natuurlijk&hellip; boeiend!</strong></p><ul><li>Betekenisvol leren: Natuurlijk leren is voor het leven. Om samenhang te cre&euml;ren, verbinden we het leren met de wereld om ons heen. </li><li>Kansrijk: We willen dat kinderen zich optimaal ontwikkelen. Dat kan in een kansrijke omgeving waarin vertrouwen en de talenten van ieder kind voorop staan. We kijken naar wie het kind is en wat het nodig heeft. </li><li> Eigenaar zijn: Iedere kind&nbsp; op onze school is medeverantwoordelijk voor zijn/haar leerproces. De ontwikkeling is leidend en ieder kind krijgt de kans om op zijn/haar eigen niveau te presteren.</li><li>Met elkaar: Van en met elkaar leren. We willen samen met het team, de kinderen , de ouders en de omgeving het beste uit onze kinderen halen. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</li></ul><p>Wat betekent dit voor ons onderwijs: </p><ul><li>We gaan uit van leer- en ontwikkellijnen. Kindgesprekken en portfolio ondersteunen dit.&nbsp;</li><li>We doorbreken het leerstofjaarklassensysteem.</li><li>We werken in basisgroepen en uitgroepen.</li><li> We integreren vakken, daar waar het kan. </li><li>Iedereen heeft invloed op zijn eigen leren.</li><li>We werken en leren vanuit een veilige relatie met elkaar.</li><li>We zijn gezamenlijk verantwoordelijk en persoonlijk aanspreekbaar voor en over ons handelen.</li><li>Hoogwaardige instructie is van belang. &nbsp;&nbsp;</li></ul><p></p><p>Binnen OBS de Graswinkel maken we gebruik&nbsp; van een aantal middelen in onze school.&nbsp; Snappet en Jeelo zijn hierin van groot belang. &nbsp; </p><p><strong>Snappet</strong><br/></p><p>Snappet is een adaptief, digitaal onderwijsplatform dat elk kind uitdaagt om zich optimaal te ontwikkelen. We werken met Snappet voor de vakken rekenen, taal en spelling. Snappet&nbsp;ondersteunt ons in het behalen van goede&nbsp;leerresultaten, meer tijdwinst, beter inzicht en overzicht wat betreft de ontwikkeling van het kind. Kinderen zijn in staat&nbsp;om hun&nbsp;eigen leerweg te volgen en zijn eigenaar&nbsp;hun eigen leren. De leerkrachten begeleiden de kinderen persoonlijk, geven instructie waar nodig en dagen de kinderen uit. In het ouder-kindgesprek vertelt het kind samen met de leerkracht aan de hand van zijn of haar Snappet-overzicht over de ontwikkeling.</p><p> <strong>Jeelo</strong> </p><p> We werken met Jeelo. Jeelo staat voor&nbsp; &lsquo;JE Eigen LeerOmgeving&rsquo;. Jeelo heeft 12 projecten. Deze projecten hebben de beleving van het kind en de directe leefomgeving van het kind als uitgangspunt: Wat is de belevingswereld van het kind? Wat valt er te leren in de omgeving van de school? Wat is maatschappelijk relevant voor de toekomst van het kind? De vakken aardrijkskunde, geschiedenis, natuur, techniek, leefstijl, EHBO, verkeer, tekenen, handvaardigheid en drama komen ge&iuml;ntegreerd aan de orde. Ook is er aandacht voor taal en rekenen. Elk project duurt ongeveer 6 weken. In die 6 weken werken alle groepen tegelijk aan het project. De kinderen werken projectmatig. Dat wil zeggen: de kinderen leveren een projectresultaat volgens vooraf gestelde eisen. Daarbij betrekken wij u als ouder en organisaties en bedrijven uit de omgeving van de school. Zij zijn noodzakelijk voor het leveren van een goed projectresultaat. Jeelo biedt een eigen, digitale leeromgeving. Leerlingen krijgen hun eigen inlog en kunnen op elke plek werken, ook thuis. Ouders en kinderen zijn door de aansprekende thema&#39;s en het actieve leren meer betrokken bij het onderwijs. </p><p> Ons enthousiasme is groot. We genieten iedere dag van de stappen die we kinderen zien maken en die we zelf maken. Kinderen, ouders en leerkrachten werken intensief samen op een betrokken en flexibele manier. Onderwijs maken is onze grote passie. OBS de Graswinkel is onze gezamenlijke trots omdat we merken dat we door intensief samen werken veel aan onze kinderen kunnen bieden!</p><p> &nbsp; &nbsp; &nbsp;&nbsp;</p><p><strong>Prioriteiten:</strong></p><ul><li>Kinderen en leerkrachten cre&euml;ren een fijne sfeer waarin de brede ontwikkeling centraal staat.</li><li>We volgen de kinderen optimaal, ook nu we het leerstofjaarklassensysteem loslaten.</li><li>We informeren en betrekken ouders en kinderen effectief.</li><li>We brengen verdieping aan in de begeleiding van leerlingen. </li><li>We stellen de juiste didactische en pedagogische vragen aan kinderen.We zorgen ervoor dat ons onderwijs betekenisvol blijft.</li><li>We verdiepen ons verder in de projecten van Jeelo. O.a. bronnengebruik, taal, rekenen, hoekenwerk en competentielijnen krijgen hierin een plek.</li><li>Iedere leerkracht werkt bewust aan veranderend leerkrachthandelen, passende binnen ons vernieuwend onderwijs.</li><li>We bouwen ons onderwijsconcept, vanuit leerlijnen, &nbsp;verder uit.</li><li>Het proces &#39;aanvankelijk lezen&#39; in team 2 vindt plaats binnen de projecten van Jeelo.</li><li>We gaan meer adaptief kindgericht toetsen.</li><li>We hebben aandacht voor de samenwerking binnen het team en het geven en ontvangen van feedback.</li><li>We verdiepen ons in &#39;hoogwaardige instructie&#39; en rekenen, passende binnen ons onderwijsconcept.</li></ul><p></p>',
+            datasetProfielVanDeSchool: {
+              rij: [
+                {
+                  kernwoord: 'Eigenaar zijn',
+                  volgorde: 1
+                },
+                {
+                  kernwoord: 'Betekenisvol',
+                  volgorde: 2
+                },
+                {
+                  kernwoord: 'Kansrijk',
+                  volgorde: 3
+                },
+                {
+                  kernwoord: 'Met elkaar',
+                  volgorde: 4
+                }
+              ]
+            }
+          }
+        }
+      },
+      sociale: {
+        rapport: {
+          Name: 'poind20_json',
+          versie1: {
+            datasetKernwaarden: {
+              rij: [
+                {
+                  kernwaarde: 'Samen leven',
+                  volgorde: 1
+                },
+                {
+                  kernwaarde: 'Samen werken',
+                  volgorde: 2
+                },
+                {
+                  kernwaarde: 'Zelfstandig leren',
+                  volgorde: 3
+                }
+              ]
+            },
+            datasetVisie: {
+              rij: {
+                visie: '<p>Sinds augustus 2016 zijn we een Jeelo-school. We conformeren ons aan deze drie pijlers van Jeelo, dit omdat we hiermee heel veel handvatten hebben om vanuit projecten het onderwijs vorm te geven. Hiermee koppelen we de sociale ontwikkeling aan kennislijnen, competentielijnen en ontwikkelingslijnen.&nbsp;</p><p>Binnen de pijler <strong>\'samen leven\'</strong> wordt de maatschappelijke betrokkenheid van het kind vergroot. Het kind krijgt het gevoel: <em>ik heb er zin in!</em> Onze deuren staan open. We betrekken de maatschappij actief bij het leren. We verbinden dat wat kinderen leren met de praktijk van het dagelijkse leven en werken.&nbsp;</p><p>Binnen de pijler <strong>\'samen werken\'</strong> krijgen kinderen het gevoel: <em>ik kan het!</em> In de projecten ligt de nadruk op de competenties. Alle 21e eeuw vaardigheden zoals onder andere \'probleem oplossen\', \'mediawijsheid\', \'samenwerken en \'ICT-basisvaardigheden\' komen aan bod.</p><p>Binnen de pijler <strong>\'zelfstandig leren\'</strong> krijgen de kinderen het gevoel:<em> ik hou vol!</em> Zelfstandig leren kunnen leerlingen niet vanzelf. Aandacht voor leren leren en leerstijlen van leerlingen is een rode draad door de projecten.</p><p>Wij gaan als school extra aandacht besteden aan de pijler \'zelfstandig leren\'. We gaan aan de slag met het verdiepen van het voeren van kindgesprekken. Welke vragen zijn de goede vragen om een kind tot reflectie te brengen? Welke vragen zijn de juiste vragen om een volgende stap voor het kind vast te stellen? Welke vragen zijn de juiste vragen om meer inzicht te krijgen waarom iets niet lukt? Daarnaast gaan we steeds meer samen met het kind vastleggen binnen Jeelo om kinderen meer bewust te maken van hun competenties. Dit teamleren vindt plaats vanuit video-interactie en nascholing binnen Jeelo. Dit alles krijgt een plek binnen onze professionalisering.</p>'
+              }
+            }
+          }
+        }
+      },
+      ondersteuning: {
+        rapport: {
+          Name: 'poind24_json',
+          versie1: {
+            toelichting: 'Er is een Remedial Teacher op het gebied van didactisch gebied aanwezig. Er zijn echter geen &#39;RT-uren&#39;.&nbsp;',
+            schooljaar: '',
+            datasetBijlage: {
+              rij: {
+                bijlage: 'SOPEduquaat20172018.pdf'
+              }
+            }
+          }
+        }
+      },
+      tijden: {
+        rapport: {
+          Name: 'poind37_json',
+          versie1: {
+            toelichting: '<p>OBS de Graswinkel geeft samen met de tussenschoolse opvang en Kinderopvang Humanitas invulling aan de dag van uw kind.&nbsp;</p><p><br/></p>',
+            datasetOpvang: {
+              rij: [
+                {
+                  soortOpvang: 'Voorschoolse opvang',
+                  soortOpvangVlg: 1,
+                  soortOpvangJaNee: 'Voorschoolse opvang',
+                  waar: 'In het schoolgebouw',
+                  kosten: 'Ja',
+                  hoeAndersNaam1: 'Humanitas',
+                  hoeAndersWebsite1: 'http://www.humanitas.nl'
+                },
+                {
+                  soortOpvang: 'Tussenschoolse opvang',
+                  soortOpvangVlg: 2,
+                  soortOpvangJaNee: 'Tussenschoolse opvang',
+                  waar: 'In het schoolgebouw',
+                  kosten: 'Ja',
+                  hoeOuders: 'In samenwerking met ouders'
+                },
+                {
+                  soortOpvang: 'Naschoolse opvang',
+                  soortOpvangVlg: 3,
+                  soortOpvangJaNee: 'Naschoolse opvang',
+                  waar: 'In het schoolgebouw',
+                  kosten: 'Ja',
+                  hoeAndersNaam1: 'Humanitas',
+                  hoeAndersWebsite1: 'https://www.humanitas.nl'
+                }
+              ]
+            },
+            datasetSchooltijden: {
+              rij: [
+                {
+                  dag: 'Dinsdag',
+                  opvangVan: '07:30',
+                  ochtendVan: '08:30',
+                  ochtendTot: '12:00',
+                  middagVan: '13:00',
+                  middagTot: '15:00',
+                  opvangTot: '18:30'
+                },
+                {
+                  dag: 'Donderdag',
+                  opvangVan: '07:30',
+                  ochtendVan: '08:30',
+                  ochtendTot: '12:00',
+                  middagVan: '13:00',
+                  middagTot: '15:00',
+                  opvangTot: '18:30'
+                },
+                {
+                  dag: 'Maandag',
+                  opvangVan: '07:30',
+                  ochtendVan: '08:30',
+                  ochtendTot: '12:00',
+                  middagVan: '13:00',
+                  middagTot: '15:00',
+                  opvangTot: '18:30'
+                },
+                {
+                  dag: 'Vrijdag',
+                  opvangVan: '07:30',
+                  ochtendVan: '08:30',
+                  ochtendTot: '12:00',
+                  middagVan: '13:00',
+                  middagTot: '15:00',
+                  opvangTot: '18:30'
+                },
+                {
+                  dag: 'Woensdag',
+                  opvangVan: '07:30',
+                  ochtendVan: '08:30',
+                  ochtendTot: '12:30',
+                  opvangTot: '18:30'
+                }
+              ]
+            }
+          }
+        }
+      },
+      schoolgids: {
+        rapport: {
+          Name: 'poind40_json',
+          versie1: {
+            datasetSchoolgids: {
+              rij: {
+                schoolgids_aanwezig: 1,
+                bijlage: 'Schoolgids 7551.pdf'
+              }
+            }
+          }
+        }
+      },
+      specialist: [
+        'Dyslexiespecialist',
+        'Gedragsspecialist',
+        'Intern begeleider',
+        'Onderwijsassistent',
+        'Orthopedagoog',
+        'Remedial teacher',
+        'Master Pedagoog'
+      ],
+      onderwijstijd: {},
+      school: {
+        I: 7551,
+        N: 'Openbare basisschool de Graswinkel',
+        C: '42538-22KC-000',
+        A: [
+          'Graswinkellaan 7-9',
+          '6005KE',
+          'Weert'
+        ],
+        W: 'http://www.obsgraswinkel.nl',
+        T: '0495540951',
+        L: 1,
+        Lt: 51.242471,
+        Lg: 5.720152,
+        D: 2,
+        M: [],
+        O: [
+          1
+        ],
+        Ni: 2047,
+        specialist: [
+          'Dyslexiespecialist',
+          'Gedragsspecialist',
+          'Intern begeleider',
+          'Onderwijsassistent',
+          'Orthopedagoog',
+          'Remedial teacher',
+          'Master Pedagoog'
+        ],
+        leerlingen: 323,
+        selected: false
+      },
+      specialisten: {
+        Dylexsiespecialist: false,
+        Gedragsspecialist: true,
+        'Intern begeleider': true,
+        Klassenassistent: false,
+        Onderwijsassistent: true,
+        Orthopedagoog: true,
+        Rekenspecialist: false,
+        'Remedial teacher': true,
+        'Specialist hoogbegaafdheid': false,
+        Taalspecialist: false,
+        Fysiotherapeut: false,
+        Ergotherapeut: false,
+        Zorgassistent: false,
+        Dyslexiespecialist: true,
+        'Master Pedagoog': true
+      }
+    },
+    {
       C: '40377-15XB-000',
       leerlingen: {
         rapport: {
