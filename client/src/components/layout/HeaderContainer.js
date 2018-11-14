@@ -28,8 +28,9 @@ const style = theme => ({
     fontWeight: 700,
     color: "#fff",
     fontSize: "40px",
-    paddingTop: "40px",
     paddingBottom: "60px",
+    paddingTop: "10%",
+    margin: "4%",
     [theme.breakpoints.down("sm")]: {
       fontSize: "25px",
       paddingBottom: "20px"
