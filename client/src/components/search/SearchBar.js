@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Card, Typography } from "@material-ui/core";
 import { Redirect } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
-import { theme } from "../../theme";
 
 class SearchBar extends Component {
   constructor(props) {
