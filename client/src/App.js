@@ -4,7 +4,6 @@ import SearchResultContainer from "./components/search-result/SearchResultContai
 import FilterSelectionContainer from "./components/filter/FilterSelectionContainer";
 import HeaderContainer from "./components/layout/HeaderContainer";
 import TopBar from "./components/layout/TopBar";
-import ContactDetailsContainer from './components/contactDetails/ContactDetailsContainer'
 import { withStyles } from "@material-ui/core/styles";
 import Footer from "./components/layout/Footer";
 import ComparisonContainer from "./components/comparisonComponents/ComparisonContainer"
@@ -35,7 +34,6 @@ class App extends Component {
             <Route exact path="/search-result/:city" component={SearchResultContainer}/>
             <Route exact path="/vergelijken" component={ComparisonContainer} />
             <FilterSelectionContainer/>
-            <ContactDetailsContainer />
             <Footer />
           </main>
         </div>

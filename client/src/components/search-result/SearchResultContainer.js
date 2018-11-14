@@ -18,6 +18,7 @@ import SearchFilters from "./SearchFilters";
 import { withStyles } from "@material-ui/core/styles";
 import FormatListBulletedIcon from "mdi-react/FormatListBulletedIcon";
 import TuneIcon from "mdi-react/TuneIcon";
+import { Redirect } from "react-router-dom";
 
 const styles = theme => ({
   searchResult: {
@@ -31,7 +32,8 @@ const styles = theme => ({
 class SearchResultContainer extends React.PureComponent {
   state = {
     showFilters: false,
-    showResults: true
+    showResults: true,
+    redirect: false
   };
 
   compareSchool = schoolId => {
@@ -40,8 +42,15 @@ class SearchResultContainer extends React.PureComponent {
       this.props.setSchoolToCompare(school);
   };
 
+  setRedirect = () => {
+    this.setState({
+      redirect: true
+    });
+  };
   startComparison = () => {
-    console.log("Let's start the comparison");
+    if (this.state.redirect) {
+      return <Redirect to="/vergelijken" />;
+    }
   };
 
   handleToggleOnderwijstype = type => {
@@ -123,7 +132,9 @@ class SearchResultContainer extends React.PureComponent {
     return (
       <div className={classes.searchResult}>
         <StartComparisonButton
-          handleClick={this.startComparison}
+          handleClick={this.setRedirect}
+          mustRedirect={this.state.redirect}
+          redirect={this.startComparison}
           selectedSchools={this.props.selectedSchools}
           maxSchools={maxSchools}
         />
