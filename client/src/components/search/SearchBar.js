@@ -79,17 +79,17 @@ const styles = theme => ({
   searchTitle: {
     alignItems: "left",
     color: "#fff",
-    fontSize: "20px",
+    fontSize: "25px",
     fontWeight: "bold",
     display: "block",
     [theme.breakpoints.down("sm")]: {
-      fontSize: "15px"
-    },
-    [theme.breakpoints.up("md")]: {
       fontSize: "18px"
     },
+    [theme.breakpoints.up("md")]: {
+      fontSize: "23px"
+    },
     [theme.breakpoints.up("lg")]: {
-      fontSize: "20px"
+      fontSize: "25px"
     }
   },
   searchField: {
