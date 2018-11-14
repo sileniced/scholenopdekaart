@@ -4,7 +4,7 @@ import SearchResultContainer from "./components/search-result/SearchResultContai
 import FilterSelectionContainer from "./components/filter/FilterSelectionContainer";
 import HeaderContainer from "./components/layout/HeaderContainer";
 import TopBar from "./components/layout/TopBar";
-import ContactDetailsContainer from './components/charts/ContactDetailsContainer'
+import ContactDetailsContainer from './components/contactDetails/ContactDetailsContainer'
 
 class App extends Component {
   render() {

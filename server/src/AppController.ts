@@ -1,6 +1,6 @@
 import { Get, JsonController, NotFoundError, Param } from 'routing-controllers'
 import * as fs from 'fs'
-import { chk, ISchool } from './AppControllerUtils'
+import { chk, ISchool, getSpecialistAndLeerlingen } from './AppControllerUtils'
 
 @JsonController()
 export default class AppController {
@@ -16,7 +16,7 @@ export default class AppController {
     @Param('query') query: string
   ): Promise<ISchool[]> {
     const list: string = await fs.readFileSync('src/data/schoolList.json', { encoding: 'UTF8' })
-    return JSON.parse(list).filter(school => school.A.split('#')[2].toLowerCase() === query.toLowerCase())
+    return await getSpecialistAndLeerlingen(list, query.toLowerCase())
   }
 
   @Get('/:C')
