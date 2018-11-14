@@ -5,6 +5,7 @@ import FilterSelectionContainer from "./components/filter/FilterSelectionContain
 import HeaderContainer from "./components/layout/HeaderContainer";
 import TopBar from "./components/layout/TopBar";
 import ContactDetailsContainer from './components/contactDetails/ContactDetailsContainer'
+import Footer from './components/layout/Footer'
 import AantalLeerlingenContainer from './components/charts/AantalLeerlingenContainer'
 
 class App extends Component {
