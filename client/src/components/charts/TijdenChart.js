@@ -46,8 +46,7 @@ class TijdenChart extends Component {
     // console.log('unavailable =', unavailable)
     // console.log(available[0] && JSON.stringify(inputMapped(available[0].tijden.rapport.versie1.datasetSchooltijden.rij)))
 
-    const dataset = available.map(
-      school => {
+    const dataset = available.map(school => {
         return {
           C: school.C,
           options: {
