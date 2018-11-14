@@ -6,9 +6,7 @@ import ComparisonHeaderComponent from '../ComparisonHeaderComponent'
 
 const styles = theme => ({
   div: {
-    // maxWidth: '100%',
-    // display: 'flex'
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   },
 })
 

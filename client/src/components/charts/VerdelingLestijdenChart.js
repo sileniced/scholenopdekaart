@@ -43,6 +43,10 @@ class VerdelingLestijdenChart extends Component {
               color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black',
             },
           },
+          // dataLabels: {
+          //   enabled: false
+          // },
+          showInLegend: true
         },
       },
       series: [{
@@ -50,6 +54,13 @@ class VerdelingLestijdenChart extends Component {
         colorByPoint: true,
         data: school,
       }],
+      "legend": {
+        "enabled": false,
+        "align": "right",
+        "verticalAlign": "middle",
+        "floating": false,
+        "layout": "vertical"
+      }
     }))
 
     return (
