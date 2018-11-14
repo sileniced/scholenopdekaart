@@ -4,8 +4,9 @@ import SearchResultContainer from "./components/search-result/SearchResultContai
 import FilterSelectionContainer from "./components/filter/FilterSelectionContainer";
 import HeaderContainer from "./components/layout/HeaderContainer";
 import TopBar from "./components/layout/TopBar";
-import Footer from "./components/layout/Footer";
 import ContactDetailsContainer from './components/contactDetails/ContactDetailsContainer'
+import AantalLeerlingenContainer from './components/charts/AantalLeerlingenContainer'
+
 class App extends Component {
   render() {
     return (
@@ -16,6 +17,7 @@ class App extends Component {
           </header>
           <main>
             <HeaderContainer/>
+            <AantalLeerlingenContainer />
             <Route exact path="/search-result" component={SearchResultContainer}/>
             <Route exact path="/search-result/:city" component={SearchResultContainer}/>
             <FilterSelectionContainer/>

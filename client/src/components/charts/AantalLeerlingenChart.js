@@ -2,7 +2,7 @@ import React from 'react'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
-const options = schools => ({
+const options = (props) => ({
   chart: {
     type: 'bar',
   },
@@ -10,14 +10,14 @@ const options = schools => ({
     text: 'Aantal Leerlingen',
   },
   subtitle: {
-    text: this.props.multi ? 'laatste drie jaren' : 'dit jaar',
+    text: props.shownYears > 1 ? 'laatste drie jaren' : 'dit jaar',
   },
   xAxis: {
-    categories: this.props.selectedSchools.map(school => school.school.N),
+    categories: props.names,
   },
-  series: this.shownYears.map(year => ({
+  series: props.shownYears.map(year => ({
     name: year,
-    data: schools.map(school => {
+    data: props.schools.map(school => {
       const found = school.find(schoolYear => schoolYear.schooljaar === year)
       return found ? found.aantalLeerlingen : 0
     }),
@@ -25,7 +25,7 @@ const options = schools => ({
 })
 
 const AantalLeerlingenChart = props => {
-  return  <HighchartsReact highcharts={Highcharts} options={options(props.schools)}/>
+  return  <HighchartsReact highcharts={Highcharts} options={options(props)}/>
 }
 
 export default AantalLeerlingenChart
