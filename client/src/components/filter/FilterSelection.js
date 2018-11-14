@@ -17,7 +17,7 @@ function FilterSelection(props) {
 
   return (
     <div className={classes.root}>
-      <List component="nav">
+      <List>
         {Object.values(props.filters).map((filter, index) => (
           <ListItem divider key={index}>
             <ListItemText primary={filter} />
