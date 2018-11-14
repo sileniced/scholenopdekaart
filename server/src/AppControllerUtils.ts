@@ -72,7 +72,7 @@ const getJson = (url): Promise<ISchool> => new Promise((resolve, reject) => {
     if (!error && response.statusCode === 200) {
       resolve(body.trim())
     } else {
-      reject(`Got an error: ${error}, status code: ${response.statusCode}`)
+      reject(`Got an error: ${error}`)
     }
   })
 })
@@ -97,17 +97,52 @@ export const getSpecialistAndLeerlingen = async (list, query): Promise<any> => {
   } catch (e) {
     const schools = JSON.parse(list).filter(school => school.A.split('#')[2].toLowerCase() === query)
 
-    const promises = schools.map(async school => ({
-      ...school,
-      specialist: await getSpecialist(school.C),
-      leerlingen: await getJson(generateLink(school.C, 'leerlingen'))
-    }))
+    const tryCatcher = async (func, arg) => {
+      try {
+        return await func(arg)
+      } catch (e) {
+        console.error(e)
+        return {}
+      }
+    }
+
+    const promises = schools.map(async school => {
+
+      return {
+        ...school,
+        specialist: await tryCatcher(getSpecialist, school.C),
+        leerlingen: await tryCatcher(getJson, generateLink(school.C, 'leerlingen'))
+      }
+    })
 
     const resolved: any = await Promise.all(promises)
 
+
     const mapped = resolved.map(school => {
-      school.leerlingen = JSON.parse(school.leerlingen)
-      school.leerlingen = school.leerlingen.rapport ? school.leerlingen.rapport.versie1.datasetAantalLeerlingen.rij.aantalLeerlingen : {}
+
+
+      const getAantalLeerlingen = leerlingen => {
+        if (leerlingen.rapport) {
+          if (leerlingen.rapport.versie1.datasetAantalLeerlingen)
+            try {
+              return leerlingen.rapport.versie1.datasetAantalLeerlingen.rij.aantalLeerlingen
+            } catch (e) {
+              console.error(e)
+            }
+
+          if (leerlingen.rapport.versie1.datasetAantalLeerlingenTrend)
+            try {
+              return leerlingen.rapport.versie1.datasetAantalLeerlingenTrend.rij[0].aantalLeerlingen
+            } catch (e) {
+              console.error(e)
+            }
+
+          console.log(leerlingen)
+        }
+        return 0
+      }
+
+      school.leerlingen = getAantalLeerlingen(JSON.parse(school.leerlingen))
       return school
     })
 
@@ -121,11 +156,8 @@ export const chk = C => new Promise(async (resolve, reject) => {
 
   const getOnderwijsTijd = async () => {
     const $ = cheerio.load(await getJson(generateOnderwijsTijdLink(C)))
-
     const getData = a => Object.keys(a).map(key => !isNaN(Number(key)) ? a[key] : false).filter(spec => spec).map(key => key.children[0].data)
-
     const lesNamesCell = getData($('.a75'))
-
     const lesUren = getData($('.a139'))
 
     let newArr: string[][] = []
@@ -146,11 +178,7 @@ export const chk = C => new Promise(async (resolve, reject) => {
       return sum + hour + minutes
     }, 0))
 
-    return lesNamesCell.length ? {
-      rapport: lesNamesCell.map((name, i) => {
-        return { name, y: newNewNewArr[i] }
-      })
-    } : {}
+    return lesNamesCell.length ? { rapport: lesNamesCell.map((name, i) => ({ name, y: newNewNewArr[i] })) } : {}
   }
 
   try {
