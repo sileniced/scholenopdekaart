@@ -4,7 +4,7 @@ import { filters } from '../constants'
 const initialState = {}
 
 Object.keys(filters).map((filter) => {
-  initialState[filter] = false
+  initialState[filter] = true
   return filter
 })
 
