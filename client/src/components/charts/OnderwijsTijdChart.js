@@ -6,7 +6,7 @@ import { checkPoindAvailability } from '../../utilities'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
-class OnderwijsTijd extends Component {
+class OnderwijsTijdChart extends Component {
 
   // constructor(props) {
   //   super(props)
@@ -60,4 +60,4 @@ class OnderwijsTijd extends Component {
 
 const mapStateToProps = ({ selectedSchools }) => ({ selectedSchools })
 
-export default connect(mapStateToProps)(OnderwijsTijd)
+export default connect(mapStateToProps)(OnderwijsTijdChart)

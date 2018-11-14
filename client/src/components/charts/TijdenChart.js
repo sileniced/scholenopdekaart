@@ -36,7 +36,7 @@ const inputMapped = input => input.map(day => {
 
 }).reduce((output, day) => output.concat(day), [])
 
-class Tijden extends Component {
+class TijdenChart extends Component {
 
   render() {
 
@@ -87,4 +87,4 @@ class Tijden extends Component {
 
 const mapStateToProps = ({ selectedSchools }) => ({ selectedSchools })
 
-export default connect(mapStateToProps)(Tijden)
+export default connect(mapStateToProps)(TijdenChart)

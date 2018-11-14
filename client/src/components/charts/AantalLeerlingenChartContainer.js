@@ -6,7 +6,7 @@ import { checkPoindAvailability } from '../../utilities'
 import AantalLeerlingenChart from './AantalLeerlingenChart'
 import AantalLeerlingenTable from './tables/AantalLeerlingenTable'
 
-class aantalLeerlingenContainer extends Component {
+class aantalLeerlingenChartContainer extends Component {
 
   constructor(props) {
     super(props)
@@ -30,4 +30,4 @@ class aantalLeerlingenContainer extends Component {
 
 const mapStateToProps = ({ selectedSchools }) => ({ selectedSchools })
 
-export default connect(mapStateToProps)(aantalLeerlingenContainer)
+export default connect(mapStateToProps)(aantalLeerlingenChartContainer)

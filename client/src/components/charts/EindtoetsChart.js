@@ -9,7 +9,7 @@ import HighchartsMore from 'highcharts/highcharts-more'
 
 HighchartsMore(Highcharts)
 
-class Eindtoets extends Component {
+class EindtoetsChart extends Component {
 
   // constructor(props) {
   //   super(props)
@@ -73,4 +73,4 @@ class Eindtoets extends Component {
 
 const mapStateToProps = ({ selectedSchools }) => ({ selectedSchools })
 
-export default connect(mapStateToProps)(Eindtoets)
+export default connect(mapStateToProps)(EindtoetsChart)

@@ -4,8 +4,8 @@ import SearchResultContainer from "./components/search-result/SearchResultContai
 import FilterSelectionContainer from "./components/filter/FilterSelectionContainer";
 import HeaderContainer from "./components/layout/HeaderContainer";
 import TopBar from "./components/layout/TopBar";
-import AantalLeerlingenContainer from './components/charts/AantalLeerlingenContainer'
-import ContactDetailsContainer from "./components/contactDetails/ContactDetailsContainer";
+import ContactDetailsContainer from './components/contactDetails/ContactDetailsContainer'
+import AantalLeerlingenContainer from './components/charts/AantalLeerlingenChartContainer'
 import { withStyles } from "@material-ui/core/styles";
 import Footer from "./components/layout/Footer";
 
@@ -21,27 +21,27 @@ const styles = theme => ({
 
 
 class App extends Component {
-
   render() {
     const { classes } = this.props;
     return (
       <Router>
         <div className={classes.app}>
           <header>
-            <TopBar />
+            <TopBar/>
           </header>
           <main>
             <HeaderContainer/>
             <AantalLeerlingenContainer />
             <Route exact path="/search-result" component={SearchResultContainer}/>
             <Route exact path="/search-result/:city" component={SearchResultContainer}/>
+            <Route exact path="/vergelijken" component={} />
             <FilterSelectionContainer/>
             <ContactDetailsContainer />
             <Footer />
           </main>
         </div>
       </Router>
-    );
+    )
   }
 }
 
