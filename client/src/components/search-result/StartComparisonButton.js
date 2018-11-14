@@ -17,9 +17,10 @@ const styles = theme => ({
 
 function StartComparisonButton(props) {
   const { classes } = props;
+  if (props.mustRedirect) return (<div>{props.redirect()}</div>)
   return (
     <div>
-      <Button variant="contained" color="secondary" className={classes.button} onClick={() => props.handleClick}>
+      <Button variant="contained" color="secondary" className={classes.button} onClick={() => props.handleClick()}>
           Vergelijk scholen {props.selectedSchools.length}/{props.maxSchools}
       </Button>
     </div>
