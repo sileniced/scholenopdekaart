@@ -1,5 +1,5 @@
 .header-container {
-  height: 50vh;
+  height: 60vh;
   background-image: url("https://www.scholenopdekaart.nl/Images/header.jpg");
   background-size: cover;
   position: relative;
@@ -22,7 +22,7 @@ h1 {
 }
 
 .layer {
-  background-color: #b39ec5b3;
+  background-color: #312937b3;
   position: absolute;
   top: 0;
   left: 0;
