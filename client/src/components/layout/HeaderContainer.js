@@ -19,13 +19,24 @@ class HeaderContainer extends Component {
   }
 }
 
-const style = ({
+const style = theme => ({
   title: {
     fontWeight: 700,
     color: "#fff",
     fontSize: "40px",
     paddingTop: "40px",
-    paddingBottom: "60px"
+    paddingBottom: "60px",
+    [theme.breakpoints.down('sm')]: {
+      fontSize: "25px",
+      paddingBottom: "20px",
+    },
+    [theme.breakpoints.up('md')]: {
+      fontSize: "32px",
+      paddingBottom: "30px"
+    },
+    [theme.breakpoints.up('lg')]: {
+      fontSize: "40px",
+    },
   }
 })
 
