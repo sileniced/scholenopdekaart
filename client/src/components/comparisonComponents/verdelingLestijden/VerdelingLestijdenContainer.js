@@ -1,15 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import VerdelingComponent from './VerdelingComponent'
 
-import Title from './TitleComponent'
-
-class TitleContainer extends Component {
+class VerdelingLestijdenContainer extends Component {
   render() {
-    return <Title />
+    return <VerdelingComponent />
   }
 }
 
 const mapStateToProps = ({}) => ({})
 const mapDispatchToProps = {}
 
-export default connect(mapStateToProps, mapDispatchToProps)(TitleContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(VerdelingLestijdenContainer)
