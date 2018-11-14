@@ -1,13 +1,25 @@
 import React from 'react'
 import withStyles from '@material-ui/core/styles/withStyles'
 import TijdenChart from '../../charts/TijdenChart'
+import ColorBubblesNamesContainer from '../ColorBubblesNamesContainer'
+import ComparisonHeaderComponent from '../ComparisonHeaderComponent'
 
-const styles = theme => ({})
+const styles = theme => ({
+  div: {
+    // maxWidth: '100%',
+    // display: 'flex'
+    backgroundColor: 'white'
+  },
+})
 
-const TijdenComponent = props => (
-  <div>
+const TijdenComponent = props => {
+  const { classes: cl } = props
+  return (
+  <div className={cl.div}>
+    <ComparisonHeaderComponent name={'tijden'} />
+    <ColorBubblesNamesContainer/>
     <TijdenChart/>
   </div>
-)
+)}
 
 export default withStyles(styles)(TijdenComponent)
