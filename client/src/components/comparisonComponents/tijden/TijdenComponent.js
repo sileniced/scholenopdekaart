@@ -6,7 +6,7 @@ const styles = theme => ({})
 
 const TijdenComponent = props => (
   <div>
-    <TijdenChart/>
+    {/*<TijdenChart/>*/}
   </div>
 )
 
