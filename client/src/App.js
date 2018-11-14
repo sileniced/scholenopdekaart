@@ -5,7 +5,6 @@ import FilterSelectionContainer from "./components/filter/FilterSelectionContain
 import HeaderContainer from "./components/layout/HeaderContainer";
 import TopBar from "./components/layout/TopBar";
 import ContactDetailsContainer from './components/contactDetails/ContactDetailsContainer'
-import AantalLeerlingenContainer from './components/charts/AantalLeerlingenChartContainer'
 import { withStyles } from "@material-ui/core/styles";
 import Footer from "./components/layout/Footer";
 import ComparisonContainer from "./components/comparisonComponents/ComparisonContainer"
@@ -32,7 +31,6 @@ class App extends Component {
           </header>
           <main>
             <HeaderContainer/>
-            <AantalLeerlingenContainer />
             <Route exact path="/search-result" component={SearchResultContainer}/>
             <Route exact path="/search-result/:city" component={SearchResultContainer}/>
             <Route exact path="/vergelijken" component={ComparisonContainer} />
