@@ -15,6 +15,16 @@ import {
   conceptOnderwijs
 } from "../../constants";
 import SearchFilters from "./SearchFilters";
+import { withStyles } from "@material-ui/core/styles";
+
+const styles = theme => ({
+  searchResult: {
+    display:"flex",
+    flexDirection: "column",
+    alignItems:"center",
+    backgroundColor: theme.palette.background.paper
+  }
+});
 
 class SearchResultContainer extends React.PureComponent {
   compareSchool = schoolId => {
@@ -93,8 +103,10 @@ class SearchResultContainer extends React.PureComponent {
     if (!this.props.schools.length && this.props.match.params.city)
       this.props.getSearchResults(this.props.match.params.city);
 
+      const { classes } = this.props;
+
     return (
-      <div>
+      <div className={classes.searchResult}>
         <StartComparisonButton
           handleClick={this.startComparison}
           selectedSchools={this.props.selectedSchools}
@@ -131,4 +143,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { getSchools, setSchoolToCompare, getSearchResults, toggleSearchFilter }
-)(SearchResultContainer);
+)(withStyles(styles)(SearchResultContainer));

@@ -70,10 +70,9 @@ const styles = theme => ({
     backgroundColor: theme.palette.primary.main,
     display: "inline-block",
     fontFamily: "Proxima Nova Arial sans-serif",
-    alignItems: "center",
-    justifyContent: "center",
     marginLeft: "10%",
-    padding: "2%"
+    padding: "20px",
+    maxWidth: "750px"
   },
   searchTitle: {
     alignItems: "left",

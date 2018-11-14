@@ -5,14 +5,27 @@ import FilterSelectionContainer from "./components/filter/FilterSelectionContain
 import HeaderContainer from "./components/layout/HeaderContainer";
 import TopBar from "./components/layout/TopBar";
 import ContactDetailsContainer from './components/contactDetails/ContactDetailsContainer'
-import Footer from './components/layout/Footer'
 import AantalLeerlingenContainer from './components/charts/AantalLeerlingenContainer'
+import { withStyles } from "@material-ui/core/styles";
+import Footer from "./components/layout/Footer";
+
+const styles = theme => ({
+ app: {
+   display:"flex",
+   flexDirection: "column",
+   alignItems:"center"
+ }
+});
+
+
+
 
 class App extends Component {
   render() {
+    const { classes } = this.props;
     return (
       <Router>
-        <div className="App">
+        <div className={classes.app}>
           <header>
             <TopBar/>
           </header>
@@ -32,4 +45,4 @@ class App extends Component {
   }
 }
 
-export default App
+export default withStyles(styles)(App);

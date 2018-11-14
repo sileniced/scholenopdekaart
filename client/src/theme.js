@@ -26,16 +26,16 @@ export const theme = createMuiTheme({
   typography: {
     // Use the system font instead of the default Roboto font.
     fontFamily: [
+      "Proxima Nova",
       "-apple-system",
       "BlinkMacSystemFont",
       '"Segoe UI"',
-      "Proxima Nova",
       '"Helvetica Neue"',
       "Arial",
       "sans-serif",
       '"Apple Color Emoji"',
       '"Segoe UI Emoji"',
       '"Segoe UI Symbol"'
-    ].join(",")
+    ].join(","),
   }
 });

@@ -8,6 +8,7 @@ const styles = theme => ({
     margin: theme.spacing.unit,
     borderRadius: 0,
     boxShadow: "none",
+    color: "white",
   },
   input: {
     display: "none"

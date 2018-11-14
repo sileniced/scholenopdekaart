@@ -10,8 +10,12 @@ class HeaderContainer extends Component {
       <div>
         <div className="header-container" position="static">
           <div className="layer">
-            <Typography align="center" className={classes.title}>Vind en vergelijk scholen bij jou in de buurt</Typography>
-            <SearchBarContainer />
+            <Typography align="center" className={classes.title}>
+              Vind en vergelijk scholen bij jou in de buurt
+            </Typography>
+            <div align="center">
+              <SearchBarContainer />
+            </div>
           </div>
         </div>
       </div>
@@ -26,18 +30,18 @@ const style = theme => ({
     fontSize: "40px",
     paddingTop: "40px",
     paddingBottom: "60px",
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down("sm")]: {
       fontSize: "25px",
-      paddingBottom: "20px",
+      paddingBottom: "20px"
     },
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up("md")]: {
       fontSize: "32px",
       paddingBottom: "30px"
     },
-    [theme.breakpoints.up('lg')]: {
-      fontSize: "40px",
-    },
+    [theme.breakpoints.up("lg")]: {
+      fontSize: "40px"
+    }
   }
-})
+});
 
-export default withStyles(style)(HeaderContainer)
+export default withStyles(style)(HeaderContainer);
