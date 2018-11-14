@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-
 import { checkPoindAvailability } from '../../utilities'
-
 import AantalLeerlingenChart from './AantalLeerlingenChart'
 import AantalLeerlingenTable from './tables/AantalLeerlingenTable'
 
@@ -14,7 +12,6 @@ class aantalLeerlingenChartContainer extends Component {
   }
 
   render() {
-
     const { available, unavailable } = checkPoindAvailability(this.props.selectedSchools, 'leerlingen')
     const schools = available.map(school => school.leerlingen.rapport.versie1.datasetAantalLeerlingenTrend.rij)
     const names = available.map(school => school.school.N)

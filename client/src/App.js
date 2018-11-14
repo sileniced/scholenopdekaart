@@ -8,6 +8,7 @@ import ContactDetailsContainer from './components/contactDetails/ContactDetailsC
 import { withStyles } from "@material-ui/core/styles";
 import Footer from "./components/layout/Footer";
 import ComparisonContainer from "./components/comparisonComponents/ComparisonContainer"
+import LeerlingenContainer from "./components/comparisonComponents/leerlingen/LeerlingenContainer";
 
 const styles = theme => ({
  app: {
@@ -31,6 +32,7 @@ class App extends Component {
           </header>
           <main>
             <HeaderContainer/>
+            <LeerlingenContainer />
             <Route exact path="/search-result" component={SearchResultContainer}/>
             <Route exact path="/search-result/:city" component={SearchResultContainer}/>
             <Route exact path="/vergelijken" component={ComparisonContainer} />

@@ -5,6 +5,7 @@ import TableBody from '@material-ui/core/TableBody/TableBody'
 import TableRow from '@material-ui/core/TableRow/TableRow'
 import TableCell from '@material-ui/core/TableCell/TableCell'
 import withStyles from '@material-ui/core/styles/withStyles'
+import { Typography } from '@material-ui/core';
 
 const styles = theme => ({
   table: {
@@ -12,10 +13,12 @@ const styles = theme => ({
     maxWidth: 400
   },
   naam: {
-    maxWidth: 250
+    maxWidth: 220,
+    color: "black"
   },
   aantal: {
-    maxWidth: 75
+    maxWidth: 75,
+    color: "black"  
   }
 })
 
@@ -27,13 +30,13 @@ const AantalLeerlingenTable = props => {
       <TableHead>
         <TableRow>
           <TableCell className={classes.naam}>
-            naam van de school
+           <Typography><strong>Naam van de school</strong></Typography>
           </TableCell>
           <TableCell className={classes.aantal}>
-            totaal aantal leerlingen
+          <Typography><strong>Totaal aantal leerlingen</strong></Typography>
           </TableCell>
           <TableCell className={classes.aantal}>
-            gemiddeld aantal leerlingen per klas
+          <Typography><strong>Gemiddeld aantal leerlingen per klas</strong></Typography>
           </TableCell>
         </TableRow>
       </TableHead>
