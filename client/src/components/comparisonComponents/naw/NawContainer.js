@@ -1,15 +1,26 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import * as React from "react";
+import { connect } from "react-redux";
+import { denominatie, typeOnderwijs, schoolColors } from "../../../constants";
+import NawComponent from "./NawComponent"
 
-import Naw from './NawComponent'
 
-class NawContainer extends Component {
+class NawContainer extends React.PureComponent {
+
   render() {
-    return <Naw />
+    return (
+      <div>
+        <NawComponent selectedSchools={this.props.selectedSchools} denominatie={denominatie} typeOnderwijs={typeOnderwijs} schoolColors={schoolColors}/>
+      </div>
+    );
   }
 }
 
-const mapStateToProps = ({}) => ({})
-const mapDispatchToProps = {}
+const mapStateToProps = state => ({
+  schools: state.schools,
+  selectedSchools: state.selectedSchools,
+  selectedFilters: state.selectedFilters
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(NawContainer)
+export default connect(
+  mapStateToProps
+)(NawContainer);
