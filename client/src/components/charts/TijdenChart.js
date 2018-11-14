@@ -7,10 +7,12 @@ import { checkPoindAvailability } from '../../utilities'
 import Highcharts from 'highcharts/'
 import HighchartsReact from 'highcharts-react-official'
 import xrange from 'highcharts/modules/xrange-series'
+import { comparisonColors } from '../../theme'
 
 xrange(Highcharts)
 
 const categories = ['Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'Vrijdag']
+const showCategories = ['MA', 'DI', 'WO', 'DO', 'VR']
 const parts = ['opvangVan', 'ochtendVan', 'ochtendTot', 'middagVan', 'middagTot', 'opvangTot']
 const parseTime = time => moment(time, 'HH:mm').add(1, 'hour').valueOf()
 
@@ -46,7 +48,7 @@ class TijdenChart extends Component {
     // console.log('unavailable =', unavailable)
     // console.log(available[0] && JSON.stringify(inputMapped(available[0].tijden.rapport.versie1.datasetSchooltijden.rij)))
 
-    const dataset = available.map(school => {
+    const dataset = available.map((school, i) => {
         return {
           C: school.C,
           options: {
@@ -63,11 +65,12 @@ class TijdenChart extends Component {
               title: {
                 text: '',
               },
-              categories,
+              categories: showCategories,
               reversed: true,
             },
             series: [
               {
+                color: comparisonColors[i][500],
                 name: school.school.N,
                 data: inputMapped(school.tijden.rapport.versie1.datasetSchooltijden.rij),
               },
@@ -76,6 +79,7 @@ class TijdenChart extends Component {
         }
       },
     )
+
     return (
       <div>
         {dataset.map(data => <HighchartsReact key={data.C} highcharts={Highcharts} options={data.options}/>)}

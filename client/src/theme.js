@@ -4,6 +4,8 @@ import { blue, green, orange, purple, red } from '@material-ui/core/colors'
 
 export const comparisonColors = [red, orange, green, blue, purple]
 
+console.log('comparisonColors = ', comparisonColors)
+
 export const theme = createMuiTheme({
   comparisonColors,
   palette: {
