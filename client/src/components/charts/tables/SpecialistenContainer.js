@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { allSpecialisten } from '../../constants'
-import SpecialistenComponent from './SpecialistenComponent'
+import { allSpecialisten } from '../../../constants'
+import SpecialistenTable from './SpecialistenTable'
 
-class Specialisten extends Component {
+class SpecialistenContainer extends Component {
 
 
   render() {
@@ -14,10 +14,10 @@ class Specialisten extends Component {
     const schools = available.map(school => ({ specialisten: school.specialisten, name: school.school.N }) )
     const specialisten = Object.keys(allSpecialisten())
     
-    return <SpecialistenComponent specialisten={specialisten} schools={schools} />
+    return <SpecialistenTable specialisten={specialisten} schools={schools} />
   }
 }
 
 const mapStateToProps = ({ selectedSchools }) => ({ selectedSchools })
 
-export default connect(mapStateToProps)(Specialisten)
+export default connect(mapStateToProps)(SpecialistenContainer)

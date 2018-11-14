@@ -6,7 +6,6 @@ import ContactDetails from "./ContactDetails"
 
 class ContactDetailsContainer extends React.PureComponent {
 
-
   render() {
     return (
       <div>
