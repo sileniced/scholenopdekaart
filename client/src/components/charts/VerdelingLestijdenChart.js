@@ -6,7 +6,7 @@ import { checkPoindAvailability } from '../../utilities'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
-class OnderwijsTijdChart extends Component {
+class VerdelingLestijdenChart extends Component {
 
   // constructor(props) {
   //   super(props)
@@ -19,20 +19,18 @@ class OnderwijsTijdChart extends Component {
     const { available, unavailable } = checkPoindAvailability(this.props.selectedSchools, 'onderwijstijd')
     const schools = available.map(school => school.onderwijstijd.rapport)
 
-    console.log('available = ', available)
-    
-    const options = {
+    const options = schools.map(school => ({
       chart: {
         plotBackgroundColor: null,
         plotBorderWidth: null,
         plotShadow: false,
-        type: 'pie'
+        type: 'pie',
       },
       title: {
-        text: ''
+        text: '',
       },
       tooltip: {
-        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>',
       },
       plotOptions: {
         pie: {
@@ -42,22 +40,39 @@ class OnderwijsTijdChart extends Component {
             enabled: true,
             format: '<b>{point.name}</b>: {point.percentage:.1f} uren',
             style: {
-              color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-            }
-          }
-        }
+              color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black',
+            },
+          },
+          // dataLabels: {
+          //   enabled: false
+          // },
+          showInLegend: true
+        },
       },
       series: [{
         name: 'Brands',
         colorByPoint: true,
-        data: schools[0]
-      }]
-    }
+        data: school,
+      }],
+      "legend": {
+        "enabled": false,
+        "align": "right",
+        "verticalAlign": "middle",
+        "floating": false,
+        "layout": "vertical"
+      }
+    }))
 
-    return <HighchartsReact highcharts={Highcharts} options={options}/>
+    return (
+      <div>
+        {options.map(option => (
+          <HighchartsReact highcharts={Highcharts} options={option}/>
+        ))}
+      </div>
+    )
   }
 }
 
 const mapStateToProps = ({ selectedSchools }) => ({ selectedSchools })
 
-export default connect(mapStateToProps)(OnderwijsTijdChart)
+export default connect(mapStateToProps)(VerdelingLestijdenChart)
