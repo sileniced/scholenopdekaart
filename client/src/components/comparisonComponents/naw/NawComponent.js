@@ -6,41 +6,54 @@ import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import KeyboardArrowDownIcon from "mdi-react/KeyboardArrowDownIcon";
 import FiberManualRecordIcon from "mdi-react/FiberManualRecordIcon";
 import { schoolColors } from "../../../constants";
+import { Typography } from "@material-ui/core";
 
 const styles = theme => ({
-  root: {}
+  schoolPanel: { maxWidth: "320px" },
+  expansionSummary: { display: "flex", alignItems: "center" },
+  colorBubble: { marginRight: "20px" },
+  schoolPanelWrapper: {
+    display: "flex",
+    justifyContent: "center"
+  }
 });
 
 function renderSchoolContactDetails(props, school, index) {
   const { classes } = props;
 
   return (
-    <div>
+    <div className={classes.schoolPanelWrapper}>
       <ExpansionPanel className={classes.schoolPanel}>
         <ExpansionPanelSummary expandIcon={<KeyboardArrowDownIcon />}>
-          <div>
-            <FiberManualRecordIcon color={schoolColors[index]} />
-            {school.school.N}
+          <div className={classes.expansionSummary}>
+            <div className={classes.colorBubble}>
+              <FiberManualRecordIcon color={schoolColors[index]} />
+            </div>
+            <div>
+              <Typography>{school.school.N}</Typography>
+            </div>
           </div>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <div>
-            {school.school.A[0]}
-            <br />
-            {`${school.school.A[1]} ${school.school.A[2]}`}
-            <br />
-            <br />
-            {school.school.T}
-            <br />
-            <br />
-            Onderwijstype:
-            <br />
-            {props.typeOnderwijs[school.school.O[0]]}
-            <br />
-            <br />
-            Denominatie:
-            <br />
-            {props.denominatie[school.school.D]}
+            <Typography>
+              {school.school.A[0]}
+              <br />
+              {`${school.school.A[1]} ${school.school.A[2]}`}
+              <br />
+              <br />
+              {school.school.T}
+              <br />
+              <br />
+              <strong>Onderwijstype:</strong>
+              <br />
+              {props.typeOnderwijs[school.school.O[0]]}
+              <br />
+              <br />
+              <strong>Denominatie:</strong>
+              <br />
+              {props.denominatie[school.school.D]}
+            </Typography>
           </div>
         </ExpansionPanelDetails>
       </ExpansionPanel>

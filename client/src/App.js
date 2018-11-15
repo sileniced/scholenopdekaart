@@ -13,6 +13,9 @@ const styles = theme => ({
    display:"flex",
    flexDirection: "column",
    alignItems:"center"
+ },
+ mainClass: {
+   backgroundColor: "white"
  }
 });
 
@@ -25,7 +28,7 @@ class App extends Component {
           <header>
             <TopBar/>
           </header>
-          <main>
+          <main className={classes.mainClass}>
             <HeaderContainer/>
             <Route exact path="/search-result" component={SearchResultContainer}/>
             <Route exact path="/search-result/:city" component={SearchResultContainer}/>
