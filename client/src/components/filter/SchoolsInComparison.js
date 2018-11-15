@@ -1,3 +1,5 @@
+//schools in comparison
+
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import ArrowDropDownIcon from "mdi-react/ArrowDropDownIcon";
@@ -5,13 +7,13 @@ import HighlightOffIcon from "mdi-react/HighlightOffIcon";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
-import {Typography, Button} from "@material-ui/core";
+import { Typography, Button } from "@material-ui/core";
 import { relative } from "path";
 
 const styles = theme => ({
   wrapper: {
     display: "flex",
-    justifyContent: "center",
+    justifyContent: "center"
   },
   summary: {
     backgroundColor: theme.palette.secondary.main
@@ -20,7 +22,7 @@ const styles = theme => ({
     backgroundColor: theme.palette.secondary.main
   },
   comparisonText: {
-    color:"white",
+    color: "white",
     marginLeft: "10px"
   },
   listOfSchools: {
@@ -32,9 +34,12 @@ const styles = theme => ({
     alignItems: "center",
     color: "white"
   },
-  searchBtn:{
+  searchBtn: {
     color: "white",
-    bottom: 0
+    bottom: 0,
+    backgroundColor: theme.palette.secondary.main,
+    borderRadius: 0,
+    width: "100%"
   }
 });
 
@@ -46,27 +51,30 @@ function SchoolsInComparison(props) {
         <ExpansionPanelSummary
           expandIcon={<ArrowDropDownIcon />}
           className={classes.summary}
-        ><Typography className={classes.comparisonText}>
-          Scholen in vergelijking ({props.selectedSchools.length}/
-          {props.maxSchools})
+        >
+          <Typography className={classes.comparisonText}>
+            Scholen in vergelijking ({props.selectedSchools.length}/
+            {props.maxSchools})
           </Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className={classes.details}>
           <ul className={classes.listOfSchools}>
             {props.selectedSchools.map(school => (
               <li key={school.school.I} className={classes.school}>
-                <HighlightOffIcon 
+                <HighlightOffIcon
                   onClick={() => props.removeSchool(school.school)}
                 />
-                <Typography className={classes.comparisonText}>{school.school.N}</Typography>
+                <Typography className={classes.comparisonText}>
+                  {school.school.N}
+                </Typography>
               </li>
             ))}
           </ul>
-          <br></br>
-          <Button className={classes.searchBtn} href="/">
-          Zoek nog een school...
-          </Button>
+          <br />
         </ExpansionPanelDetails>
+        <Button className={classes.searchBtn} href="/search-result">
+          Zoek andere scholen...
+        </Button>
       </ExpansionPanel>
     </div>
   );
