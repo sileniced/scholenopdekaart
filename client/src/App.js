@@ -9,11 +9,7 @@ import Footer from "./components/layout/Footer";
 import ComparisonContainer from "./components/comparisonComponents/ComparisonContainer";
 
 const styles = theme => ({
-  app: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center"
-  },
+
   mainClass: {
     backgroundColor: "white"
   }
