@@ -6,15 +6,18 @@ import HeaderContainer from "./components/layout/HeaderContainer";
 import TopBar from "./components/layout/TopBar";
 import { withStyles } from "@material-ui/core/styles";
 import Footer from "./components/layout/Footer";
+<<<<<<< HEAD
 import ComparisonContainer from "./components/comparisonComponents/ComparisonContainer"
 import LeerlingenContainer from "./components/comparisonComponents/leerlingen/LeerlingenContainer";
+=======
+import ComparisonContainer from "./components/comparisonComponents/ComparisonContainer";
+>>>>>>> cbf7f5b4683e3e88a9f6396ca170711023faaa9b
 
 const styles = theme => ({
- app: {
-   display:"flex",
-   flexDirection: "column",
-   alignItems:"center"
- }
+
+  mainClass: {
+    backgroundColor: "white"
+  }
 });
 
 class App extends Component {
@@ -24,20 +27,36 @@ class App extends Component {
       <Router>
         <div className={classes.app}>
           <header>
-            <TopBar/>
+            <TopBar />
           </header>
+<<<<<<< HEAD
           <main>
             <HeaderContainer/>
             <LeerlingenContainer />
             <Route exact path="/search-result" component={SearchResultContainer}/>
             <Route exact path="/search-result/:city" component={SearchResultContainer}/>
+=======
+          <main className={classes.mainClass}>
+            <HeaderContainer />
+            <Route
+              exact
+              path="/search-result"
+              component={SearchResultContainer}
+            />
+            <Route
+              exact
+              path="/search-result/:city"
+              component={SearchResultContainer}
+            />
+
+            <FilterSelectionContainer />
+>>>>>>> cbf7f5b4683e3e88a9f6396ca170711023faaa9b
             <Route exact path="/vergelijken" component={ComparisonContainer} />
-            <FilterSelectionContainer/>
             <Footer />
           </main>
         </div>
       </Router>
-    )
+    );
   }
 }
 

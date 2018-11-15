@@ -18,7 +18,7 @@ const parseTime = time => moment(time, 'HH:mm').add(1, 'hour').valueOf()
 
 const inputMapped = input => input.map(day => {
   const y = categories.indexOf(day['dag'])
-  let partialFill = 0
+  let partialFill = 1
 
   return parts.map((part, i) => {
     partialFill = partialFill ? 0 : 1
