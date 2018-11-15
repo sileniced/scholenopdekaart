@@ -8,12 +8,14 @@ import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import { Typography, Button } from "@material-ui/core";
-import { relative } from "path";
 
 const styles = theme => ({
   wrapper: {
     display: "flex",
-    justifyContent: "center"
+    justifyContent: "center",
+  },
+  expansionPanel: {
+    margin: "10px"
   },
   summary: {
     backgroundColor: theme.palette.secondary.main
@@ -39,7 +41,7 @@ const styles = theme => ({
     bottom: 0,
     backgroundColor: theme.palette.secondary.main,
     borderRadius: 0,
-    width: "100%"
+    width: "100%",
   }
 });
 
@@ -47,7 +49,7 @@ function SchoolsInComparison(props) {
   const { classes } = props;
   return (
     <div className={classes.wrapper}>
-      <ExpansionPanel className="ExpansionPanel">
+      <ExpansionPanel className={classes.expansionPanel}>
         <ExpansionPanelSummary
           expandIcon={<ArrowDropDownIcon />}
           className={classes.summary}
