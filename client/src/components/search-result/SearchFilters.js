@@ -9,10 +9,19 @@ import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import ExpandMoreIcon from "mdi-react/ExpandMoreIcon";
+import FilterSelectionExpansionPanel from "../filter/FilterSelectionExpansionPanel";
 
 const styles = theme => ({
   headerTwo: {
     color: theme.palette.primary.main
+  },
+  listOfFilters: {
+    width: "100%"
+  },
+  specificFilter: {
+    display: "flex",
+    justifyContent: "space-between",
+    width: "100%"
   }
 });
 
@@ -30,10 +39,11 @@ function SearchFilters(props) {
             <Typography>Onderwijstype:</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
-            <List>
+            <List className={classes.listOfFilters}>
               {Object.values(props.typeOnderwijs).map((type, index) => (
                 <ListItem divider key={index}>
                   <ListItemText primary={type} />
+
                   <Switch
                     checked={
                       props.activeSearchFilters.typeOnderwijs[
@@ -63,7 +73,7 @@ function SearchFilters(props) {
             <Typography>Denominatie:</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
-            <List>
+            <List className={classes.listOfFilters}>
               {Object.values(props.denominatie).map((denominatie, index) => (
                 <ListItem divider key={index}>
                   <ListItemText primary={denominatie} />
@@ -96,7 +106,7 @@ function SearchFilters(props) {
             <Typography>Onderwijsconcept:</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
-            <List>
+            <List className={classes.listOfFilters}>
               {Object.values(props.conceptOnderwijs).map(
                 (conceptOnderwijs, index) => (
                   <ListItem divider key={index}>
@@ -133,7 +143,7 @@ function SearchFilters(props) {
             <Typography>Specialisten:</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
-            <List>
+            <List className={classes.listOfFilters}>
               {props.specialisten.map((specialist, index) => (
                 <ListItem divider key={index}>
                   <ListItemText primary={specialist} />
@@ -154,7 +164,7 @@ function SearchFilters(props) {
             <Typography>Aantal leerlingen:</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
-            <List>
+            <List className={classes.listOfFilters}>
               {Object.values(props.sizeFilter).map((size, index) => (
                 <ListItem divider key={index}>
                   <ListItemText primary={size} />
