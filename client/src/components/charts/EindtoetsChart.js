@@ -19,10 +19,20 @@ class EindtoetsChart extends Component {
 
   render() {
 
+    const getData = school => {
+      const toetsen = ['Amn', 'Cecan', 'Dia', 'Eindtoets', 'Route8', 'Iep']
+      for (const toets of toetsen) {
+        if (school[`dataset${toets}`]) {
+          return school[`dataset${toets}`].rij
+        }
+      }
+      return false
+    }
+
     const { available, unavailable } = checkPoindAvailability(this.props.selectedSchools, 'eindtoets')
     // console.log({ available, unavailable })
-    const schools = available.map(school => school.eindtoets.rapport.versie1.datasetEindtoets.rij)
-
+    const schools = available.map(school => getData(school.eindtoets.rapport.versie1)).filter(school => school)
+    
     const options = {
       chart: {
         zoomType: 'xy',
