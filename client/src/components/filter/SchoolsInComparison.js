@@ -19,7 +19,17 @@ const styles = theme => ({
     backgroundColor: theme.palette.secondary.main
   },
   comparisonText: {
-    color:"white"
+    color:"white",
+    marginLeft: "10px"
+  },
+  listOfSchools: {
+    listStyleType: "none",
+    padding: 0
+  },
+  school: {
+    display: "flex",
+    alignItems: "center",
+    color: "white"
   }
 });
 
@@ -37,9 +47,9 @@ function SchoolsInComparison(props) {
           </Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className={classes.details}>
-          <ul>
+          <ul className={classes.listOfSchools}>
             {props.selectedSchools.map(school => (
-              <li key={school.school.I}>
+              <li key={school.school.I} className={classes.school}>
                 <HighlightOffIcon 
                   onClick={() => props.removeSchool(school.school)}
                 />
