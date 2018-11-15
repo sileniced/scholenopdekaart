@@ -5,6 +5,8 @@ import { comparisonColors } from '../../../theme'
 import Button from '@material-ui/core/Button/Button'
 import Typography from '@material-ui/core/Typography/Typography'
 
+import Slider from "react-slick";
+
 
 const correctColor = num => ({
   backgroundColor: comparisonColors[num][500],
@@ -18,7 +20,7 @@ const correctColor = num => ({
 const stupidBorders = num => ({
   border: `1px solid ${comparisonColors[num][500]}`,
   borderRadius: 10,
-  margin: 3
+  margin: 3,
 })
 
 const styles = theme => ({
@@ -53,47 +55,59 @@ const styles = theme => ({
   },
 })
 
+const settings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1
+};
+
 const Title = props => {
   const { classes: cl, profiel, sociale } = props
   return (
     <div>
       <ComparisonHeaderComponent name={'profiel'}/>
-      {/*{profiel.map(school => school.map(kernwaarde => console.log(kernwaarde.kernwoord)))}*/}
-      {profiel.map((school, i) => (
-        <div className={cl[`stupidBorder${i}`]}>
+      <Slider {...settings}>
+        {profiel.map((school, i) => (
+          <div>
+            <div className={cl[`stupidBorder${i}`]}>
 
-          <div className={cl.buttonDiv}>
-            <div className={cl.toCenterContainer}>
-              <div className={cl.toColumn}>
-                <Typography><h2 className={cl.header}>Missie en Visie</h2></Typography>
-                <Typography dangerouslySetInnerHTML={{__html: sociale[i].datasetVisie.rij.visie.slice(0, 300) + '... <b>Lees meer</b>'}} />
+              <div className={cl.buttonDiv}>
+                <div className={cl.toCenterContainer}>
+                  <div className={cl.toColumn}>
+                    <Typography><h2 className={cl.header}>Missie en Visie</h2></Typography>
+                    <Typography
+                      dangerouslySetInnerHTML={{ __html: sociale[i].datasetVisie.rij.visie.slice(0, 300) + '... <b>Lees meer</b>' }}/>
+                  </div>
+                </div>
+              </div>
+              <div className={cl.buttonDiv}>
+                <div className={cl.toCenterContainer}>
+                  <div className={cl.toColumn}>
+                    <Typography><h2 className={cl.header}>Algemene kernwaarden</h2></Typography>
+                    <Typography>De school omschrijft zich met de woorden:</Typography>
+                  </div>
+                </div>
+                {school.map((kernwaarde, ii) => ii < 4 && (
+                  <Button disableRipple className={cl[i]}>{kernwaarde.kernwoord}</Button>
+                ))}
+              </div>
+              <div className={cl.buttonDiv}>
+                <div className={cl.toCenterContainer}>
+                  <div className={cl.toColumn}>
+                    <Typography><h2 className={cl.header}>Sociale kernwaarden</h2></Typography>
+                    <Typography>Deze sociale vaardigheden wil de school de kinderen meegeven:</Typography>
+                  </div>
+                </div>
+                {sociale[i].datasetKernwaarden.rij.map((kernwaarde, ii) => ii < 4 && (
+                  <Button disableRipple className={cl[i]}>{kernwaarde.kernwaarde}</Button>
+                ))}
               </div>
             </div>
           </div>
-          <div className={cl.buttonDiv}>
-            <div className={cl.toCenterContainer}>
-              <div className={cl.toColumn}>
-                <Typography><h2 className={cl.header}>Algemene kernwaarden</h2></Typography>
-                <Typography>De school omschrijft zich met de woorden:</Typography>
-              </div>
-            </div>
-            {school.map((kernwaarde, ii) => ii < 4 && (
-              <Button disableRipple className={cl[i]}>{kernwaarde.kernwoord}</Button>
-            ))}
-          </div>
-          <div className={cl.buttonDiv}>
-            <div className={cl.toCenterContainer}>
-              <div className={cl.toColumn}>
-                <Typography><h2 className={cl.header}>Sociale kernwaarden</h2></Typography>
-                <Typography>Deze sociale vaardigheden wil de school de kinderen meegeven:</Typography>
-              </div>
-            </div>
-            {sociale[i].datasetKernwaarden.rij.map((kernwaarde, ii) => ii < 4 && (
-              <Button disableRipple className={cl[i]}>{kernwaarde.kernwaarde}</Button>
-            ))}
-          </div>
-        </div>
-      ))}
+        ))}
+      </Slider>
     </div>
   )
 }
