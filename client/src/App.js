@@ -6,7 +6,12 @@ import HeaderContainer from "./components/layout/HeaderContainer";
 import TopBar from "./components/layout/TopBar";
 import { withStyles } from "@material-ui/core/styles";
 import Footer from "./components/layout/Footer";
+<<<<<<< HEAD
+import ComparisonContainer from "./components/comparisonComponents/ComparisonContainer"
+import LeerlingenContainer from "./components/comparisonComponents/leerlingen/LeerlingenContainer";
+=======
 import ComparisonContainer from "./components/comparisonComponents/ComparisonContainer";
+>>>>>>> cbf7f5b4683e3e88a9f6396ca170711023faaa9b
 
 const styles = theme => ({
 
@@ -24,6 +29,13 @@ class App extends Component {
           <header>
             <TopBar />
           </header>
+<<<<<<< HEAD
+          <main>
+            <HeaderContainer/>
+            <LeerlingenContainer />
+            <Route exact path="/search-result" component={SearchResultContainer}/>
+            <Route exact path="/search-result/:city" component={SearchResultContainer}/>
+=======
           <main className={classes.mainClass}>
             <HeaderContainer />
             <Route
@@ -38,6 +50,7 @@ class App extends Component {
             />
 
             <FilterSelectionContainer />
+>>>>>>> cbf7f5b4683e3e88a9f6396ca170711023faaa9b
             <Route exact path="/vergelijken" component={ComparisonContainer} />
             <Footer />
           </main>

@@ -7,7 +7,7 @@ class HeaderContainer extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <div>
+      <div className={classes.header}>
         <div className="header-container" position="static">
           <div className="layer">
             <Typography align="center" className={classes.title}>
@@ -42,6 +42,9 @@ const style = theme => ({
     [theme.breakpoints.up("lg")]: {
       fontSize: "40px"
     }
+  },
+  container: {
+    display: "flex"
   }
 });
 

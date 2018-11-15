@@ -61,7 +61,8 @@ const styles = theme => ({
   searchSet: {
     width: "100%",
     position: "relative",
-    height: "50px"
+    height: "50px",
+    display: "flex"
   },
   searchField: {
     position: "absolute",

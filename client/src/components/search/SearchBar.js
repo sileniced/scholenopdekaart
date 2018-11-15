@@ -1,33 +1,9 @@
 import React, { Component } from "react";
 import { Card, Typography } from "@material-ui/core";
-import { Redirect } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
 import SearchElement from "./SearchElement";
 
 class SearchBar extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = { query: "", redirect: false };
-  // }
-  // setRedirect = () => {
-  //   this.setState({
-  //     redirect: true
-  //   });
-  // };
-  // renderRedirect = () => {
-  //   if (this.state.redirect) {
-  //     return <Redirect to="/search-result" />;
-  //   }
-  // };
-
-  // handleChange = event => {
-  //   this.setState({ query: event.target.value });
-  // };
-
-  // handleSubmit = e => {
-  //   e.preventDefault();
-  //   this.props.getSearchResults(this.state.query);
-  // };
 
   render() {
     const { classes } = this.props;
@@ -36,25 +12,6 @@ class SearchBar extends Component {
           <Typography className={classes.searchTitle}>Ik zoek:</Typography>
           <br />
           <SearchElement getSearchResults={this.props.getSearchResults}/>
-          {/* <div className={classes.searchSet}>
-            <div className={classes.searchField}>
-              <input
-                value={this.state.query}
-                onChange={this.handleChange}
-                className={classes.searchInput}
-                type="text"
-                placeholder="Postcode, plaats of naam"
-              />
-            </div>
-            <button
-              onClick={this.setRedirect}
-              type="submit"
-              className={classes.searchBtn}
-            >
-              {this.renderRedirect()}
-              Zoek
-            </button>
-          </div> */}
           <button onClick={(e) => {e.preventDefault()}}className={classes.locationBtn}>
             Gebruik mijn locatie
           </button>
@@ -96,34 +53,6 @@ const styles = theme => ({
     bottom: "0px",
     right: "0px"
   },
-  // searchSet: {
-  //   width: "100%",
-  //   position: "relative",
-  //   height: "50px"
-  // },
-  // searchBtn: {
-  //   backgroundColor: "#93608d",
-  //   color: "#fff",
-  //   fontWeight: 600,
-  //   height: "50px",
-  //   // maxWidth: "60px",
-  //   // paddingTop: "0px",
-  //   fontSize: 18,
-  //   border: "none",
-  //   // width: "10%",
-  //   // minWidth: "50px",
-  //   position: "absolute",
-  //   // float: "right",
-  //   top: "0px",
-  //   bottom: "0px",
-  //   right: "0px"
-  // },
-  // searchInput: {
-  //   height: "100%",
-  //   width: "100%",
-  //   overflow: "hidden",
-  //   boxSizing: "border-box"
-  // },
   locationBtn: {
     width: "100%",
     height: "50px",
