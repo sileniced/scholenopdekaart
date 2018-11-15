@@ -5,15 +5,21 @@ import HighlightOffIcon from "mdi-react/HighlightOffIcon";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
+import {Typography} from "@material-ui/core";
 
 const styles = theme => ({
   wrapper: {
     display: "flex",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   summary: {
-    color: "yellow",
-    backgroundColor: theme.palette.background.default
+    backgroundColor: theme.palette.secondary.main
+  },
+  details: {
+    backgroundColor: theme.palette.secondary.main
+  },
+  comparisonText: {
+    color:"white"
   }
 });
 
@@ -24,19 +30,20 @@ function SchoolsInComparison(props) {
       <ExpansionPanel className="ExpansionPanel">
         <ExpansionPanelSummary
           expandIcon={<ArrowDropDownIcon />}
-          className="summary"
-        >
+          className={classes.summary}
+        ><Typography className={classes.comparisonText}>
           Scholen in vergelijking ({props.selectedSchools.length}/
           {props.maxSchools})
+          </Typography>
         </ExpansionPanelSummary>
-        <ExpansionPanelDetails className="details">
+        <ExpansionPanelDetails className={classes.details}>
           <ul>
             {props.selectedSchools.map(school => (
               <li key={school.school.I}>
-                <HighlightOffIcon
+                <HighlightOffIcon 
                   onClick={() => props.removeSchool(school.school)}
                 />
-                {school.school.N}
+                <Typography className={classes.comparisonText}>{school.school.N}</Typography>
               </li>
             ))}
           </ul>
