@@ -1,7 +1,8 @@
 import { ADD_TO_SELECTED, REMOVE_FROM_SELECTED } from '../actions/schools';
 import DEVDEV__SELECTED_SCHOOLS_INIT from './DEVDEV__SELECTED_SCHOOLS_INIT'
 
-let init = DEVDEV__SELECTED_SCHOOLS_INIT.selectedSchools
+// let init = DEVDEV__SELECTED_SCHOOLS_INIT.selectedSchools
+let init = []
 
 export default (state = init, action = {}) => {
   switch (action.type) {
