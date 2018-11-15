@@ -8,9 +8,9 @@ const styles = theme => ({})
 
 const EindtoetsComponent = props => (
   <div>
-    <ComparisonHeaderComponent name={'eindtoets'} />
-    {/* <ColorBubblesNamesContainer/> */}
-     {/* <EindtoetsChart/>  */}
+    <ComparisonHeaderComponent name={'eindtoets'}/>
+    <ColorBubblesNamesContainer/>
+    <EindtoetsChart/>
   </div>
 )
 
