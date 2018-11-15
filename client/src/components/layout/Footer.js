@@ -19,7 +19,9 @@ class Footer extends Component {
 const style = theme => ({
   container: {
     backgroundColor: "#f0e8ef",
-    height: "100px"
+    height: "100px",
+    position: "absolute",
+    bottom: 0,
   },
   logo: {
     maxWidth: "20%",
