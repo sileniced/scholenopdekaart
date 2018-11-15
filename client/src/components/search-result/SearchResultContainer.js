@@ -12,7 +12,7 @@ import {
   maxSchools,
   typeOnderwijs,
   denominatie,
-  conceptOnderwijs
+  conceptOnderwijs, allSpecialisten
 } from "../../constants";
 import SearchFilters from "./SearchFilters";
 import { withStyles } from "@material-ui/core/styles";
@@ -35,6 +35,8 @@ class SearchResultContainer extends React.PureComponent {
     showResults: true,
     redirect: false
   };
+
+  specialisten = Object.keys(allSpecialisten());
 
   compareSchool = schoolId => {
     const school = this.props.schools.find(school => school.I === schoolId);
@@ -65,6 +67,11 @@ class SearchResultContainer extends React.PureComponent {
 
   handleToggleConceptOnderwijs = concept => {
     const payload = { conceptOnderwijs: concept };
+    this.props.toggleSearchFilter(payload);
+  };
+
+  handleToggleSpecialisten = specialist => {
+    const payload = { specialisten: specialist }
     this.props.toggleSearchFilter(payload);
   };
 
@@ -109,10 +116,23 @@ class SearchResultContainer extends React.PureComponent {
     return filteredSet;
   };
 
+  filterSpecialist = setOfSchools => {
+    const activeFilters = Object.keys(
+      this.props.searchFilters.specialisten
+    ).filter(filter => this.props.searchFilters.specialisten[filter] === true);
+    console.log(activeFilters)
+    const filteredSet = setOfSchools.filter(school => {
+      if (activeFilters.length === 0) return true;
+      if (activeFilters.filter(filter => school.specialist.includes(filter)).length === activeFilters.length) return true;
+      return false;
+    });
+    return filteredSet;
+  };
+
   filterSchools = setOfSchools => {
-    return this.filterTypeOnderwijs(
+    return this.filterSpecialist(this.filterTypeOnderwijs(
       this.filterDenominatie(this.filterConceptOnderwijs(setOfSchools))
-    );
+    ));
   };
 
   openResultList = () => {
@@ -159,9 +179,11 @@ class SearchResultContainer extends React.PureComponent {
             typeOnderwijs={typeOnderwijs}
             denominatie={denominatie}
             conceptOnderwijs={conceptOnderwijs}
+            specialisten={this.specialisten}
             handleToggleOnderwijstype={this.handleToggleOnderwijstype}
             handleToggleDenominatie={this.handleToggleDenominatie}
             handleToggleConceptOnderwijs={this.handleToggleConceptOnderwijs}
+            handleToggleSpecialisten={this.handleToggleSpecialisten}
             activeSearchFilters={this.props.searchFilters}
           />
         ) : (

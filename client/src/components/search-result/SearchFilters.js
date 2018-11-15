@@ -126,6 +126,32 @@ function SearchFilters(props) {
           </ExpansionPanelDetails>
         </ExpansionPanel>
       </div>
+      <div>
+        <ExpansionPanel>
+          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+            <Typography>Specialisten:</Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <List>
+              {props.specialisten.map(
+                (specialist, index) => (
+                  <ListItem divider key={index}>
+                    <ListItemText primary={specialist} />
+                    <Switch
+                      checked={props.activeSearchFilters.specialisten[
+                        specialist
+                      ]}
+                      color="secondary"
+                      onChange={() => props.handleToggleSpecialisten(specialist)
+                      }
+                    />
+                  </ListItem>
+                )
+              )}
+            </List>
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
+      </div>
     </div>
   );
 }

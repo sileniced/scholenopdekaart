@@ -2,9 +2,9 @@ import {
   TOGGLE_SEARCH_FILTER,
   SET_SEARCH_FILTERS_FALSE,
 } from '../actions/searchFilters'
-import { typeOnderwijs, denominatie, conceptOnderwijs } from '../constants'
+import { typeOnderwijs, denominatie, conceptOnderwijs, allSpecialisten } from '../constants'
 
-const initialState = { typeOnderwijs: {}, denominatie: {}, conceptOnderwijs: {} }
+const initialState = { typeOnderwijs: {}, denominatie: {}, conceptOnderwijs: {}, specialisten: {} }
 
 Object.keys(typeOnderwijs).map(type => {
   initialState.typeOnderwijs[type] = false
@@ -20,6 +20,11 @@ Object.keys(conceptOnderwijs).map(conceptOnderwijs => {
   initialState.conceptOnderwijs[conceptOnderwijs] = false
   return conceptOnderwijs
 })
+
+Object.keys(allSpecialisten()).map(specialist => {
+    initialState.specialisten[specialist] = false
+    return specialist
+  })
 
 export default (state = initialState, action = {}) => {
   switch (action.type) {
