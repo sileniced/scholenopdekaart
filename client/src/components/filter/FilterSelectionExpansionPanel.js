@@ -45,7 +45,6 @@ class FilterSelectionExpansionPanel extends React.PureComponent {
               className={this.props.classes.selectedFilter}
             >
               <HighlightOffIcon
-                color="primary"
                 onClick={() => this.props.handleToggle(selectedFilter)}
               />
               <Typography
@@ -94,23 +93,24 @@ const styles = theme => ({
     // }
   },
   selectedFilterTypography: {
-    color: theme.palette.primary,
+    color: theme.palette.primary.main,
   },
   expansionPanelInfoTypography: {
     color: "#fff",
     margin: "10px"
   },
   selectedFilter: {
-    color: theme.palette.primary,
+    color: theme.palette.primary.main,
     borderStyle: "solid",
-    borderColor: theme.palette.primary,
+    borderColor: theme.palette.primary.main,
     borderWidth: "1px",
     borderRadius: "25px",
     display: "flex",
     alignItems: "center",
     padding: "5px",
     margin: "5px"
-  }
+  },
+
 });
 
 export default withStyles(styles)(FilterSelectionExpansionPanel);
