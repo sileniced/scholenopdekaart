@@ -18,6 +18,7 @@ const styles = theme => ({
 
 function SearchFilters(props) {
   const { classes } = props;
+
   return (
     <div>
       <Typography className={classes.headerTwo}>
@@ -133,21 +134,49 @@ function SearchFilters(props) {
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <List>
-              {props.specialisten.map(
-                (specialist, index) => (
-                  <ListItem divider key={index}>
-                    <ListItemText primary={specialist} />
-                    <Switch
-                      checked={props.activeSearchFilters.specialisten[
-                        specialist
-                      ]}
-                      color="secondary"
-                      onChange={() => props.handleToggleSpecialisten(specialist)
-                      }
-                    />
-                  </ListItem>
-                )
-              )}
+              {props.specialisten.map((specialist, index) => (
+                <ListItem divider key={index}>
+                  <ListItemText primary={specialist} />
+                  <Switch
+                    checked={props.activeSearchFilters.specialisten[specialist]}
+                    color="secondary"
+                    onChange={() => props.handleToggleSpecialisten(specialist)}
+                  />
+                </ListItem>
+              ))}
+            </List>
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
+      </div>
+      <div>
+        <ExpansionPanel>
+          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+            <Typography>Aantal leerlingen:</Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <List>
+              {Object.values(props.sizeFilter).map((size, index) => (
+                <ListItem divider key={index}>
+                  <ListItemText primary={size} />
+                  <Switch
+                    checked={
+                      props.activeSearchFilters.aantalLeerlingen[
+                        Object.keys(props.sizeFilter).find(
+                          key => props.sizeFilter[key] === size
+                        )
+                      ]
+                    }
+                    color="secondary"
+                    onChange={() =>
+                      props.handleToggleSize(
+                        Object.keys(props.sizeFilter).find(
+                          key => props.sizeFilter[key] === size
+                        )
+                      )
+                    }
+                  />
+                </ListItem>
+              ))}
             </List>
           </ExpansionPanelDetails>
         </ExpansionPanel>

@@ -12,7 +12,9 @@ import {
   maxSchools,
   typeOnderwijs,
   denominatie,
-  conceptOnderwijs, allSpecialisten
+  conceptOnderwijs,
+  allSpecialisten,
+  sizeFilter
 } from "../../constants";
 import SearchFilters from "./SearchFilters";
 import { withStyles } from "@material-ui/core/styles";
@@ -71,7 +73,12 @@ class SearchResultContainer extends React.PureComponent {
   };
 
   handleToggleSpecialisten = specialist => {
-    const payload = { specialisten: specialist }
+    const payload = { specialisten: specialist };
+    this.props.toggleSearchFilter(payload);
+  };
+
+  handleToggleSize = size => {
+    const payload = { aantalLeerlingen: size };
     this.props.toggleSearchFilter(payload);
   };
 
@@ -120,19 +127,53 @@ class SearchResultContainer extends React.PureComponent {
     const activeFilters = Object.keys(
       this.props.searchFilters.specialisten
     ).filter(filter => this.props.searchFilters.specialisten[filter] === true);
-    console.log(activeFilters)
     const filteredSet = setOfSchools.filter(school => {
       if (activeFilters.length === 0) return true;
-      if (activeFilters.filter(filter => school.specialist.includes(filter)).length === activeFilters.length) return true;
+      if (
+        activeFilters.filter(filter => school.specialist.includes(filter))
+          .length === activeFilters.length
+      )
+        return true;
+      return false;
+    });
+    return filteredSet;
+  };
+
+  filterAantalLeerlingen = setOfSchools => {
+    const activeFilters = Object.keys(
+      this.props.searchFilters.aantalLeerlingen
+    ).filter(
+      filter => this.props.searchFilters.aantalLeerlingen[filter] === true
+    );
+    console.log(activeFilters);
+    const filteredSet = setOfSchools.filter(school => {
+      if (activeFilters.length === 0) return true;
+      if (
+        activeFilters.filter(filter => {
+          const minAndMaxStudents = filter.split("-");
+          if (
+            minAndMaxStudents[0] <= school.leerlingen &&
+            minAndMaxStudents[1] >= school.leerlingen
+          )
+            return true;
+          return false;
+        }).length > 0
+      )
+        return true;
+
       return false;
     });
     return filteredSet;
   };
 
   filterSchools = setOfSchools => {
-    return this.filterSpecialist(this.filterTypeOnderwijs(
-      this.filterDenominatie(this.filterConceptOnderwijs(setOfSchools))
-    ));
+    return this.filterAantalLeerlingen(
+      this.filterSpecialist(
+        this.filterTypeOnderwijs(
+          this.filterDenominatie(this.filterConceptOnderwijs(setOfSchools))
+        )
+      )
+    );
   };
 
   openResultList = () => {
@@ -180,10 +221,12 @@ class SearchResultContainer extends React.PureComponent {
             denominatie={denominatie}
             conceptOnderwijs={conceptOnderwijs}
             specialisten={this.specialisten}
+            sizeFilter={sizeFilter}
             handleToggleOnderwijstype={this.handleToggleOnderwijstype}
             handleToggleDenominatie={this.handleToggleDenominatie}
             handleToggleConceptOnderwijs={this.handleToggleConceptOnderwijs}
             handleToggleSpecialisten={this.handleToggleSpecialisten}
+            handleToggleSize={this.handleToggleSize}
             activeSearchFilters={this.props.searchFilters}
           />
         ) : (
