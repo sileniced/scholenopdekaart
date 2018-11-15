@@ -15,6 +15,11 @@ const styles = theme => ({
   schoolPanelWrapper: {
     display: "flex",
     justifyContent: "center"
+  },
+  root: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center"
   }
 });
 
@@ -66,8 +71,8 @@ function NawComponent(props) {
 
   return (
     <div className={classes.root}>
-      <h2>Ligging en contactgegevens</h2>
-      Waar vind ik de scholen en wat zijn de contactgegevens?
+      <Typography><h2>Ligging en contactgegevens</h2></Typography>
+      <Typography>Waar vind ik de scholen en wat zijn de contactgegevens?</Typography>
       {/* Kaart */}
       {props.selectedSchools.map((school, index) => (
         <div key={school.school.I}>
