@@ -82,7 +82,8 @@ const styles = theme => ({
     justifyContent: "center"
   },
   expansionPanelInfo: {
-    backgroundColor: theme.palette.background.default
+    backgroundColor: theme.palette.background.default,
+    margin: "10px"
     // border: "1px solid black",
     // "&::before": {
     //   content: "",

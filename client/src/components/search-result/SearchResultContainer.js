@@ -27,7 +27,26 @@ const styles = theme => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    width: "100%",
     backgroundColor: theme.palette.background.paper
+  },
+  searchResultButtons: {
+    display: "flex",
+    justifyContent: "space-between",
+    width: "100%",
+    paddingLeft: "10px",
+    paddingRight: "10px",
+    paddingBottom: "10px"
+  },
+  stickyTop: {
+    display: "flex",
+    flexDirection: "column",
+    position: "sticky",
+    top: "0px",
+    width: "100%",
+    alignItems: "center",
+    backgroundColor: "white",
+    zIndex: 100
   }
 });
 
@@ -192,16 +211,18 @@ class SearchResultContainer extends React.PureComponent {
 
     return (
       <div className={classes.searchResult}>
-        <StartComparisonButton
-          handleClick={this.setRedirect}
-          mustRedirect={this.state.redirect}
-          redirect={this.startComparison}
-          selectedSchools={this.props.selectedSchools}
-          maxSchools={maxSchools}
-        />
-        <div>
-          <FormatListBulletedIcon onClick={() => this.openResultList()} />{" "}
-          <TuneIcon onClick={() => this.openSearchFilters()} />
+        <div className={classes.stickyTop}>
+          <StartComparisonButton
+            handleClick={this.setRedirect}
+            mustRedirect={this.state.redirect}
+            redirect={this.startComparison}
+            selectedSchools={this.props.selectedSchools}
+            maxSchools={maxSchools}
+          />
+          <div className={classes.searchResultButtons}>
+            <FormatListBulletedIcon onClick={() => this.openResultList()} />{" "}
+            <TuneIcon onClick={() => this.openSearchFilters()} />
+          </div>
         </div>
         {this.state.showResults ? (
           <SearchResultTable

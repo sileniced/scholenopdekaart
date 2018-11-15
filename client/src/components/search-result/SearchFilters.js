@@ -36,7 +36,7 @@ function SearchFilters(props) {
       <div>
         <ExpansionPanel>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography>Onderwijstype:</Typography>
+            <Typography><strong>Onderwijstype</strong></Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <List className={classes.listOfFilters}>
@@ -70,7 +70,7 @@ function SearchFilters(props) {
       <div>
         <ExpansionPanel>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography>Denominatie:</Typography>
+            <Typography><strong>Denominatie</strong></Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <List className={classes.listOfFilters}>
@@ -103,7 +103,7 @@ function SearchFilters(props) {
       <div>
         <ExpansionPanel>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography>Onderwijsconcept:</Typography>
+            <Typography><strong>Onderwijsconcept</strong></Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <List className={classes.listOfFilters}>
@@ -140,7 +140,7 @@ function SearchFilters(props) {
       <div>
         <ExpansionPanel>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography>Specialisten:</Typography>
+            <Typography><strong>Specialisten</strong></Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <List className={classes.listOfFilters}>
@@ -161,7 +161,7 @@ function SearchFilters(props) {
       <div>
         <ExpansionPanel>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography>Aantal leerlingen:</Typography>
+            <Typography><strong>Aantal leerlingen</strong></Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <List className={classes.listOfFilters}>
