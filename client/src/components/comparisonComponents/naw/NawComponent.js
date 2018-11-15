@@ -10,7 +10,7 @@ import { Typography } from "@material-ui/core";
 import ComparisonHeaderComponent from '../ComparisonHeaderComponent'
 
 const styles = theme => ({
-  schoolPanel: { maxWidth: "320px" },
+  schoolPanel: { width: "320px" },
   expansionSummary: { display: "flex", alignItems: "center" },
   colorBubble: { marginRight: "20px" },
   schoolPanelWrapper: {
