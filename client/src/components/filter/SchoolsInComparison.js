@@ -5,7 +5,8 @@ import HighlightOffIcon from "mdi-react/HighlightOffIcon";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
-import {Typography} from "@material-ui/core";
+import {Typography, Button} from "@material-ui/core";
+import { relative } from "path";
 
 const styles = theme => ({
   wrapper: {
@@ -30,6 +31,10 @@ const styles = theme => ({
     display: "flex",
     alignItems: "center",
     color: "white"
+  },
+  searchBtn:{
+    color: "white",
+    bottom: 0
   }
 });
 
@@ -57,6 +62,10 @@ function SchoolsInComparison(props) {
               </li>
             ))}
           </ul>
+          <br></br>
+          <Button className={classes.searchBtn} href="/">
+          Zoek nog een school...
+          </Button>
         </ExpansionPanelDetails>
       </ExpansionPanel>
     </div>
