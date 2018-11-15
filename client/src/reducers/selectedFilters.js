@@ -25,6 +25,7 @@ export default (state = initialState, action = {}) => {
       return returnAllFalse
 
     default:
+      // state.profiel  = true
       return state
   }
 };
