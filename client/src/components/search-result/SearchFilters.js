@@ -12,8 +12,6 @@ import ExpandMoreIcon from "mdi-react/ExpandMoreIcon";
 
 const styles = theme => ({
   headerTwo: {
-    fontSize: "1.3em",
-    fontWeight: "bold",
     color: theme.palette.primary.main
   }
 });
@@ -23,7 +21,7 @@ function SearchFilters(props) {
   return (
     <div>
       <Typography className={classes.headerTwo}>
-        Filter zoekresultaat
+        <h2>Filter zoekresultaat</h2>
       </Typography>
       <div>
         <ExpansionPanel>

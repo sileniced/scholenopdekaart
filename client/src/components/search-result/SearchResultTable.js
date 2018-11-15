@@ -134,8 +134,6 @@ const styles = theme => ({
     justifyContent: "space-between"
   },
   headerTwo: {
-    fontSize: "1.3em",
-    fontWeight: "bold",
     color: theme.palette.primary.main
   }
 });
@@ -170,7 +168,7 @@ class CustomPaginationActionsTable extends React.Component {
         <div className={classes.tableWrapper}>
           <h2>
             <Typography className={classes.headerTwo}>
-              {this.props.filterSchools(this.props.schools).length} resultaten
+              <h2>{this.props.filterSchools(this.props.schools).length} resultaten</h2>
             </Typography>
           </h2>
           <Table className={classes.table}>
