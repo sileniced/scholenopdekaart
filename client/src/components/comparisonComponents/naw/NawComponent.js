@@ -7,6 +7,7 @@ import KeyboardArrowDownIcon from "mdi-react/KeyboardArrowDownIcon";
 import FiberManualRecordIcon from "mdi-react/FiberManualRecordIcon";
 import { schoolColors } from "../../../constants";
 import { Typography } from "@material-ui/core";
+import ComparisonHeaderComponent from '../ComparisonHeaderComponent'
 
 const styles = theme => ({
   schoolPanel: { maxWidth: "320px" },
@@ -71,8 +72,7 @@ function NawComponent(props) {
 
   return (
     <div className={classes.root}>
-      <Typography><h2>Ligging en contactgegevens</h2></Typography>
-      <Typography>Waar vind ik de scholen en wat zijn de contactgegevens?</Typography>
+    <ComparisonHeaderComponent name={'naw'}/>
       {/* Kaart */}
       {props.selectedSchools.map((school, index) => (
         <div key={school.school.I}>
