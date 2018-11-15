@@ -6,14 +6,13 @@ import HeaderContainer from "./components/layout/HeaderContainer";
 import TopBar from "./components/layout/TopBar";
 import { withStyles } from "@material-ui/core/styles";
 import Footer from "./components/layout/Footer";
-import ComparisonContainer from "./components/comparisonComponents/ComparisonContainer"
+import ComparisonContainer from "./components/comparisonComponents/ComparisonContainer";
 
 const styles = theme => ({
- app: {
-   display:"flex",
-   flexDirection: "column",
-   alignItems:"center"
- }
+
+  mainClass: {
+    backgroundColor: "white"
+  }
 });
 
 class App extends Component {
@@ -23,19 +22,28 @@ class App extends Component {
       <Router>
         <div className={classes.app}>
           <header>
-            <TopBar/>
+            <TopBar />
           </header>
-          <main>
-            <HeaderContainer/>
-            <Route exact path="/search-result" component={SearchResultContainer}/>
-            <Route exact path="/search-result/:city" component={SearchResultContainer}/>
+          <main className={classes.mainClass}>
+            <HeaderContainer />
+            <Route
+              exact
+              path="/search-result"
+              component={SearchResultContainer}
+            />
+            <Route
+              exact
+              path="/search-result/:city"
+              component={SearchResultContainer}
+            />
+
+            <FilterSelectionContainer />
             <Route exact path="/vergelijken" component={ComparisonContainer} />
-            <FilterSelectionContainer/>
             <Footer />
           </main>
         </div>
       </Router>
-    )
+    );
   }
 }
 
