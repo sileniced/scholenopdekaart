@@ -9,7 +9,6 @@ import Footer from "./components/layout/Footer";
 import ComparisonContainer from "./components/comparisonComponents/ComparisonContainer";
 
 const styles = theme => ({
-
   mainClass: {
     backgroundColor: "white"
   }
@@ -25,7 +24,13 @@ class App extends Component {
             <TopBar />
           </header>
           <main className={classes.mainClass}>
-            <HeaderContainer />
+            <Route exact path="/" component={HeaderContainer} />
+            <Route exact path="/search-result" component={HeaderContainer} />
+            <Route
+              exact
+              path="/search-result/:city"
+              component={HeaderContainer}
+            />
             <Route
               exact
               path="/search-result"
@@ -37,7 +42,11 @@ class App extends Component {
               component={SearchResultContainer}
             />
 
-            <FilterSelectionContainer />
+            <Route
+              exact
+              path="/vergelijken"
+              component={FilterSelectionContainer}
+            />
             <Route exact path="/vergelijken" component={ComparisonContainer} />
             <Footer />
           </main>

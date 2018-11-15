@@ -30,13 +30,17 @@ class FilterSelectionExpansionPanel extends React.PureComponent {
             </div>
           </ExpansionPanelDetails>
         </ExpansionPanel>
-        <div className={this.props.classes.expansionPanelInfo}>
-          <Typography
-            className={this.props.classes.expansionPanelInfoTypography}
-          >
-            Selecteer welke info van scholen u wilt vergelijken.
-          </Typography>
-        </div>
+        {!Object.values(this.props.selectedFilters).includes(true) ? (
+          <div className={this.props.classes.expansionPanelInfo}>
+            <Typography
+              className={this.props.classes.expansionPanelInfoTypography}
+            >
+              Selecteer welke info van scholen u wilt vergelijken.
+            </Typography>
+          </div>
+        ) : (
+          ""
+        )}
         {Object.keys(this.props.selectedFilters)
           .filter(filter => this.props.selectedFilters[filter])
           .map(selectedFilter => (
@@ -93,7 +97,7 @@ const styles = theme => ({
     // }
   },
   selectedFilterTypography: {
-    color: theme.palette.primary.main,
+    color: theme.palette.primary.main
   },
   expansionPanelInfoTypography: {
     color: "#fff",
@@ -109,8 +113,7 @@ const styles = theme => ({
     alignItems: "center",
     padding: "5px",
     margin: "5px"
-  },
-
+  }
 });
 
 export default withStyles(styles)(FilterSelectionExpansionPanel);
