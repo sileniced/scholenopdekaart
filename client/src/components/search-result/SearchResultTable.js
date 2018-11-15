@@ -1,3 +1,5 @@
+// searchresulttable
+
 import React from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
@@ -164,7 +166,7 @@ class CustomPaginationActionsTable extends React.Component {
       Math.min(rowsPerPage, this.props.schools.length - page * rowsPerPage);
 
     return (
-      <Paper className={classes.root}>
+      <Paper className={classes.root} style={{width:"100%"}}>
         <div className={classes.tableWrapper}>
           <h2>
             <Typography className={classes.headerTwo}>
