@@ -26,8 +26,8 @@ const ComparisonHeaderComponent = props => {
   return (
     <div className={cl.toCenterContainer}>
       <div className={cl.toColumn}>
-          <h2 className={cl.header}>{filters[name]}</h2>
-          <Typography variant={'p'}>{filtersOndertitels[name]}</Typography>
+      <Typography><h2 className={cl.header}>{filters[name]}</h2></Typography>
+          <Typography>{filtersOndertitels[name]}</Typography>
       </div>
     </div>
   )

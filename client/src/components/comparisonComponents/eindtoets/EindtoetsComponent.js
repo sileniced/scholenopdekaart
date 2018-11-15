@@ -10,7 +10,7 @@ const EindtoetsComponent = props => (
   <div>
     <ComparisonHeaderComponent name={'eindtoets'} />
     {/* <ColorBubblesNamesContainer/> */}
-    {/* <EindtoetsChart/> */}
+     {/* <EindtoetsChart/>  */}
   </div>
 )
 
