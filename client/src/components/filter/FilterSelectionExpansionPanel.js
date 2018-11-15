@@ -10,11 +10,20 @@ import { Typography } from "@material-ui/core";
 import HighlightOffIcon from "mdi-react/HighlightOffIcon";
 
 class FilterSelectionExpansionPanel extends React.PureComponent {
+
+  state = {
+    open: false,
+  };
+
+  handleCollapse = () => {
+    this.setState(state => ({ open: !state.open }));
+  }
+
   render() {
     return (
       <div className={this.props.classes.expansionPanelWrapper}>
-        <ExpansionPanel className={this.props.classes.expansionPanel}>
-          <ExpansionPanelSummary expandIcon={<TuneIcon />}>
+        <ExpansionPanel expanded={this.state.open} className={this.props.classes.expansionPanel}>
+          <ExpansionPanelSummary onClick={() => this.handleCollapse()} expandIcon={<TuneIcon />}>
             <Typography>Vergelijk scholen op...</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
@@ -26,6 +35,7 @@ class FilterSelectionExpansionPanel extends React.PureComponent {
               />
               <FilterSelectionButtons
                 handleResetFilters={this.props.handleResetFilters}
+                handleCollapse={this.handleCollapse}
               />
             </div>
           </ExpansionPanelDetails>
