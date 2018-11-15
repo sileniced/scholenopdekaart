@@ -1,5 +1,7 @@
+// footer
+
 import React, { Component } from "react";
-import { withStyles, Typography } from "@material-ui/core";
+import { withStyles, Typography, Button } from "@material-ui/core";
 
 class Footer extends Component {
   render() {
@@ -10,9 +12,11 @@ class Footer extends Component {
         <div className={classes.title}>
       Zoek een school in...
       </div>
-      <a href="/search-result/amsterdam">Amsterdam</a><br></br>
-      <a href="/search-result/utrecht">Utrecht</a><br></br>
-      <a href="/search-result/wageningen">Wageningen</a><br></br>
+      <div className={classes.links}>
+      <a href="/search-result/amsterdam" style={{textDecoration:"none"}}>Amsterdam</a><br></br>
+      <a href="/search-result/utrecht" style={{textDecoration:"none"}}>Utrecht</a><br></br>
+      <a href="/search-result/wageningen" style={{textDecoration:"none"}}>Wageningen</a><br></br>
+      </div>
       </Typography>
         {/* <img
           className={classes.logo}
@@ -27,7 +31,7 @@ class Footer extends Component {
 const style = theme => ({
   container: {
     backgroundColor: "#efe8ee",
-    height: "100px",
+    height: "120px",
     position: "relative",
     bottom: 0,
     padding: "20px",
@@ -37,6 +41,11 @@ const style = theme => ({
     maxWidth: "20%",
     minWidth: "100px",
     margin: "0.75em"
+  },
+  links: {
+    style:{
+    textDecoration: "none",
+    }
   },
   title: {
     color: theme.palette.primary.main,

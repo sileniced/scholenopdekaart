@@ -26,6 +26,7 @@ class SearchElement extends Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.getSearchResults(this.state.query);
+    this.setRedirect();
   };
 
   render() {
@@ -44,7 +45,7 @@ class SearchElement extends Component {
             />
           </div>
           <button
-            onClick={this.setRedirect}
+
             type="submit"
             className={classes.searchBtn}
           >
