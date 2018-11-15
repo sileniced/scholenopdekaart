@@ -27,6 +27,13 @@ export const filtersOndertitels = {
   tevredenheid: 'Hoe tevreden zijn ouders en leerlingen over de school?',
 }
 
+export const sizeFilter ={
+    "0-100": "Minder dan 100 leerlingen",
+    "101-200": "Tussen 100 en 200 leerlingen",
+    "201-500": "Tussen 200 en 500 leerlingen",
+    "501-9999": "Meer dan 500 leerlingen"
+}
+
 export const denominatie = {
   1: 'Rooms-Katholiek',
   2: 'Openbaar',
